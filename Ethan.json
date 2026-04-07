@@ -12,7 +12,7 @@
   "defense": 140,  
   "accuracy": 80, 
 
-  "description": "He probably eats enough bananas to become somewhat radioactive.",
+  "description": "He probably eats enough Nanab Berries to become somewhat radioactive.",
 
   "moves": [
 
@@ -52,8 +52,8 @@
     
     {
       "id": "move_four",
-      "name": "😵 Radioactive Banana",
-      "desc": "Throws a banana",
+      "name": "😵 Radioactive Nanab Berry",
+      "desc": "Throws a Nanab Berry",
       "speed": "medium",
       "damage": [1, 1],
       "status": "Poison",
