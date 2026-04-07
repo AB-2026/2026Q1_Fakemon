@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fakemon Battle</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Fredoka+One&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:     #0d0d1a;
+  --card:   #1e1e38;
+  --border: #2e2e50;
+  --accent: #f5c842;
+  --text:   #e8e8f0;
+  --muted:  #7070a0;
+  --px: 'Press Start 2P', monospace;
+  --fr: 'Fredoka One', cursive;
+  --ui: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ui);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px 48px;
+  overflow-x: hidden;
+}
+
+/* scanline overlay */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent, transparent 3px,
+    rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.07) 4px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* floating background emojis */
+.bg-emojis {
+  position: fixed; inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-emoji {
+  position: absolute;
+  font-size: 28px;
+  opacity: 0.06;
+  animation: floatUp linear infinite;
+  user-select: none;
+}
+@keyframes floatUp {
+  from { transform: translateY(110vh) rotate(0deg); opacity: 0.06; }
+  to   { transform: translateY(-10vh)  rotate(360deg); opacity: 0; }
+}
+
+/* main content */
+.wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* title */
+.logo-emoji {
+  font-size: 72px;
+  line-height: 1;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 24px rgba(245,201,72,0.4));
+  animation: pulse 3s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { filter: drop-shadow(0 0 16px rgba(245,201,72,0.3)); }
+  50%       { filter: drop-shadow(0 0 32px rgba(245,201,72,0.7)); }
+}
+
+.title {
+  font-family: var(--px);
+  font-size: clamp(12px, 3.5vw, 22px);
+  color: var(--accent);
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+  text-shadow: 0 0 24px rgba(245,200,66,0.5);
+}
+
+.tagline {
+  font-family: var(--fr);
+  font-size: clamp(15px, 3vw, 20px);
+  color: var(--muted);
+  margin-bottom: 52px;
+  letter-spacing: 0.5px;
+}
+
+/* cards */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+@media (max-width: 440px) {
+  .cards { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 24px 28px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  transition: border-color 0.18s, transform 0.15s, box-shadow 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.18s;
+  pointer-events: none;
+}
+.card-battle::before { background: radial-gradient(ellipse at 50% 0%, rgba(232,82,58,0.12) 0%, transparent 70%); }
+.card-guide::before  { background: radial-gradient(ellipse at 50% 0%, rgba(47,134,222,0.12) 0%, transparent 70%); }
+
+.card:hover { transform: translateY(-5px); }
+.card:hover::before { opacity: 1; }
+.card-battle:hover { border-color: #e8523a; box-shadow: 0 8px 32px rgba(232,82,58,0.2); }
+.card-guide:hover  { border-color: #2e86de; box-shadow: 0 8px 32px rgba(46,134,222,0.2); }
+
+.card:active { transform: translateY(-2px); }
+
+.card-icon {
+  font-size: 56px;
+  line-height: 1;
+  transition: transform 0.15s;
+}
+.card:hover .card-icon { transform: scale(1.1) rotate(-5deg); }
+
+.card-label {
+  font-family: var(--px);
+  font-size: clamp(8px, 2vw, 11px);
+  letter-spacing: 2px;
+  text-align: center;
+}
+.card-battle .card-label { color: #f08060; }
+.card-guide  .card-label { color: #60a0f0; }
+
+.card-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.card-arrow {
+  margin-top: 4px;
+  font-size: 18px;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.15s, transform 0.15s;
+}
+.card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+.card-battle .card-arrow { color: #f08060; }
+.card-guide  .card-arrow { color: #60a0f0; }
+
+/* footer */
+.footer {
+  margin-top: 40px;
+  font-size: 11px;
+  color: #333355;
+  font-family: var(--px);
+  letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+
+<div class="bg-emojis" id="bgEmojis"></div>
+
+<div class="wrap">
+  <div class="logo-emoji">🐉</div>
+  <h1 class="title">FAKEMON BATTLE</h1>
+  <p class="tagline">Design creatures. Build moves. Battle!</p>
+
+  <div class="cards">
+    <a href="fakemon-battle.html" class="card card-battle">
+      <div class="card-icon">⚔️</div>
+      <div class="card-label">PLAY</div>
+      <p class="card-desc">Pick your Fakemon and fight! Fast moves, status effects, and type matchups.</p>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="fakemon_guide.html" class="card card-guide">
+      <div class="card-icon">📖</div>
+      <div class="card-label">DESIGN GUIDE</div>
+      <p class="card-desc">Learn how to build your own Fakemon — stats, moves, types, and a JSON template.</p>
+      <div class="card-arrow">→</div>
+    </a>
+  </div>
+
+  <p class="footer">magnolia public schools · robotics</p>
+</div>
+
+<script>
+// Scatter floating background emojis
+const pool = ['🔥','💧','⚡','❄️','🌿','🟣','🌑','👻','⚙️','🐉','🦊','🐸','🐘','🦁','🐲'];
+const wrap = document.getElementById('bgEmojis');
+for (let i = 0; i < 22; i++) {
+  const el = document.createElement('div');
+  el.className   = 'bg-emoji';
+  el.textContent = pool[Math.floor(Math.random() * pool.length)];
+  el.style.left     = Math.random() * 100 + 'vw';
+  el.style.animationDuration = (18 + Math.random() * 20) + 's';
+  el.style.animationDelay   = (-Math.random() * 30) + 's';
+  el.style.fontSize = (20 + Math.random() * 24) + 'px';
+  wrap.appendChild(el);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fakemon Design Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #f5f3ee;
+  --surface: #ffffff;
+  --dark:    #1a1a2e;
+  --card:    #16213e;
+  --accent:  #f7c948;
+  --text:    #1a1a2e;
+  --muted:   #6b6b8a;
+  --border:  #dddde8;
+  --radius:  14px;
+  --font-h:  'Fredoka One', cursive;
+  --font-b:  'Nunito', sans-serif;
+  --font-c:  'Fira Mono', monospace;
+
+  /* type colors */
+  --fire:    #e8523a; --fire-bg:    #fff0ed;
+  --water:   #2e86de; --water-bg:   #edf5ff;
+  --air:     #7ec8e3; --air-bg:     #edfaff;
+  --earth:   #8b6914; --earth-bg:   #fef9ed;
+  --electric:#f7c948; --electric-bg:#fffbea;
+  --ice:     #5bc0eb; --ice-bg:     #edfaff;
+  --poison:  #a855f7; --poison-bg:  #f5edff;
+  --dark-t:  #475569; --dark-bg:    #f1f3f7;
+  --ghost:   #818cf8; --ghost-bg:   #f0f0ff;
+  --metal:   #94a3b8; --metal-bg:   #f4f6f8;
+  --nature:  #22c55e; --nature-bg:  #edfff4;
+  --normal:  #a0a0b0; --normal-bg:  #f7f7f9;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-b);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* ── LAYOUT ── */
+.page-wrap { max-width: 860px; margin: 0 auto; padding: 0 20px 80px; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--card);
+  color: #fff;
+  text-align: center;
+  padding: 56px 24px 48px;
+  margin-bottom: 40px;
+  border-radius: 0 0 32px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent, transparent 40px,
+    rgba(247,201,72,0.04) 40px, rgba(247,201,72,0.04) 80px
+  );
+}
+.hero-emoji { font-size: 64px; display: block; margin-bottom: 12px; }
+.hero h1 {
+  font-family: var(--font-h);
+  font-size: clamp(28px, 6vw, 48px);
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.hero .tagline {
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+}
+
+/* ── SECTION HEADERS ── */
+.section {
+  margin-bottom: 48px;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--accent);
+}
+.section-num {
+  background: var(--card);
+  color: var(--accent);
+  font-family: var(--font-h);
+  font-size: 18px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.section-header h2 {
+  font-family: var(--font-h);
+  font-size: clamp(20px, 4vw, 28px);
+  color: var(--card);
+  letter-spacing: 0.5px;
+}
+
+/* ── CALLOUT BOXES ── */
+.callout {
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 15px;
+  font-weight: 600;
+  border-left: 5px solid;
+}
+.callout.tip   { background: #fffbea; border-color: var(--accent); color: #7a5c00; }
+.callout.warn  { background: #fff0ed; border-color: var(--fire);   color: #8b2010; }
+.callout.info  { background: #edf5ff; border-color: var(--water);  color: #0d4a8b; }
+.callout.win   { background: #edfff4; border-color: var(--nature); color: #0a5e28; }
+.callout .ci   { font-size: 20px; margin-right: 8px; }
+
+/* ── TABLES ── */
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  margin: 8px 0 16px;
+  font-size: 15px;
+}
+.guide-table thead tr { background: var(--card); color: #fff; }
+.guide-table thead th {
+  padding: 12px 14px;
+  text-align: left;
+  font-family: var(--font-h);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+.guide-table tbody tr:nth-child(even) { background: #f7f7fb; }
+.guide-table tbody tr:nth-child(odd)  { background: #ffffff; }
+.guide-table tbody tr:hover { background: #f0f0fa; }
+.guide-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.guide-table td:first-child { font-weight: 700; }
+.center { text-align: center; }
+
+/* ── TYPE CHIPS ── */
+.type-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+.chip-fire     { background: var(--fire-bg);     color: var(--fire);     border: 1.5px solid var(--fire); }
+.chip-water    { background: var(--water-bg);    color: var(--water);    border: 1.5px solid var(--water); }
+.chip-air      { background: var(--air-bg);      color: #1a8aaa;         border: 1.5px solid var(--air); }
+.chip-earth    { background: var(--earth-bg);    color: var(--earth);    border: 1.5px solid var(--earth); }
+.chip-electric { background: var(--electric-bg); color: #b08a00;         border: 1.5px solid var(--electric); }
+.chip-ice      { background: var(--ice-bg);      color: #1a6e9a;         border: 1.5px solid var(--ice); }
+.chip-poison   { background: var(--poison-bg);   color: var(--poison);   border: 1.5px solid var(--poison); }
+.chip-dark     { background: var(--dark-bg);     color: var(--dark-t);   border: 1.5px solid var(--dark-t); }
+.chip-ghost    { background: var(--ghost-bg);    color: var(--ghost);    border: 1.5px solid var(--ghost); }
+.chip-metal    { background: var(--metal-bg);    color: #546e8a;         border: 1.5px solid var(--metal); }
+.chip-nature   { background: var(--nature-bg);   color: #138a3e;         border: 1.5px solid var(--nature); }
+.chip-normal   { background: var(--normal-bg);   color: #606078;         border: 1.5px solid var(--normal); }
+
+/* ── TYPE MATCHUP GRID ── */
+.matchup-grid {
+  overflow-x: auto;
+  margin: 16px 0;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.matchup-grid table {
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 560px;
+}
+.matchup-grid th, .matchup-grid td {
+  width: 52px; min-width: 44px;
+  height: 40px;
+  text-align: center;
+  padding: 4px 2px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.matchup-grid .corner { background: var(--card); }
+.matchup-grid .atk-header {
+  background: #2a2a4a;
+  color: #fff;
+  font-family: var(--font-h);
+  font-size: 12px;
+  font-weight: 400;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 8px 2px;
+  height: 72px;
+  vertical-align: bottom;
+}
+.matchup-grid .def-header {
+  background: #1a1a3a;
+  color: rgba(255,255,255,0.85);
+  font-family: var(--font-h);
+  font-size: 11px;
+  font-weight: 400;
+  white-space: nowrap;
+  padding: 6px 6px;
+}
+.matchup-grid .cell-strong { background: #d4edda; color: #1a6b2e; font-weight: 800; font-size: 14px; }
+.matchup-grid .cell-weak   { background: #f8d7da; color: #8b1a1a; font-weight: 800; font-size: 14px; }
+.matchup-grid .cell-normal { background: #f0f0f8; color: #8888aa; }
+
+.matchup-legend { display: flex; gap: 20px; margin-top: 10px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
+.legend-swatch { width: 22px; height: 22px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; }
+.legend-strong { background: #d4edda; color: #1a6b2e; }
+.legend-weak   { background: #f8d7da; color: #8b1a1a; }
+.legend-normal { background: #f0f0f8; color: #8888aa; }
+
+/* ── STAT CARDS ── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.stat-card .stat-name {
+  font-family: var(--font-h);
+  font-size: 17px;
+  color: var(--card);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.stat-card .stat-emoji { font-size: 22px; }
+.stat-card .stat-field {
+  font-family: var(--font-c);
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.stat-card .stat-desc { font-size: 14px; color: #444; line-height: 1.5; }
+.stat-card .stat-range {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  background: #f5f5fa;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* ── STATUS EFFECT CARDS ── */
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.status-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  border: 1.5px solid var(--border);
+}
+.status-card .s-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.status-card .s-emoji { font-size: 28px; line-height: 1; }
+.status-card .s-name {
+  font-family: var(--font-h);
+  font-size: 18px;
+  color: var(--card);
+}
+.status-card .s-tag {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: 0.3px;
+}
+.tag-primary   { background: #fff0ed; color: var(--fire); border: 1px solid var(--fire); }
+.tag-secondary { background: #edf5ff; color: var(--water); border: 1px solid var(--water); }
+.status-card .s-desc { font-size: 14px; color: #444; line-height: 1.55; }
+.status-card .s-dur {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  font-family: var(--font-c);
+}
+
+/* ── CODE BLOCK ── */
+.code-wrap {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin: 12px 0;
+  overflow-x: auto;
+}
+.code-wrap pre {
+  font-family: var(--font-c);
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #c8d0e8;
+  white-space: pre;
+}
+.code-wrap .ck  { color: #f7c948; }  /* key */
+.code-wrap .cs  { color: #a8d8a8; }  /* string */
+.code-wrap .cn  { color: #f0a0a0; }  /* number */
+.code-wrap .cc  { color: #7070a0; }  /* comment */
+.code-wrap .cp  { color: #e8a060; }  /* punctuation */
+
+/* ── NAME/EMOJI LISTS ── */
+.name-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+.name-pill {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--card);
+  transition: background 0.12s, border-color 0.12s;
+  cursor: default;
+}
+.name-pill:hover { background: #eeeeff; border-color: #9090cc; }
+
+.emoji-section { margin-bottom: 20px; }
+.emoji-section h4 {
+  font-family: var(--font-h);
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.emoji-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.emoji-pill {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 24px;
+  cursor: default;
+  transition: transform 0.1s;
+}
+.emoji-pill:hover { transform: scale(1.2); }
+
+/* ── CHECKLIST ── */
+.checklist { list-style: none; margin: 12px 0; }
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  margin-bottom: 6px;
+  background: var(--surface);
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+.checklist li::before {
+  content: '☐';
+  font-size: 20px;
+  color: #9090b0;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+/* ── STRATEGY BOX ── */
+.strategy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 12px 0;
+}
+@media (max-width: 560px) { .strategy-grid { grid-template-columns: 1fr; } }
+.strat-card {
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.strat-card.do    { background: #edfff4; border: 1.5px solid #22c55e; }
+.strat-card.dont  { background: #fff0f0; border: 1.5px solid #ef4444; }
+.strat-card h4 {
+  font-family: var(--font-h);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.strat-card.do h4   { color: #138a3e; }
+.strat-card.dont h4 { color: #b91c1c; }
+.strat-card ul { padding-left: 18px; font-size: 14px; line-height: 1.8; }
+
+/* ── MOVE SPEED TAGS ── */
+.speed-fast   { display:inline-block; padding:2px 8px; border-radius:12px; font-size:12px; font-weight:800; background:#edfff4; color:#138a3e; border:1px solid #22c55e; }
+.speed-medium { display:inline-block; padding:2px 8px; border-radius:12px; font-size:12px; font-weight:800; background:#fffbea; color:#b08a00; border:1px solid #f7c948; }
+.speed-slow   { display:inline-block; padding:2px 8px; border-radius:12px; font-size:12px; font-weight:800; background:#fff0ed; color:#b83020; border:1px solid #e8523a; }
+
+/* ── NAV ── */
+.toc {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+.toc h3 {
+  font-family: var(--font-h);
+  font-size: 20px;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.toc ol {
+  padding-left: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 20px;
+}
+@media (max-width: 520px) { .toc ol { grid-template-columns: 1fr; } }
+.toc a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.12s;
+}
+.toc a:hover { color: var(--accent); }
+
+body { scroll-behavior: smooth; }
+h2, h1 { scroll-margin-top: 24px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="hero-emoji">⚔️</span>
+  <h1>FAKEMON DESIGN GUIDE</h1>
+  <p class="tagline">How to build your own battle creature from scratch</p>
+</div>
+
+<div class="page-wrap">
+
+  <div class="toc">
+    <h3>📋 What's in this guide</h3>
+    <ol>
+      <li><a href="#s1">What is a Fakemon?</a></li>
+      <li><a href="#s2">The 5 Stats</a></li>
+      <li><a href="#s3">Types & Matchups</a></li>
+      <li><a href="#s4">Status Effects</a></li>
+      <li><a href="#s5">Designing Moves</a></li>
+      <li><a href="#s6">Naming Your Fakemon</a></li>
+      <li><a href="#s7">Picking an Emoji</a></li>
+      <li><a href="#s8">The JSON Template</a></li>
+      <li><a href="#s9">Adding to the Game</a></li>
+      <li><a href="#s10">Strategy Tips</a></li>
+      <li><a href="#s11">Final Checklist</a></li>
+    </ol>
+  </div>
+
+  <!-- ══ 1. WHAT IS A FAKEMON ══════════════════════════════════════════════ -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>What Is a Fakemon?</h2>
+    </div>
+    <p>A Fakemon is a made-up battle creature that <em>you</em> design! It lives inside a <strong>JSON file</strong> — a special text file the game reads when it starts. You decide its name, what it looks like, how strong it is, and what moves it can use.</p>
+    <div class="callout tip"><span class="ci">💡</span> The game figures out your Fakemon's power level on its own by running 200 pretend battles in the background. So the game will always find you a fair opponent — no matter how strong your Fakemon is!</div>
+  </div>
+
+  <!-- ══ 2. THE 5 STATS ════════════════════════════════════════════════════ -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>The 5 Stats</h2>
+    </div>
+    <p>Every Fakemon has five stats. These numbers describe how good your Fakemon is at different things. Some moves can raise or lower these stats mid-battle!</p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-name"><span class="stat-emoji">❤️</span> Health</div>
+        <div class="stat-field">field: "hp"</div>
+        <div class="stat-desc">How much damage your Fakemon can take before fainting. When this hits zero, you lose!</div>
+        <div class="stat-range">Suggested: 80–140</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-name"><span class="stat-emoji">⚔️</span> Power</div>
+        <div class="stat-field">field: "power"</div>
+        <div class="stat-desc">A multiplier on all your damage numbers. Higher power = every attack hits harder.</div>
+        <div class="stat-range">Suggested: 80–120</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-name"><span class="stat-emoji">💨</span> Speed</div>
+        <div class="stat-field">field: "speed"</div>
+        <div class="stat-desc">When two moves have the same speed tier (like both are "medium"), the Fakemon with higher speed goes first.</div>
+        <div class="stat-range">Suggested: 60–120</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-name"><span class="stat-emoji">🛡️</span> Defense</div>
+        <div class="stat-field">field: "defense"</div>
+        <div class="stat-desc">Reduces incoming damage by a percentage. A defense of 20 means you only take 80% of the damage you'd normally receive.</div>
+        <div class="stat-range">Suggested: 0–40</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-name"><span class="stat-emoji">🎯</span> Accuracy</div>
+        <div class="stat-field">field: "accuracy"</div>
+        <div class="stat-desc">The base chance (%) that your moves will actually hit the target. Status effects like confuse or paralyze can reduce this!</div>
+        <div class="stat-range">Suggested: 70–100</div>
+      </div>
+    </div>
+
+    <div class="callout tip"><span class="ci">💡</span> <strong>StatUp and StatDwn moves</strong> raise or lower these stats temporarily during battle. For example, a "Power Up" move might raise your Power stat by 20% for 3 turns — making all your damage moves hit harder while it lasts!</div>
+  </div>
+
+  <!-- ══ 3. TYPES ══════════════════════════════════════════════════════════ -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Types &amp; Matchups</h2>
+    </div>
+    <p>Every Fakemon has a type. Types work like a big game of rock-paper-scissors — some types hit <strong style="color:#138a3e">super hard</strong> against certain types, and <strong style="color:#b91c1c">not very hard</strong> against others.</p>
+
+    <p style="margin-top:14px; font-weight:700;">Here are all the types:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 20px;">
+      <span class="type-chip chip-fire">🔥 Fire</span>
+      <span class="type-chip chip-water">💧 Water</span>
+      <span class="type-chip chip-air">🌬️ Air</span>
+      <span class="type-chip chip-earth">🌍 Earth</span>
+      <span class="type-chip chip-electric">⚡ Electric</span>
+      <span class="type-chip chip-ice">❄️ Ice</span>
+      <span class="type-chip chip-poison">🟣 Poison</span>
+      <span class="type-chip chip-dark">🌑 Dark</span>
+      <span class="type-chip chip-ghost">👻 Ghost</span>
+      <span class="type-chip chip-metal">⚙️ Metal</span>
+      <span class="type-chip chip-nature">🌿 Nature</span>
+      <span class="type-chip chip-normal">⭐ Normal</span>
+    </div>
+
+    <h3 style="font-family:var(--font-h); font-size:18px; margin-bottom:10px; color:var(--card);">Type Matchup Chart</h3>
+    <p style="font-size:14px; color:var(--muted); margin-bottom:8px;">Read it like this: find the <strong>attacker's type</strong> across the top, find the <strong>defender's type</strong> down the left side. Green = does extra damage. Red = does less damage.</p>
+
+    <div class="matchup-grid">
+      <table>
+        <thead>
+          <tr>
+            <th class="corner" style="width:72px;"></th>
+            <!-- Attacker headers -->
+            <th class="atk-header" style="background:#c0392b; color:#fff;">🔥 Fire</th>
+            <th class="atk-header" style="background:#2e86de; color:#fff;">💧 Water</th>
+            <th class="atk-header" style="background:#5ba4c0; color:#fff;">🌬️ Air</th>
+            <th class="atk-header" style="background:#8b6914; color:#fff;">🌍 Earth</th>
+            <th class="atk-header" style="background:#c9a800; color:#fff;">⚡ Elec</th>
+            <th class="atk-header" style="background:#3a9abf; color:#fff;">❄️ Ice</th>
+            <th class="atk-header" style="background:#9333d4; color:#fff;">🟣 Poison</th>
+            <th class="atk-header" style="background:#374151; color:#fff;">🌑 Dark</th>
+            <th class="atk-header" style="background:#6366f1; color:#fff;">👻 Ghost</th>
+            <th class="atk-header" style="background:#708090; color:#fff;">⚙️ Metal</th>
+            <th class="atk-header" style="background:#16a34a; color:#fff;">🌿 Nature</th>
+            <th class="atk-header" style="background:#888899; color:#fff;">⭐ Normal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Fire defending -->
+          <tr>
+            <td class="def-header" style="background:#c0392b; color:#fff;">🔥 Fire</td>
+            <td class="cell-normal">—</td>   <!-- vs Fire atk -->
+            <td class="cell-strong">2×</td>  <!-- Water → Fire: strong -->
+            <td class="cell-normal">—</td>   <!-- Air → Fire -->
+            <td class="cell-normal">—</td>   <!-- Earth → Fire -->
+            <td class="cell-normal">—</td>   <!-- Electric → Fire -->
+            <td class="cell-strong">2×</td>  <!-- Ice → Fire: strong -->
+            <td class="cell-normal">—</td>   <!-- Poison → Fire -->
+            <td class="cell-normal">—</td>   <!-- Dark → Fire -->
+            <td class="cell-normal">—</td>   <!-- Ghost → Fire -->
+            <td class="cell-weak">½</td>     <!-- Metal → Fire: weak -->
+            <td class="cell-normal">—</td>   <!-- Nature → Fire -->
+            <td class="cell-normal">—</td>   <!-- Normal → Fire -->
+          </tr>
+          <!-- Water defending -->
+          <tr>
+            <td class="def-header" style="background:#2e86de; color:#fff;">💧 Water</td>
+            <td class="cell-weak">½</td>     <!-- Fire → Water: weak -->
+            <td class="cell-normal">—</td>   <!-- Water → Water -->
+            <td class="cell-normal">—</td>   <!-- Air → Water -->
+            <td class="cell-normal">—</td>   <!-- Earth → Water -->
+            <td class="cell-strong">2×</td>  <!-- Electric → Water: strong -->
+            <td class="cell-normal">—</td>   <!-- Ice → Water -->
+            <td class="cell-normal">—</td>   <!-- Poison → Water -->
+            <td class="cell-normal">—</td>   <!-- Dark → Water -->
+            <td class="cell-normal">—</td>   <!-- Ghost → Water -->
+            <td class="cell-normal">—</td>   <!-- Metal → Water -->
+            <td class="cell-strong">2×</td>  <!-- Nature → Water: strong -->
+            <td class="cell-normal">—</td>   <!-- Normal → Water -->
+          </tr>
+          <!-- Air defending -->
+          <tr>
+            <td class="def-header" style="background:#5ba4c0; color:#fff;">🌬️ Air</td>
+            <td class="cell-strong">2×</td>  <!-- Fire → Air: strong -->
+            <td class="cell-normal">—</td>   <!-- Water → Air -->
+            <td class="cell-normal">—</td>   <!-- Air → Air -->
+            <td class="cell-normal">—</td>   <!-- Earth → Air -->
+            <td class="cell-strong">2×</td>  <!-- Electric → Air: strong -->
+            <td class="cell-normal">—</td>   <!-- Ice → Air -->
+            <td class="cell-normal">—</td>   <!-- Poison → Air -->
+            <td class="cell-normal">—</td>   <!-- Dark → Air -->
+            <td class="cell-normal">—</td>   <!-- Ghost → Air -->
+            <td class="cell-normal">—</td>   <!-- Metal → Air -->
+            <td class="cell-weak">½</td>     <!-- Nature → Air: weak -->
+            <td class="cell-normal">—</td>   <!-- Normal → Air -->
+          </tr>
+          <!-- Earth defending -->
+          <tr>
+            <td class="def-header" style="background:#8b6914; color:#fff;">🌍 Earth</td>
+            <td class="cell-normal">—</td>   <!-- Fire → Earth -->
+            <td class="cell-strong">2×</td>  <!-- Water → Earth: strong -->
+            <td class="cell-normal">—</td>   <!-- Air → Earth -->
+            <td class="cell-normal">—</td>   <!-- Earth → Earth -->
+            <td class="cell-weak">½</td>     <!-- Electric → Earth: weak -->
+            <td class="cell-normal">—</td>   <!-- Ice → Earth -->
+            <td class="cell-normal">—</td>   <!-- Poison → Earth -->
+            <td class="cell-normal">—</td>   <!-- Dark → Earth -->
+            <td class="cell-normal">—</td>   <!-- Ghost → Earth -->
+            <td class="cell-normal">—</td>   <!-- Metal → Earth -->
+            <td class="cell-strong">2×</td>  <!-- Nature → Earth: strong -->
+            <td class="cell-normal">—</td>   <!-- Normal → Earth -->
+          </tr>
+          <!-- Electric defending -->
+          <tr>
+            <td class="def-header" style="background:#c9a800; color:#fff;">⚡ Electric</td>
+            <td class="cell-normal">—</td>   <!-- Fire → Electric -->
+            <td class="cell-weak">½</td>     <!-- Water → Electric: weak -->
+            <td class="cell-normal">—</td>   <!-- Air → Electric -->
+            <td class="cell-strong">2×</td>  <!-- Earth → Electric: strong -->
+            <td class="cell-normal">—</td>   <!-- Electric → Electric -->
+            <td class="cell-normal">—</td>   <!-- Ice → Electric -->
+            <td class="cell-normal">—</td>   <!-- Poison → Electric -->
+            <td class="cell-normal">—</td>   <!-- Dark → Electric -->
+            <td class="cell-normal">—</td>   <!-- Ghost → Electric -->
+            <td class="cell-strong">2×</td>  <!-- Metal → Electric: strong -->
+            <td class="cell-normal">—</td>   <!-- Nature → Electric -->
+            <td class="cell-normal">—</td>   <!-- Normal → Electric -->
+          </tr>
+          <!-- Ice defending -->
+          <tr>
+            <td class="def-header" style="background:#3a9abf; color:#fff;">❄️ Ice</td>
+            <td class="cell-strong">2×</td>  <!-- Fire → Ice: strong -->
+            <td class="cell-normal">—</td>   <!-- Water → Ice -->
+            <td class="cell-normal">—</td>   <!-- Air → Ice -->
+            <td class="cell-normal">—</td>   <!-- Earth → Ice -->
+            <td class="cell-normal">—</td>   <!-- Electric → Ice -->
+            <td class="cell-normal">—</td>   <!-- Ice → Ice -->
+            <td class="cell-normal">—</td>   <!-- Poison → Ice -->
+            <td class="cell-normal">—</td>   <!-- Dark → Ice -->
+            <td class="cell-normal">—</td>   <!-- Ghost → Ice -->
+            <td class="cell-strong">2×</td>  <!-- Metal → Ice: strong -->
+            <td class="cell-normal">—</td>   <!-- Nature → Ice -->
+            <td class="cell-normal">—</td>   <!-- Normal → Ice -->
+          </tr>
+          <!-- Poison defending -->
+          <tr>
+            <td class="def-header" style="background:#9333d4; color:#fff;">🟣 Poison</td>
+            <td class="cell-normal">—</td>   <!-- Fire → Poison -->
+            <td class="cell-normal">—</td>   <!-- Water → Poison -->
+            <td class="cell-normal">—</td>   <!-- Air → Poison -->
+            <td class="cell-strong">2×</td>  <!-- Earth → Poison: strong -->
+            <td class="cell-normal">—</td>   <!-- Electric → Poison -->
+            <td class="cell-normal">—</td>   <!-- Ice → Poison -->
+            <td class="cell-normal">—</td>   <!-- Poison → Poison -->
+            <td class="cell-normal">—</td>   <!-- Dark → Poison -->
+            <td class="cell-strong">2×</td>  <!-- Ghost → Poison: strong -->
+            <td class="cell-normal">—</td>   <!-- Metal → Poison -->
+            <td class="cell-weak">½</td>     <!-- Nature → Poison: weak -->
+            <td class="cell-normal">—</td>   <!-- Normal → Poison -->
+          </tr>
+          <!-- Dark defending -->
+          <tr>
+            <td class="def-header" style="background:#374151; color:#fff;">🌑 Dark</td>
+            <td class="cell-normal">—</td>   <!-- Fire → Dark -->
+            <td class="cell-normal">—</td>   <!-- Water → Dark -->
+            <td class="cell-normal">—</td>   <!-- Air → Dark -->
+            <td class="cell-normal">—</td>   <!-- Earth → Dark -->
+            <td class="cell-normal">—</td>   <!-- Electric → Dark -->
+            <td class="cell-normal">—</td>   <!-- Ice → Dark -->
+            <td class="cell-normal">—</td>   <!-- Poison → Dark -->
+            <td class="cell-normal">—</td>   <!-- Dark → Dark -->
+            <td class="cell-strong">2×</td>  <!-- Ghost → Dark: strong -->
+            <td class="cell-normal">—</td>   <!-- Metal → Dark -->
+            <td class="cell-normal">—</td>   <!-- Nature → Dark -->
+            <td class="cell-normal">—</td>   <!-- Normal → Dark -->
+          </tr>
+          <!-- Ghost defending -->
+          <tr>
+            <td class="def-header" style="background:#6366f1; color:#fff;">👻 Ghost</td>
+            <td class="cell-normal">—</td>   <!-- Fire → Ghost -->
+            <td class="cell-normal">—</td>   <!-- Water → Ghost -->
+            <td class="cell-normal">—</td>   <!-- Air → Ghost -->
+            <td class="cell-normal">—</td>   <!-- Earth → Ghost -->
+            <td class="cell-normal">—</td>   <!-- Electric → Ghost -->
+            <td class="cell-normal">—</td>   <!-- Ice → Ghost -->
+            <td class="cell-weak">½</td>     <!-- Poison → Ghost: weak -->
+            <td class="cell-strong">2×</td>  <!-- Dark → Ghost: strong -->
+            <td class="cell-strong">2×</td>  <!-- Ghost → Ghost: strong -->
+            <td class="cell-normal">—</td>   <!-- Metal → Ghost -->
+            <td class="cell-normal">—</td>   <!-- Nature → Ghost -->
+            <td class="cell-weak">½</td>     <!-- Normal → Ghost: weak -->
+          </tr>
+          <!-- Metal defending -->
+          <tr>
+            <td class="def-header" style="background:#708090; color:#fff;">⚙️ Metal</td>
+            <td class="cell-strong">2×</td>  <!-- Fire → Metal: strong -->
+            <td class="cell-normal">—</td>   <!-- Water → Metal -->
+            <td class="cell-normal">—</td>   <!-- Air → Metal -->
+            <td class="cell-normal">—</td>   <!-- Earth → Metal -->
+            <td class="cell-weak">½</td>     <!-- Electric → Metal: weak -->
+            <td class="cell-normal">—</td>   <!-- Ice → Metal -->
+            <td class="cell-normal">—</td>   <!-- Poison → Metal -->
+            <td class="cell-normal">—</td>   <!-- Dark → Metal -->
+            <td class="cell-normal">—</td>   <!-- Ghost → Metal -->
+            <td class="cell-normal">—</td>   <!-- Metal → Metal -->
+            <td class="cell-normal">—</td>   <!-- Nature → Metal -->
+            <td class="cell-normal">—</td>   <!-- Normal → Metal -->
+          </tr>
+          <!-- Nature defending -->
+          <tr>
+            <td class="def-header" style="background:#16a34a; color:#fff;">🌿 Nature</td>
+            <td class="cell-strong">2×</td>  <!-- Fire → Nature: strong -->
+            <td class="cell-weak">½</td>     <!-- Water → Nature: weak -->
+            <td class="cell-strong">2×</td>  <!-- Air → Nature: strong -->
+            <td class="cell-weak">½</td>     <!-- Earth → Nature: weak -->
+            <td class="cell-normal">—</td>   <!-- Electric → Nature -->
+            <td class="cell-strong">2×</td>  <!-- Ice → Nature: strong -->
+            <td class="cell-strong">2×</td>  <!-- Poison → Nature: strong -->
+            <td class="cell-normal">—</td>   <!-- Dark → Nature -->
+            <td class="cell-normal">—</td>   <!-- Ghost → Nature -->
+            <td class="cell-normal">—</td>   <!-- Metal → Nature -->
+            <td class="cell-normal">—</td>   <!-- Nature → Nature -->
+            <td class="cell-normal">—</td>   <!-- Normal → Nature -->
+          </tr>
+          <!-- Normal defending -->
+          <tr>
+            <td class="def-header" style="background:#888899; color:#fff;">⭐ Normal</td>
+            <td class="cell-normal">—</td>
+            <td class="cell-normal">—</td>
+            <td class="cell-normal">—</td>
+            <td class="cell-normal">—</td>
+            <td class="cell-normal">—</td>
+            <td class="cell-normal">—</td>
+            <td class="cell-normal">—</td>
+            <td class="cell-normal">—</td>
+            <td class="cell-normal">—</td>
+            <td class="cell-normal">—</td>
+            <td class="cell-normal">—</td>
+            <td class="cell-normal">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="matchup-legend">
+      <div class="legend-item"><div class="legend-swatch legend-strong">2×</div> Super effective — deals double damage</div>
+      <div class="legend-item"><div class="legend-swatch legend-weak">½</div> Not very effective — deals half damage</div>
+      <div class="legend-item"><div class="legend-swatch legend-normal">—</div> Normal damage</div>
+    </div>
+
+    <div class="callout info" style="margin-top:16px;"><span class="ci">📖</span> <strong>How to read it:</strong> Look across the top for the attacker's type. Look down the side for the defender's type. Where they meet is the result. Example: Fire attacking Nature = 2× (super effective!). Water attacking Nature = ½ (not very effective).</div>
+  </div>
+
+  <!-- ══ 4. STATUS EFFECTS ══════════════════════════════════════════════════ -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>Status Effects</h2>
+    </div>
+    <p>Status effects are conditions your moves can put on the enemy (or yourself!). They can turn the tide of a battle even when your damage isn't the highest.</p>
+
+    <h3 style="font-family:var(--font-h); font-size:18px; margin:16px 0 10px; color:#444;">Primary Statuses — Only one at a time!</h3>
+    <p style="font-size:14px; color:var(--muted); margin-bottom:14px;">A Fakemon can only have ONE primary status at a time. You can't poison AND burn the same enemy.</p>
+
+    <div class="status-grid">
+      <div class="status-card" style="border-color:#a855f7;">
+        <div class="s-top">
+          <span class="s-emoji">🟣</span>
+          <div>
+            <div class="s-name">Poison</div>
+            <span class="s-tag tag-primary">PRIMARY</span>
+          </div>
+        </div>
+        <div class="s-desc">The enemy loses <strong>8% of their max HP</strong> at the end of every turn. It adds up fast — a Fakemon with 100 HP loses 8 HP each turn!</div>
+        <div class="s-dur">⏱ Lasts until healed or battle ends</div>
+      </div>
+      <div class="status-card" style="border-color:#e8523a;">
+        <div class="s-top">
+          <span class="s-emoji">🔴</span>
+          <div>
+            <div class="s-name">Burn</div>
+            <span class="s-tag tag-primary">PRIMARY</span>
+          </div>
+        </div>
+        <div class="s-desc">The enemy loses <strong>6% of their max HP</strong> per turn AND their Power stat is reduced — so their attacks hit softer too. Double trouble!</div>
+        <div class="s-dur">⏱ Lasts until healed or battle ends</div>
+      </div>
+      <div class="status-card" style="border-color:#f7c948;">
+        <div class="s-top">
+          <span class="s-emoji">⚡</span>
+          <div>
+            <div class="s-name">Paralyze</div>
+            <span class="s-tag tag-primary">PRIMARY</span>
+          </div>
+        </div>
+        <div class="s-desc">Each turn, the enemy has a <strong>35% chance of not being able to move at all</strong>. Their Speed stat also drops — so even if they do move, they might go second.</div>
+        <div class="s-dur">⏱ Lasts until healed or battle ends</div>
+      </div>
+      <div class="status-card" style="border-color:#5bc0eb;">
+        <div class="s-top">
+          <span class="s-emoji">💤</span>
+          <div>
+            <div class="s-name">Sleep</div>
+            <span class="s-tag tag-primary">PRIMARY</span>
+          </div>
+        </div>
+        <div class="s-desc">The enemy <strong>can't do anything for 2–3 turns</strong>. They just snooze while you attack freely! They wake up on their own when the turns run out.</div>
+        <div class="s-dur">⏱ 2–3 turns, then auto-wakes</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--font-h); font-size:18px; margin:20px 0 10px; color:#444;">Secondary Statuses — Can stack with primary ones!</h3>
+
+    <div class="status-grid">
+      <div class="status-card" style="border-color:#818cf8;">
+        <div class="s-top">
+          <span class="s-emoji">😵</span>
+          <div>
+            <div class="s-name">Confuse</div>
+            <span class="s-tag tag-secondary">SECONDARY</span>
+          </div>
+        </div>
+        <div class="s-desc">The confused enemy has a <strong>33% chance of accidentally hurting themselves</strong> instead of attacking you. They might punch themselves in the face!</div>
+        <div class="s-dur">⏱ 2–4 turns, then wears off</div>
+      </div>
+      <div class="status-card" style="border-color:#f77f00;">
+        <div class="s-top">
+          <span class="s-emoji">😦</span>
+          <div>
+            <div class="s-name">Flinch</div>
+            <span class="s-tag tag-secondary">SECONDARY</span>
+          </div>
+        </div>
+        <div class="s-desc">The enemy <strong>skips their move this turn</strong> because they flinched from being hit. Only works if your move hits first — fast moves flinch better!</div>
+        <div class="s-dur">⏱ Only the current turn</div>
+      </div>
+      <div class="status-card" style="border-color:#22c55e;">
+        <div class="s-top">
+          <span class="s-emoji">📈</span>
+          <div>
+            <div class="s-name">Stat Up</div>
+            <span class="s-tag tag-secondary">SECONDARY</span>
+          </div>
+        </div>
+        <div class="s-desc">Temporarily <strong>raises one of YOUR stats</strong> — like Power, Speed, or Defense. Decide in the move which stat goes up and by how much. Fades after a few turns.</div>
+        <div class="s-dur">⏱ 3 turns</div>
+      </div>
+      <div class="status-card" style="border-color:#ef4444;">
+        <div class="s-top">
+          <span class="s-emoji">📉</span>
+          <div>
+            <div class="s-name">Stat Down</div>
+            <span class="s-tag tag-secondary">SECONDARY</span>
+          </div>
+        </div>
+        <div class="s-desc">Temporarily <strong>lowers one of the ENEMY's stats</strong> — like Power, Speed, or Accuracy. Makes them weaker or slower while the effect lasts.</div>
+        <div class="s-dur">⏱ 3 turns</div>
+      </div>
+    </div>
+
+    <div class="callout warn"><span class="ci">⚠️</span> <strong>Important:</strong> Stacking the same status doesn't help! If your Fakemon has five sleep moves, the game treats them all as one — it only gives you credit for one sleep move. Variety is way more powerful than repetition!</div>
+  </div>
+
+  <!-- ══ 5. MOVES ═══════════════════════════════════════════════════════════ -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Designing Your Moves</h2>
+    </div>
+    <p>Your Fakemon can have up to <strong>8 moves</strong>. Each move is an object inside the <code style="font-family:var(--font-c); background:#f0f0f8; padding:2px 6px; border-radius:4px;">"moves"</code> list of your JSON file.</p>
+
+    <table class="guide-table" style="margin-top:16px;">
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Required?</th>
+          <th>What to put here</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code style="font-family:var(--font-c);">id</code></td>
+          <td class="center">✅ Yes</td>
+          <td>A short nickname with no spaces — like <code style="font-family:var(--font-c);">fire_bite</code> or <code style="font-family:var(--font-c);">thunder_kick</code>. Every move must have a different id.</td>
+        </tr>
+        <tr>
+          <td><code style="font-family:var(--font-c);">name</code></td>
+          <td class="center">✅ Yes</td>
+          <td>The name players see in battle, including an emoji! Example: <strong>"🔥 Ember Bite"</strong></td>
+        </tr>
+        <tr>
+          <td><code style="font-family:var(--font-c);">desc</code></td>
+          <td class="center">✅ Yes</td>
+          <td>A short 1–2 sentence description of what the move does.</td>
+        </tr>
+        <tr>
+          <td><code style="font-family:var(--font-c);">speed</code></td>
+          <td class="center">✅ Yes</td>
+          <td>
+            <span class="speed-fast">fast</span> goes first and hits 15% harder &nbsp;|&nbsp;
+            <span class="speed-medium">medium</span> is normal &nbsp;|&nbsp;
+            <span class="speed-slow">slow</span> goes last but can be extra powerful
+          </td>
+        </tr>
+        <tr>
+          <td><code style="font-family:var(--font-c);">damage</code></td>
+          <td class="center">✅ Yes</td>
+          <td>Two numbers: <code style="font-family:var(--font-c);">[min, max]</code>. The attack does a random amount between these. Use <code style="font-family:var(--font-c);">[0, 0]</code> for no damage, or <code style="font-family:var(--font-c);">[-25, -25]</code> to heal yourself 25 HP.</td>
+        </tr>
+        <tr>
+          <td><code style="font-family:var(--font-c);">status</code></td>
+          <td class="center">Optional</td>
+          <td>The status effect to apply. Choose from: <code style="font-family:var(--font-c);">poison</code>, <code style="font-family:var(--font-c);">burn</code>, <code style="font-family:var(--font-c);">paralyze</code>, <code style="font-family:var(--font-c);">sleep</code>, <code style="font-family:var(--font-c);">confuse</code>, <code style="font-family:var(--font-c);">flinch</code>, <code style="font-family:var(--font-c);">statup</code>, <code style="font-family:var(--font-c);">statdwn</code>. Use <code style="font-family:var(--font-c);">null</code> for no effect.</td>
+        </tr>
+        <tr>
+          <td><code style="font-family:var(--font-c);">statusChance</code></td>
+          <td class="center">Optional</td>
+          <td>How likely the status is to apply. <code style="font-family:var(--font-c);">1.0</code> = always works. <code style="font-family:var(--font-c);">0.5</code> = 50% chance. <code style="font-family:var(--font-c);">0.35</code> = 35% chance. Use <code style="font-family:var(--font-c);">0</code> if no status.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout tip"><span class="ci">💡</span> <strong>Strategy tip:</strong> A Fakemon with ALL damage moves has no tricks. A Fakemon with ALL status moves but no damage might never finish the fight. Mix it up — maybe 3–4 damage moves, 2 status moves, 1 stat move, and 1 heal move is a good balance!</div>
+  </div>
+
+  <!-- ══ 6. NAMING ══════════════════════════════════════════════════════════ -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Naming Your Fakemon</h2>
+    </div>
+    <p>A great Fakemon name is short, memorable, and gives a hint about what your creature does. Here are some tricks for coming up with one:</p>
+
+    <table class="guide-table" style="margin:14px 0;">
+      <thead>
+        <tr><th>Strategy</th><th>How it works</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mash two words</td>
+          <td>Take an animal and an element, smoosh them together</td>
+          <td>Bear + Blizzard = <strong>Blizzear</strong></td>
+        </tr>
+        <tr>
+          <td>Sound matches vibe</td>
+          <td>K, X, Z sounds feel fierce. L, M, W sounds feel mysterious.</td>
+          <td><strong>Voltusk</strong> vs <strong>Glopple</strong></td>
+        </tr>
+        <tr>
+          <td>Name what it does</td>
+          <td>Think about its main attack or ability</td>
+          <td>Burns things → <strong>Embork</strong>, <strong>Scorchwing</strong></td>
+        </tr>
+        <tr>
+          <td>Just make it weird</td>
+          <td>Silly and fun is totally valid!</td>
+          <td><strong>Blobzap</strong>, <strong>Quakefuzz</strong>, <strong>Snorblast</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:var(--font-h); font-size:17px; margin:18px 0 10px; color:#444;">Ready-to-use name ideas — grab one!</h3>
+    <div class="name-columns">
+      <div class="name-pill">🔥 Scorchwing</div><div class="name-pill">💧 Frostmaw</div><div class="name-pill">⚡ Voltusk</div>
+      <div class="name-pill">🔥 Embork</div><div class="name-pill">💧 Glopple</div><div class="name-pill">⚡ Shockfin</div>
+      <div class="name-pill">🔥 Blazkit</div><div class="name-pill">💧 Sludgeclaw</div><div class="name-pill">⚡ Zapscale</div>
+      <div class="name-pill">🔥 Ashpelt</div><div class="name-pill">❄️ Glacidon</div><div class="name-pill">🌑 Darkwhelp</div>
+      <div class="name-pill">🔥 Flamecub</div><div class="name-pill">❄️ Drizclaw</div><div class="name-pill">🌑 Shadowmane</div>
+      <div class="name-pill">🔥 Pyreshell</div><div class="name-pill">❄️ Frostcub</div><div class="name-pill">👻 Crypthowl</div>
+      <div class="name-pill">🔥 Cinderfang</div><div class="name-pill">🟣 Fumewyrm</div><div class="name-pill">👻 Veilmaw</div>
+      <div class="name-pill">🔥 Infernox</div><div class="name-pill">🟣 Toxifrog</div><div class="name-pill">⚙️ Ironclaw</div>
+      <div class="name-pill">🔥 Brimblaze</div><div class="name-pill">🌿 Thornback</div><div class="name-pill">⚙️ Rustfang</div>
+      <div class="name-pill">🌬️ Galewing</div><div class="name-pill">🌿 Murkfin</div><div class="name-pill">⭐ Blobzap</div>
+    </div>
+  </div>
+
+  <!-- ══ 7. EMOJIS ══════════════════════════════════════════════════════════ -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Picking an Emoji</h2>
+    </div>
+    <p>Your Fakemon's emoji is its sprite — the big character that shows up in the battle screen! Pick something that matches your creature's personality. Just click to copy!</p>
+
+    <div class="emoji-section">
+      <h4>🔥 Fiery / Hot creatures</h4>
+      <div class="emoji-row">
+        <span class="emoji-pill">🐗</span><span class="emoji-pill">🦊</span><span class="emoji-pill">🐲</span><span class="emoji-pill">🦁</span><span class="emoji-pill">🐯</span><span class="emoji-pill">🦅</span><span class="emoji-pill">🦎</span><span class="emoji-pill">🦂</span><span class="emoji-pill">🐺</span><span class="emoji-pill">🌋</span><span class="emoji-pill">💥</span><span class="emoji-pill">🔥</span>
+      </div>
+    </div>
+    <div class="emoji-section">
+      <h4>💧 Watery / Slippery creatures</h4>
+      <div class="emoji-row">
+        <span class="emoji-pill">🐸</span><span class="emoji-pill">🐙</span><span class="emoji-pill">🦑</span><span class="emoji-pill">🐠</span><span class="emoji-pill">🦈</span><span class="emoji-pill">🐬</span><span class="emoji-pill">🦭</span><span class="emoji-pill">🪼</span><span class="emoji-pill">🐡</span><span class="emoji-pill">🌊</span><span class="emoji-pill">🫧</span><span class="emoji-pill">🐳</span>
+      </div>
+    </div>
+    <div class="emoji-section">
+      <h4>❄️ Icy / Cold creatures</h4>
+      <div class="emoji-row">
+        <span class="emoji-pill">🐻‍❄️</span><span class="emoji-pill">🐧</span><span class="emoji-pill">🦢</span><span class="emoji-pill">🦦</span><span class="emoji-pill">🐋</span><span class="emoji-pill">🦣</span><span class="emoji-pill">❄️</span><span class="emoji-pill">🌨️</span><span class="emoji-pill">🏔️</span>
+      </div>
+    </div>
+    <div class="emoji-section">
+      <h4>⚡ Electric / Fast creatures</h4>
+      <div class="emoji-row">
+        <span class="emoji-pill">🐘</span><span class="emoji-pill">🦏</span><span class="emoji-pill">🦍</span><span class="emoji-pill">🐊</span><span class="emoji-pill">🦖</span><span class="emoji-pill">🤖</span><span class="emoji-pill">🦾</span><span class="emoji-pill">⚡</span><span class="emoji-pill">🌩️</span><span class="emoji-pill">🔌</span>
+      </div>
+    </div>
+    <div class="emoji-section">
+      <h4>🌿 Nature / Earthy creatures</h4>
+      <div class="emoji-row">
+        <span class="emoji-pill">🐢</span><span class="emoji-pill">🦋</span><span class="emoji-pill">🐛</span><span class="emoji-pill">🐝</span><span class="emoji-pill">🦔</span><span class="emoji-pill">🦕</span><span class="emoji-pill">🌱</span><span class="emoji-pill">🍄</span><span class="emoji-pill">🌿</span><span class="emoji-pill">🪴</span>
+      </div>
+    </div>
+    <div class="emoji-section">
+      <h4>🌑 Dark / Spooky creatures</h4>
+      <div class="emoji-row">
+        <span class="emoji-pill">🦇</span><span class="emoji-pill">🕷️</span><span class="emoji-pill">🦉</span><span class="emoji-pill">🐍</span><span class="emoji-pill">👁️</span><span class="emoji-pill">🌑</span><span class="emoji-pill">💀</span><span class="emoji-pill">🪲</span><span class="emoji-pill">🦠</span><span class="emoji-pill">🐦‍⬛</span>
+      </div>
+    </div>
+    <div class="emoji-section">
+      <h4>⭐ Cute / Normal creatures</h4>
+      <div class="emoji-row">
+        <span class="emoji-pill">🐱</span><span class="emoji-pill">🐶</span><span class="emoji-pill">🐹</span><span class="emoji-pill">🐰</span><span class="emoji-pill">🐼</span><span class="emoji-pill">🐨</span><span class="emoji-pill">🐻</span><span class="emoji-pill">🐮</span><span class="emoji-pill">🐷</span><span class="emoji-pill">🐵</span>
+      </div>
+    </div>
+    <div class="emoji-section">
+      <h4>🌈 Weird / Rare creatures</h4>
+      <div class="emoji-row">
+        <span class="emoji-pill">🐉</span><span class="emoji-pill">🦄</span><span class="emoji-pill">🫎</span><span class="emoji-pill">🦋</span><span class="emoji-pill">🦚</span><span class="emoji-pill">🦜</span><span class="emoji-pill">🦩</span><span class="emoji-pill">🪸</span><span class="emoji-pill">🔮</span><span class="emoji-pill">🌀</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 8. TEMPLATE ════════════════════════════════════════════════════════ -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>The JSON Template</h2>
+    </div>
+    <p>Copy the whole block below and fill it in. Save your file as <code style="font-family:var(--font-c); background:#f0f0f8; padding:2px 6px; border-radius:4px;">yourfakemon.json</code> where <code style="font-family:var(--font-c); background:#f0f0f8; padding:2px 6px; border-radius:4px;">yourfakemon</code> matches your Fakemon's <strong>id</strong> field exactly.</p>
+
+    <div class="callout warn" style="margin:14px 0;"><span class="ci">⚠️</span> JSON is picky! Every quote, comma, and bracket must be in exactly the right place. If the game won't load your Fakemon, look for a missing comma or mismatched bracket.</div>
+
+    <div class="code-wrap"><pre
+><span class="cp">{</span>
+  <span class="ck">"id"</span><span class="cp">:</span> <span class="cs">"yourfakemon"</span><span class="cp">,</span>
+  <span class="ck">"name"</span><span class="cp">:</span> <span class="cs">"YourFakemon"</span><span class="cp">,</span>
+  <span class="ck">"createdBy"</span><span class="cp">:</span> <span class="cs">"Your Full Name"</span><span class="cp">,</span>
+  <span class="ck">"emoji"</span><span class="cp">:</span> <span class="cs">"🐲"</span><span class="cp">,</span>
+  <span class="ck">"type"</span><span class="cp">:</span> <span class="cs">"Fire"</span><span class="cp">,</span>
+
+  <span class="cc">// The five stats — adjust these numbers to build your Fakemon's personality</span>
+  <span class="ck">"hp"</span><span class="cp">:</span> <span class="cn">100</span><span class="cp">,</span>       <span class="cc">// Health: how much damage you can take (80-140)</span>
+  <span class="ck">"power"</span><span class="cp">:</span> <span class="cn">100</span><span class="cp">,</span>    <span class="cc">// Power: scales your damage output (80-120)</span>
+  <span class="ck">"speed"</span><span class="cp">:</span> <span class="cn">90</span><span class="cp">,</span>     <span class="cc">// Speed: who goes first on tied move speed (60-120)</span>
+  <span class="ck">"defense"</span><span class="cp">:</span> <span class="cn">10</span><span class="cp">,</span>  <span class="cc">// Defense: % damage reduction from incoming hits (0-40)</span>
+  <span class="ck">"accuracy"</span><span class="cp">:</span> <span class="cn">90</span><span class="cp">,</span> <span class="cc">// Accuracy: base % chance your moves will hit (70-100)</span>
+
+  <span class="ck">"description"</span><span class="cp">:</span> <span class="cs">"A short description of your Fakemon."</span><span class="cp">,</span>
+
+  <span class="ck">"moves"</span><span class="cp">: [</span>
+
+    <span class="cc">// Move 1: A damage move with a status effect</span>
+    <span class="cp">{</span>
+      <span class="ck">"id"</span><span class="cp">:</span> <span class="cs">"move_one"</span><span class="cp">,</span>
+      <span class="ck">"name"</span><span class="cp">:</span> <span class="cs">"🔥 Move Name"</span><span class="cp">,</span>
+      <span class="ck">"desc"</span><span class="cp">:</span> <span class="cs">"A biting attack with a chance to burn."</span><span class="cp">,</span>
+      <span class="ck">"speed"</span><span class="cp">:</span> <span class="cs">"medium"</span><span class="cp">,</span>
+      <span class="ck">"damage"</span><span class="cp">: [</span><span class="cn">14</span><span class="cp">,</span> <span class="cn">20</span><span class="cp">],</span>
+      <span class="ck">"status"</span><span class="cp">:</span> <span class="cs">"burn"</span><span class="cp">,</span>
+      <span class="ck">"statusChance"</span><span class="cp">:</span> <span class="cn">0.35</span>
+    <span class="cp">},</span>
+
+    <span class="cc">// Move 2: A plain fast attack</span>
+    <span class="cp">{</span>
+      <span class="ck">"id"</span><span class="cp">:</span> <span class="cs">"move_two"</span><span class="cp">,</span>
+      <span class="ck">"name"</span><span class="cp">:</span> <span class="cs">"⚔️ Quick Slash"</span><span class="cp">,</span>
+      <span class="ck">"desc"</span><span class="cp">:</span> <span class="cs">"A lightning-fast claw swipe. No frills."</span><span class="cp">,</span>
+      <span class="ck">"speed"</span><span class="cp">:</span> <span class="cs">"fast"</span><span class="cp">,</span>
+      <span class="ck">"damage"</span><span class="cp">: [</span><span class="cn">18</span><span class="cp">,</span> <span class="cn">24</span><span class="cp">],</span>
+      <span class="ck">"status"</span><span class="cp">:</span> <span class="cn">null</span><span class="cp">,</span>
+      <span class="ck">"statusChance"</span><span class="cp">:</span> <span class="cn">0</span>
+    <span class="cp">},</span>
+
+    <span class="cc">// Move 3: A heal move (negative damage = heals you!)</span>
+    <span class="cp">{</span>
+      <span class="ck">"id"</span><span class="cp">:</span> <span class="cs">"move_three"</span><span class="cp">,</span>
+      <span class="ck">"name"</span><span class="cp">:</span> <span class="cs">"💊 Heal Move"</span><span class="cp">,</span>
+      <span class="ck">"desc"</span><span class="cp">:</span> <span class="cs">"Restore 25 HP."</span><span class="cp">,</span>
+      <span class="ck">"speed"</span><span class="cp">:</span> <span class="cs">"slow"</span><span class="cp">,</span>
+      <span class="ck">"damage"</span><span class="cp">: [</span><span class="cn">-25</span><span class="cp">,</span> <span class="cn">-25</span><span class="cp">],</span>
+      <span class="ck">"status"</span><span class="cp">:</span> <span class="cn">null</span><span class="cp">,</span>
+      <span class="ck">"statusChance"</span><span class="cp">:</span> <span class="cn">0</span>
+    <span class="cp">},</span>
+
+    <span class="cc">// Move 4: A pure status move (no damage)</span>
+    <span class="cp">{</span>
+      <span class="ck">"id"</span><span class="cp">:</span> <span class="cs">"move_four"</span><span class="cp">,</span>
+      <span class="ck">"name"</span><span class="cp">:</span> <span class="cs">"😵 Confuse Ray"</span><span class="cp">,</span>
+      <span class="ck">"desc"</span><span class="cp">:</span> <span class="cs">"Scrambles the enemy's brain. No damage, just chaos."</span><span class="cp">,</span>
+      <span class="ck">"speed"</span><span class="cp">:</span> <span class="cs">"medium"</span><span class="cp">,</span>
+      <span class="ck">"damage"</span><span class="cp">: [</span><span class="cn">0</span><span class="cp">,</span> <span class="cn">0</span><span class="cp">],</span>
+      <span class="ck">"status"</span><span class="cp">:</span> <span class="cs">"confuse"</span><span class="cp">,</span>
+      <span class="ck">"statusChance"</span><span class="cp">:</span> <span class="cn">1.0</span>
+    <span class="cp">}</span>
+
+    <span class="cc">// Add more moves here, up to 8 total!</span>
+    <span class="cc">// Remember: put a comma after every } EXCEPT the last one.</span>
+
+  <span class="cp">]</span>
+<span class="cp">}</span></pre></div>
+  </div>
+
+  <!-- ══ 9. ADDING TO GAME ═══════════════════════════════════════════════════ -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>Adding Your Fakemon to the Game</h2>
+    </div>
+    <p>Two steps and you're in!</p>
+
+    <table class="guide-table" style="margin:14px 0;">
+      <thead><tr><th style="width:60px;">Step</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="center" style="font-size:24px;">1️⃣</td>
+          <td>Put your file (e.g. <code style="font-family:var(--font-c);">myfakemon.json</code>) inside the <code style="font-family:var(--font-c);">fakemon/</code> folder.</td>
+        </tr>
+        <tr>
+          <td class="center" style="font-size:24px;">2️⃣</td>
+          <td>Open <code style="font-family:var(--font-c);">fakemon/fakemonlist.json</code> and add your Fakemon's id to the list.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Here's what <code style="font-family:var(--font-c);">fakemonlist.json</code> looks like — just add your id at the end:</p>
+    <div class="code-wrap" style="margin-top:10px;"><pre
+><span class="cp">{</span>
+  <span class="ck">"fakemon"</span><span class="cp">: [</span>
+    <span class="cs">"embork"</span><span class="cp">,</span>
+    <span class="cs">"glopple"</span><span class="cp">,</span>
+    <span class="cs">"voltusk"</span><span class="cp">,</span>
+    <span class="cs">"yourfakemon"</span>   <span class="cc">// ← add yours here!</span>
+  <span class="cp">]</span>
+<span class="cp">}</span></pre></div>
+
+    <div class="callout win"><span class="ci">🎮</span> Reload the game in your browser and your Fakemon will show up on the selection screen with its power level automatically calculated. Time to battle!</div>
+  </div>
+
+  <!-- ══ 10. STRATEGY ════════════════════════════════════════════════════════ -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Strategy Tips</h2>
+    </div>
+    <p>The power system is smart — it actually simulates battles to score your Fakemon. Here's how to make something genuinely good:</p>
+
+    <div class="strategy-grid">
+      <div class="strat-card do">
+        <h4>✅ Do this</h4>
+        <ul>
+          <li>Mix damage moves with status moves</li>
+          <li>Use different status types — variety counts!</li>
+          <li>Put strong attacks on <span class="speed-fast">fast</span> — they go first AND hit harder</li>
+          <li>Add a heal move if you have high HP</li>
+          <li>Use <span class="speed-slow">slow</span> moves for your big power moves</li>
+          <li>Think about your type matchup — Fire destroys Nature!</li>
+        </ul>
+      </div>
+      <div class="strat-card dont">
+        <h4>❌ Don't bother with</h4>
+        <ul>
+          <li>Five of the same sleep move — only counts once</li>
+          <li>All damage, no status — too predictable</li>
+          <li>All status, no damage — you'll never finish the fight</li>
+          <li>Crazy high HP hoping to outlast — the matchmaker adapts</li>
+          <li>Ignoring defense — even a little helps a lot</li>
+          <li>100% accuracy on everything — spread it around</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout tip"><span class="ci">🏆</span> The best Fakemon aren't necessarily the strongest — they're the most interesting to play! A clever design with good synergy between moves will beat a boring high-damage machine most of the time.</div>
+  </div>
+
+  <!-- ══ 11. CHECKLIST ════════════════════════════════════════════════════════ -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <h2>Final Checklist</h2>
+    </div>
+    <p>Before you turn in your Fakemon, check every box:</p>
+    <ul class="checklist">
+      <li>My <strong>id</strong> has no spaces or special characters</li>
+      <li>My filename matches my id exactly — e.g. <code style="font-family:var(--font-c);">blazkit.json</code> for id <code style="font-family:var(--font-c);">"blazkit"</code></li>
+      <li>I added my filename to <code style="font-family:var(--font-c);">fakemonlist.json</code></li>
+      <li>My Fakemon has between <strong>4 and 8 moves</strong></li>
+      <li>I have <strong>at least one move that deals damage</strong></li>
+      <li>All 5 stats are filled in (<strong>hp, power, speed, defense, accuracy</strong>)</li>
+      <li>I filled in <strong>createdBy</strong> with my full name</li>
+      <li>I picked an <strong>emoji</strong> for my Fakemon</li>
+      <li>I tested it in the game and <strong>it loads without errors</strong></li>
+      <li>My Fakemon has a <strong>description</strong> that shows its personality</li>
+    </ul>
+
+    <div class="callout win" style="margin-top:20px; font-size:16px;"><span class="ci">🐉</span> Good luck, and have fun! The weirdest, most creative Fakemon are usually the most fun to battle with. Make it yours!</div>
+  </div>
+
+</div><!-- /page-wrap -->
+</body>
+</html>
