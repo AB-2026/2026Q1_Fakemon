@@ -19,7 +19,7 @@
       "speed":        "fast",
       "damage": [10, 60],
       "status":       "poison",
-      "statusChance": 80
+      "statusChance": .80
     },
     {
       "id":           "potassiampoisoning",
