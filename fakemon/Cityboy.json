@@ -27,7 +27,7 @@
       "desc":         "A harsh remark with a 80% chance to hurt the enemy depending on their aura.",
       "speed":        "medium",
       "damage": [12, 20],
-      "status":       "Stat Down",
+      "status":       "Statdwn",
       "statusChance": 0.8
     },
     {
