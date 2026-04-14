@@ -6,13 +6,13 @@
   "type": "Normal",
 
   
-  "hp": 500,       
-  "power": 500,    
-  "speed": 500,     
-  "defense": 1,
+  "hp": 1000,       
+  "power": 1000,    
+  "speed": 1000,     
+  "defense": 50,
   "accuracy": 100,
 
-  "description": "This pokemon is incredibly fast, just dont get hit..",
+  "description": "This pokemon is incredibly fast but frail, just dont get hit..",
 
   "moves": [
 
@@ -32,20 +32,20 @@
     {
       "id": "glass_crash",
       "name": "⚔️ Quick Slash",
-      "desc": "A lightning-fast claw swipe. No frills.",
+      "desc": "A super fast blugening attack. may paralize",
       "speed": "fast",
       "damage": [300, 300],
       "status": "paralyze",
-      "statusChance": 0.20
+      "statusChance": 1
     },
 
    
     {
       "id": "glass_repair",
       "name": "💊 Heal Move",
-      "desc": "Restore 25 HP.",
+      "desc": "Restore HP.",
       "speed": "slow",
-      "damage": [-100, -100],
+      "damage": [-500, -1000],
       "status": null,
       "statusChance": 0
     },
@@ -54,7 +54,7 @@
     {
       "id": "glassy_dance",
       "name": "Glass Dance",
-      "desc": "boosts your attack by 2 stages",
+      "desc": "Boosts your attack.",
       "speed": "medium",
       "damage": [10, 10],
       "status": "statup",
