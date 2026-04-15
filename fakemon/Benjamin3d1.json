@@ -1,9 +1,9 @@
 {
   "id": "Benjamin3d1",
-  "name": "Prusa 3d printer",
+  "name": "Banbulabs A1 mini 3d printer",
   "createdBy": "Benjamin",
   "emoji": "🖨️",
-  "type": "Fire",
+  "type": "Metal",
 
   "hp": 50,
   "atk": 70,
@@ -11,7 +11,7 @@
   "defense": 10,
   "accuracy": 70,
 
-  "description": "slow old prusa 3d printer.",
+  "description": "medium speed 3d printer.",
   "moves": [
     {
       "id": "3dweapon",
@@ -44,7 +44,7 @@
       "id": "calibrate",
       "name": "📈 calibrate",
       "desc": "Narrows eyes and locks in — ATK rises.",
-      "speed": "slow",
+      "speed": "medium",
       "damage": [0, 0],
       "status": "statup",
       "statusChance": 1.0,
@@ -54,7 +54,7 @@
       "id": "Maintenance",
       "name": "💊 Maintenance",
       "desc": "Restore 0 to 25 HP and gives stat up effect",
-      "speed": "slow",
+      "speed": "medium",
       "damage": [0, -25],
       "statusChance": 1.0,
       "statTarget": "accuracy"
@@ -73,7 +73,7 @@
       "id": "fumes",
       "name": "☣️ toxic fumes",
       "desc": "No proper ventilation filiment is non food safe.",
-      "speed": "slow",
+      "speed": "medium",
       "damage": [10,15],
       "status": "poison",
       "statusChance": 1.0
@@ -81,11 +81,29 @@
     {
       "id": "replace",
       "name": "💊 replace parts",
-      "desc": "Replace all parts of 3d printer.",
-      "speed": "slow",
+      "desc": "Replace all parts of 3d printer dose nothing or fixes everything.",
+      "speed": "medium",
       "damage": [-0, -50],
       "status": null,
       "statusChance": 0
+    },
+    {
+      "id": "bore",
+      "name": "🌈 multicolor print",
+      "desc": "A long multicolor print that bores the enemy to sleep.",
+      "speed": "medium",
+      "damage": [0,0],
+      "status": "sleep",
+      "statusChance": 0.5
+    },
+    {
+      "id": "benchy",
+      "name": "benchy",
+      "desc": "print a benchy.",
+      "speed": "fast",
+      "damage": [0,0],
+      "status": "confuse",
+      "statusChance": 0.5
     }
   ]
 }
