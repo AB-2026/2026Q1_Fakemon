@@ -28,7 +28,7 @@
       "speed": "medium",
       "damage": [14, 20],
       "status": "burn",
-      "statusChance": 0.35
+      "statusChance": 0.65
     },
     {
       "id": "confuse_ray",

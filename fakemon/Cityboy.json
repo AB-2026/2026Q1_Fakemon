@@ -1,0 +1,75 @@
+{
+  "id":          "Cityboy",
+  "name":        "Cityboy",
+  "createdBy":   "Liam Johnson",
+  "emoji":       "🧍",
+  "type":        "Metal",
+  "description": "A powerful creature with city tech.",
+  "hp":       100,
+  "power":    100,
+  "speed":    60,
+  "defense":  30,
+  "accuracy": 100,
+
+  "moves": [
+    {
+      "id":           "1",
+      "name":         "⚙️ Computer Phone",
+      "desc":         "A fancy computer phone that is used by the City Boy. Might cause temporary shock.",
+      "speed":        "fast",
+      "damage": [20, 25],
+      "status":       "paralyze",
+      "statusChance": 0.5
+    },
+    {
+      "id":           "move_tw",
+      "name":         "Suburban neighborhood privilege",
+      "desc":         "A harsh remark with a 80% chance to hurt the enemy depending on their aura.",
+      "speed":        "medium",
+      "damage": [12, 20],
+      "status":       "statdwn",
+      "statusChance": 0.8
+    },
+    {
+      "id":           "move_three",
+      "name":         "💊 Nearby Hospitals",
+      "desc":         "Restores 50 - 60 HP and a 50% chance of good food from worried relatives.",
+      "speed":        "slow",
+      "damage": [-50, -60],
+      "status":       "statup",
+      "statusChance": 0.5
+    },
+    {
+      "id":           "move_four",
+      "name":         "📈 Power Up",
+      "desc":         "Sharply raises your own ATK.",
+      "speed":        "fast",
+      "damage": [0, 1],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "move_five",
+      "name":         "📉 Self confidence",
+      "desc":         "You think you have aura.",
+      "speed":        "medium",
+      "damage": [0, 2],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":    "move_six",
+      "name":  "😵 Pepper spray",
+      "desc":  "Hits, then may poison AND confuse!",
+      "speed": "slow",
+      "damage": [10, 16],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.5 },
+        { "status": "confuse", "statusChance": 0.4 }
+      ]
+    }
+
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id":          "burgersandfries",
+  "name":        "I'd like to place an order for one burger with a side of fries, please. For the burger, could you add cheese, lettuce, tomato, pickles, onions, and a special sauce, and please make sure it's cooked fresh to order? I'd also like to add a second side of fries, extra ketchup, and a medium drink. For an additional item, please include a chicken sandwich with no pickles and extra mayo. If available, I'd also like to add onion rings, a side salad with ranch dressing, and a chocolate milkshake. Please make sure everything is packed together for takeout, and include napkins and utensils if possible.",
+  "createdBy":   "Johann",
+  "emoji":       "🍔",
+  "type":        "Normal",
+  "description": "A fakemon that lives in the burger joint around the corner.",
+  "hp":       100,
+  "power":    900,
+  "speed":    4,
+  "defense":  9,
+  "accuracy": 75,
+
+  "moves": [
+    {
+      "id":           "patty_bun",
+      "name":         "Put The Patty On The Bun",
+      "desc":         "Working a respectable job at a fast-food joint.",
+      "speed":        "fast",
+      "damage":         [2, 90],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "burnt_crisp",
+      "name":         "Burnt To A Crisp",
+      "desc":         "You failed to cook a burger patty.",
+      "speed":        "slow",
+      "damage":         [89, 90],
+      "status":       "burn",
+      "statusChance": 0.635
+    },
+    {
+      "id":           "pickles",
+      "name":         "Can you add pickles to that?",
+      "desc":         "The pickles might be sour enough to stun your opponent.",
+      "speed":        "medium",
+      "damage":         [1, 2],
+      "status":       "paralyze",
+      "statusChance": 0.5
+    },
+    {
+      "id":           "xtra_pickles",
+      "name":         "Can you add EXTRA pickles to that?",
+      "desc":         "The pickles are so sour that it stuns your opponent.",
+      "speed":        "fast",
+      "damage":         [1, 2],
+      "status":       "paralyze",
+      "statusChance": 1
+    },
+    {
+      "id":           "xtra_onion",
+      "name":         "Extra Onion Slam",
+      "desc":         "Boo Hoo! I'm not crying, you're crying!.",
+      "speed":        "fast",
+      "damage":         [89, 90],
+      "status":       "statdwn",
+      "statTarget": "defense",
+      "statusChance": 1
+    }
+  ]
+}
