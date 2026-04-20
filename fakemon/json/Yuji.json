@@ -60,7 +60,7 @@
     {
       "id":    "move_six",
       "name":  "Domain expansion,Benevolent Shrine",
-      "desc":  "Yuji hits your soul having a full conversation with your soul in the blink of an eye stunning your fakemon while also hitting your soul with his cleave technique multiple times",
+      "desc":  "Yuji hits your soul having a full conversation with your soul in the blink of an eye stunning your fakemon, while also hitting your soul with his cleave technique multiple times",
       "speed": "fast",
       "damage": [25, 70],
       "statuses": [
