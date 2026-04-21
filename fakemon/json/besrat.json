@@ -46,6 +46,49 @@
     },
 
     {
+      "id": "glass_shard",
+      "name": "Glass Shard",
+      "desc": "A slashing attack with a chance to burn with its immense speed",
+      "speed": "fast",
+      "damage": [150, 150],
+      "status": "burn",
+      "statusChance": 1.00
+    },
+
+   
+    {
+      "id": "glass_crash",
+      "name": "⚔️ Quick Slash",
+      "desc": "A super fast blugening attack. may paralize",
+      "speed": "fast",
+      "damage": [300, 300],
+      "status": "paralyze",
+      "statusChance": 1
+    },
+
+   
+    {
+      "id": "glass_repair",
+      "name": "💊 Heal Move",
+      "desc": "Restore HP.",
+      "speed": "slow",
+      "damage": [-500000, -1000000],
+      "status": null,
+      "statusChance": 0
+    },
+
+    
+    {
+      "id": "glassy_dance",
+      "name": "Glass Dance",
+      "desc": "Boosts your attack.",
+      "speed": "medium",
+      "damage": [0, 0],
+      "status": "statup",
+      "statTarget" : "atk",
+      "statusChance": 1.0
+    },
+    {
       "id": "burner_finisher",
       "name": "😵 🔥 Burner Finisher",
       "desc": "Burns the enemy's brain. A lot of damage and chaos.",
