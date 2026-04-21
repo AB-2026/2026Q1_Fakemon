@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fakemon Assignment Builder</title>
+<script src="score.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+:root {
+  --bg:#0d0d1a; --surface:#13132a; --card:#1a1a38; --border:#2a2a50;
+  --accent:#f5c842; --text:#e8e8f4; --muted:#7070a0;
+  --green:#22c55e; --red:#ef4444; --orange:#f97316;
+  --px:'Space Mono',monospace; --body:'DM Sans',sans-serif;
+  --r:12px; --rs:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.6;min-height:100vh}
+.page{max-width:820px;margin:0 auto;padding:28px 18px 80px;position:relative;z-index:1}
+.back{display:inline-flex;align-items:center;gap:6px;font-family:var(--px);font-size:9px;letter-spacing:1px;color:var(--muted);text-decoration:none;margin-bottom:24px;transition:color .15s}
+.back:hover{color:var(--accent)}
+.page-head{text-align:center;margin-bottom:36px}
+.page-head .icon{font-size:48px;display:block;margin-bottom:10px}
+.page-head h1{font-family:var(--px);font-size:clamp(11px,2.8vw,16px);color:var(--accent);letter-spacing:2px;margin-bottom:6px}
+.page-head p{color:var(--muted);font-size:13px}
+.section{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);margin-bottom:16px;overflow:hidden}
+.section-head{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--card);border-bottom:1px solid var(--border);cursor:pointer;user-select:none}
+.section-head:hover{background:#1f1f40}
+.section-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--bg);font-family:var(--px);font-size:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.section-head h2{font-family:var(--px);font-size:10px;letter-spacing:1.5px;color:var(--text);flex:1}
+.sdot{width:10px;height:10px;border-radius:50%;background:var(--border);flex-shrink:0;transition:background .3s}
+.sdot.ok{background:var(--green)}
+.section-body{padding:18px;display:none}
+.section-body.open{display:block}
+.field{margin-bottom:16px}
+.field label{display:block;font-family:var(--px);font-size:8px;letter-spacing:1.5px;color:var(--muted);margin-bottom:6px}
+.hint{font-size:12px;color:var(--muted);margin-bottom:6px}
+.field input[type=text],.field input[type=number],.field select{
+  width:100%;background:#07071a;color:var(--text);border:1.5px solid var(--border);border-radius:var(--rs);
+  padding:9px 12px;font-family:var(--body);font-size:14px;outline:none;transition:border-color .15s}
+.field input:focus,.field select:focus{border-color:var(--accent)}
+.field input::placeholder{color:#252550}
+.field select{cursor:pointer}
+.field select option{background:#0d0d1a}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:500px){.row2,.row3{grid-template-columns:1fr}}
+.stat-grp{display:flex;align-items:center;gap:10px}
+.stat-grp input[type=range]{flex:1;accent-color:var(--accent);cursor:pointer}
+.stat-grp input[type=number]{width:72px;flex-shrink:0;text-align:center}
+.stat-note{font-size:11px;color:var(--muted);margin-top:3px}
+.move-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:12px}
+.move-card.optional{border-style:dashed}
+.move-head{font-family:var(--px);font-size:9px;letter-spacing:1px;color:var(--accent);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.move-tag{font-size:9px;color:var(--muted)}
+.dmg-row{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center}
+.dmg-sep{color:var(--muted);text-align:center;font-size:13px}
+.add-btn,.rm-btn{font-family:var(--px);font-size:8px;letter-spacing:1px;border:1px solid var(--border);border-radius:6px;padding:5px 12px;cursor:pointer;background:none;transition:all .15s}
+.add-btn{color:var(--accent);border-color:var(--accent);display:block;width:100%;margin-top:8px;padding:10px}
+.add-btn:hover{background:var(--accent);color:var(--bg)}
+.rm-btn{color:var(--red);border-color:var(--red);font-size:10px;padding:3px 8px}
+.rm-btn:hover{background:var(--red);color:#fff}
+.json-sec{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);margin-bottom:16px;overflow:hidden}
+.json-head{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:var(--card);border-bottom:1px solid var(--border)}
+.json-head h2{font-family:var(--px);font-size:10px;letter-spacing:1.5px;color:var(--accent)}
+.json-acts{display:flex;gap:8px}
+.copy-btn,.rst-btn{font-family:var(--px);font-size:8px;letter-spacing:1px;border:1px solid var(--border);border-radius:6px;padding:4px 10px;cursor:pointer;background:none;transition:all .15s;color:var(--muted)}
+.copy-btn:hover{color:var(--green);border-color:var(--green)}
+.rst-btn:hover{color:var(--red);border-color:var(--red)}
+#json-out{width:100%;min-height:280px;background:#07071a;color:#a0d0ff;border:none;padding:16px 18px;font-family:var(--px);font-size:11px;line-height:1.7;resize:vertical;outline:none}
+.copy-fb{font-family:var(--px);font-size:8px;color:var(--green);padding:0 18px 10px;display:none}
+.checker{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden}
+.ck-head{padding:14px 18px;background:var(--card);border-bottom:1px solid var(--border)}
+.ck-head h2{font-family:var(--px);font-size:10px;letter-spacing:1.5px;color:var(--accent);margin-bottom:4px}
+.ck-head p{font-size:12px;color:var(--muted)}
+.ck-body{padding:18px}
+.ck-btn{display:block;width:100%;margin-top:10px;font-family:var(--px);font-size:9px;letter-spacing:1.5px;padding:13px;background:#1a1a40;color:var(--accent);border:1.5px solid var(--accent);border-radius:var(--r);cursor:pointer;transition:background .15s,color .15s}
+.ck-btn:hover{background:var(--accent);color:var(--bg)}
+.ck-btn:disabled{opacity:.4;cursor:default}
+#ck-results{margin-top:18px}
+.res-hero{display:flex;align-items:center;gap:16px;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:16px 18px;margin-bottom:14px}
+.res-emoji{font-size:52px;line-height:1;flex-shrink:0}
+.res-name{font-family:var(--px);font-size:12px;color:var(--text);letter-spacing:1px;margin-bottom:3px}
+.res-meta{font-size:12px;color:var(--muted)}
+.res-meta span{color:var(--text)}
+.pw-wrap{margin-top:10px}
+.pw-label{display:flex;justify-content:space-between;font-family:var(--px);font-size:8px;color:var(--muted);margin-bottom:4px}
+.pw-track{background:#111122;border-radius:4px;height:10px;overflow:hidden;border:1px solid var(--border)}
+.pw-fill{height:100%;border-radius:4px;transition:width .8s cubic-bezier(.22,.61,.36,1)}
+.req-list{display:flex;flex-direction:column;gap:6px}
+.rr{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:var(--rs);border:1.5px solid transparent;font-size:13px}
+.rr.pass{background:#0d2a1a;border-color:#1a5e30}
+.rr.fail{background:#2a0d0d;border-color:#5e1a1a}
+.rr.warn{background:#2a200a;border-color:#5e4a1a}
+.ri{flex-shrink:0;font-size:15px;margin-top:1px}
+.rl{font-weight:600}
+.rl.pass{color:#6ee09a}
+.rl.fail{color:#f87171}
+.rl.warn{color:#fbbf24}
+.rd{font-size:12px;color:var(--muted);margin-top:2px}
+.rt{font-family:var(--px);font-size:8px;letter-spacing:1.5px;color:var(--muted);margin:16px 0 8px}
+.banner{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:var(--r);margin-top:16px;font-family:var(--px);font-size:9px;letter-spacing:1px}
+.banner.ok{background:#0d2a1a;border:1.5px solid var(--green);color:var(--green)}
+.banner.bad{background:#2a0d0d;border:1.5px solid var(--red);color:var(--red)}
+.banner.wrn{background:#2a200a;border:1.5px solid var(--orange);color:var(--orange)}
+.computing{text-align:center;padding:24px;font-family:var(--px);font-size:9px;color:var(--muted);letter-spacing:2px;animation:blink 1s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:.4}50%{opacity:1}}
+.divider{height:1px;background:var(--border);margin:24px 0}
+.bg-emojis{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg-emoji{position:absolute;top:110%;opacity:.04;animation:floatUp linear infinite}
+@keyframes floatUp{to{transform:translateY(-120vh) rotate(15deg)}}
+@media(max-width:520px){.res-hero{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<div class="bg-emojis" id="bgEmojis"></div>
+<div class="page">
+<a href="index.html" class="back">← BACK TO HOME</a>
+<div class="page-head">
+  <span class="icon">🧬</span>
+  <h1>FAKEMON ASSIGNMENT BUILDER</h1>
+  <p>Fill in each section — your JSON builds automatically. Progress is saved in the browser.</p>
+</div>
+
+<!-- SECTION 1: IDENTITY -->
+<div class="section">
+  <div class="section-head" onclick="toggleSec('identity')">
+    <div class="section-num">1</div>
+    <h2>IDENTITY</h2>
+    <div class="sdot" id="dot-identity"></div>
+  </div>
+  <div class="section-body open" id="body-identity">
+    <div class="row2">
+      <div class="field">
+        <label>YOUR LAST NAME (lowercase only)</label>
+        <div class="hint">Your ID will be: yourname_1 — e.g. smith_1</div>
+        <input type="text" id="f-lastname" placeholder="e.g. smith" oninput="save();rebuild()">
+      </div>
+      <div class="field">
+        <label>YOUR FULL NAME (for createdBy field)</label>
+        <input type="text" id="f-createdby" placeholder="e.g. Alex Smith" oninput="save();rebuild()">
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>ANIMAL NAME — must be a real animal, capitalize it</label>
+        <input type="text" id="f-name" placeholder="e.g. Axolotl" oninput="save();rebuild()">
+      </div>
+      <div class="field">
+        <label>EMOJI — one emoji that fits your animal</label>
+        <input type="text" id="f-emoji" placeholder="🦎" maxlength="4" oninput="save();rebuild()">
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label>TYPE</label>
+        <select id="f-type" onchange="save();rebuild()">
+          <option value="">— pick a type —</option>
+          <option>Fire</option><option>Water</option><option>Air</option>
+          <option>Earth</option><option>Electric</option><option>Ice</option>
+          <option>Poison</option><option>Dark</option><option>Ghost</option>
+          <option>Metal</option><option>Nature</option><option>Normal</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>COLOR HEX (for the game UI, e.g. #4a90c4)</label>
+        <input type="text" id="f-color" placeholder="#4a90c4" maxlength="7" oninput="save();rebuild()">
+      </div>
+    </div>
+    <div class="field">
+      <label>DESCRIPTION — one sentence about your animal and what makes it interesting in battle</label>
+      <input type="text" id="f-desc" placeholder="e.g. A pale salamander that regenerates wounds. Its skin secretes a mild toxin." oninput="save();rebuild()">
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: STATS -->
+<div class="section">
+  <div class="section-head" onclick="toggleSec('stats')">
+    <div class="section-num">2</div>
+    <h2>STATS</h2>
+    <div class="sdot" id="dot-stats"></div>
+  </div>
+  <div class="section-body open" id="body-stats">
+    <div class="field">
+      <label>❤️ HP — damage before fainting &nbsp;<span style="color:var(--accent)">REQUIRED: 50–200</span></label>
+      <div class="stat-grp">
+        <input type="range" id="sl-hp" min="50" max="200" value="100" oninput="syncStat('hp');save();rebuild()">
+        <input type="number" id="f-hp" min="50" max="200" value="100" oninput="syncStat('hp');save();rebuild()">
+      </div>
+      <div class="stat-note">Range: 50–200 &nbsp;|&nbsp; Mid-tier target: 90–130</div>
+    </div>
+    <div class="field">
+      <label>⚔️ ATK — multiplier on all your damage &nbsp;<span style="color:var(--muted)">suggested: 80–120</span></label>
+      <div class="stat-grp">
+        <input type="range" id="sl-atk" min="40" max="180" value="100" oninput="syncStat('atk');save();rebuild()">
+        <input type="number" id="f-atk" min="40" max="180" value="100" oninput="syncStat('atk');save();rebuild()">
+      </div>
+      <div class="stat-note">Suggested: 80–120</div>
+    </div>
+    <div class="field">
+      <label>💨 SPEED — tiebreaker when moves are same tier &nbsp;<span style="color:var(--muted)">suggested: 60–120</span></label>
+      <div class="stat-grp">
+        <input type="range" id="sl-speed" min="30" max="150" value="90" oninput="syncStat('speed');save();rebuild()">
+        <input type="number" id="f-speed" min="30" max="150" value="90" oninput="syncStat('speed');save();rebuild()">
+      </div>
+      <div class="stat-note">Suggested: 60–120</div>
+    </div>
+    <div class="field">
+      <label>🛡️ DEFENSE — % of incoming damage blocked &nbsp;<span style="color:var(--muted)">suggested: 0–40</span></label>
+      <div class="stat-grp">
+        <input type="range" id="sl-defense" min="0" max="70" value="10" oninput="syncStat('defense');save();rebuild()">
+        <input type="number" id="f-defense" min="0" max="70" value="10" oninput="syncStat('defense');save();rebuild()">
+      </div>
+      <div class="stat-note">Suggested: 0–40 &nbsp;|&nbsp; 20 = take 80% of incoming damage</div>
+    </div>
+    <div class="field">
+      <label>🎯 ACCURACY — base % chance your moves hit &nbsp;<span style="color:var(--muted)">suggested: 80–95</span></label>
+      <div class="stat-grp">
+        <input type="range" id="sl-accuracy" min="50" max="100" value="90" oninput="syncStat('accuracy');save();rebuild()">
+        <input type="number" id="f-accuracy" min="50" max="100" value="90" oninput="syncStat('accuracy');save();rebuild()">
+      </div>
+      <div class="stat-note">Suggested: 80–95</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: MOVES -->
+<div class="section">
+  <div class="section-head" onclick="toggleSec('moves')">
+    <div class="section-num">3</div>
+    <h2>MOVES (at least 4 required)</h2>
+    <div class="sdot" id="dot-moves"></div>
+  </div>
+  <div class="section-body open" id="body-moves">
+
+    <!-- MOVE 1 -->
+    <div class="move-card">
+      <div class="move-head">MOVE 1 — REQUIRED <span class="move-tag">⚡ fast + low damage (max value ≤ 15)</span></div>
+      <div class="row2">
+        <div class="field"><label>MOVE NAME</label>
+          <input type="text" id="m0-name" placeholder="e.g. Quick Nip" oninput="save();rebuild()"></div>
+        <div class="field"><label>SPEED</label>
+          <select id="m0-speed" onchange="save();rebuild()">
+            <option value="fast" selected>fast ⚡</option>
+            <option value="medium">medium</option>
+            <option value="slow">slow 🐢</option>
+          </select></div>
+      </div>
+      <div class="field">
+        <label>DAMAGE RANGE — both values must be ≤ 15</label>
+        <div class="dmg-row">
+          <input type="number" id="m0-dmglo" min="1" max="15" value="8" oninput="save();rebuild()">
+          <span class="dmg-sep">to</span>
+          <input type="number" id="m0-dmghi" min="1" max="15" value="12" oninput="save();rebuild()">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>STATUS (optional)</label>
+          <select id="m0-status" onchange="toggleChance(0);save();rebuild()">
+            <option value="">none</option>
+            <option value="burn">🔴 burn</option><option value="poison">🟣 poison</option>
+            <option value="paralyze">⚡ paralyze</option><option value="sleep">💤 sleep</option>
+            <option value="confuse">😵 confuse</option>
+          </select></div>
+        <div class="field" id="m0-cw" style="display:none"><label>STATUS CHANCE (0.1–1.0)</label>
+          <input type="number" id="m0-chance" min="0.1" max="1.0" step="0.05" value="0.5" oninput="save();rebuild()"></div>
+      </div>
+      <div class="field"><label>DESCRIPTION</label>
+        <input type="text" id="m0-desc" placeholder="e.g. A quick flick before the enemy can react." oninput="save();rebuild()"></div>
+    </div>
+
+    <!-- MOVE 2 -->
+    <div class="move-card">
+      <div class="move-head">MOVE 2 — REQUIRED <span class="move-tag">🐢 slow + high damage (both values ≥ 25)</span></div>
+      <div class="row2">
+        <div class="field"><label>MOVE NAME</label>
+          <input type="text" id="m1-name" placeholder="e.g. Crushing Bite" oninput="save();rebuild()"></div>
+        <div class="field"><label>SPEED</label>
+          <select id="m1-speed" onchange="save();rebuild()">
+            <option value="fast">fast ⚡</option>
+            <option value="medium">medium</option>
+            <option value="slow" selected>slow 🐢</option>
+          </select></div>
+      </div>
+      <div class="field">
+        <label>DAMAGE RANGE — both values must be ≥ 25</label>
+        <div class="dmg-row">
+          <input type="number" id="m1-dmglo" min="25" max="80" value="28" oninput="save();rebuild()">
+          <span class="dmg-sep">to</span>
+          <input type="number" id="m1-dmghi" min="25" max="80" value="36" oninput="save();rebuild()">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>STATUS (optional)</label>
+          <select id="m1-status" onchange="toggleChance(1);save();rebuild()">
+            <option value="">none</option>
+            <option value="burn">🔴 burn</option><option value="poison">🟣 poison</option>
+            <option value="paralyze">⚡ paralyze</option><option value="sleep">💤 sleep</option>
+            <option value="confuse">😵 confuse</option>
+          </select></div>
+        <div class="field" id="m1-cw" style="display:none"><label>STATUS CHANCE (0.1–1.0)</label>
+          <input type="number" id="m1-chance" min="0.1" max="1.0" step="0.05" value="0.5" oninput="save();rebuild()"></div>
+      </div>
+      <div class="field"><label>DESCRIPTION</label>
+        <input type="text" id="m1-desc" placeholder="e.g. Clamps down with full force. Slow, but devastating." oninput="save();rebuild()"></div>
+    </div>
+
+    <!-- MOVE 3 -->
+    <div class="move-card">
+      <div class="move-head">MOVE 3 — REQUIRED <span class="move-tag">📈 statup or statdwn</span></div>
+      <div class="row2">
+        <div class="field"><label>MOVE NAME</label>
+          <input type="text" id="m2-name" placeholder="e.g. Regenerate" oninput="save();rebuild()"></div>
+        <div class="field"><label>SPEED</label>
+          <select id="m2-speed" onchange="save();rebuild()">
+            <option value="fast">fast ⚡</option>
+            <option value="medium" selected>medium</option>
+            <option value="slow">slow 🐢</option>
+          </select></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>STAT CHANGE DIRECTION</label>
+          <select id="m2-dir" onchange="save();rebuild()">
+            <option value="statup">📈 statup — raise YOUR stat</option>
+            <option value="statdwn">📉 statdwn — lower ENEMY stat</option>
+          </select></div>
+        <div class="field"><label>WHICH STAT (statTarget)</label>
+          <select id="m2-tgt" onchange="save();rebuild()">
+            <option value="atk">⚔️ atk</option>
+            <option value="speed">💨 speed</option>
+            <option value="defense" selected>🛡️ defense</option>
+            <option value="accuracy">🎯 accuracy</option>
+          </select></div>
+      </div>
+      <div class="field"><label>DESCRIPTION</label>
+        <input type="text" id="m2-desc" placeholder="e.g. Rapidly regrows tissue, hardening the outer layer." oninput="save();rebuild()"></div>
+    </div>
+
+    <!-- MOVE 4 -->
+    <div class="move-card">
+      <div class="move-head">MOVE 4 — REQUIRED <span class="move-tag">☠️ inflicts a status condition</span></div>
+      <div class="row2">
+        <div class="field"><label>MOVE NAME</label>
+          <input type="text" id="m3-name" placeholder="e.g. Toxic Spit" oninput="save();rebuild()"></div>
+        <div class="field"><label>SPEED</label>
+          <select id="m3-speed" onchange="save();rebuild()">
+            <option value="fast">fast ⚡</option>
+            <option value="medium" selected>medium</option>
+            <option value="slow">slow 🐢</option>
+          </select></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>STATUS TO INFLICT</label>
+          <select id="m3-status" onchange="save();rebuild()">
+            <option value="poison">🟣 poison — damage every turn</option>
+            <option value="burn">🔴 burn — damage + ATK reduction</option>
+            <option value="paralyze">⚡ paralyze — sometimes can't move</option>
+            <option value="sleep">💤 sleep — skip turns</option>
+            <option value="confuse">😵 confuse — may hurt itself</option>
+          </select></div>
+        <div class="field"><label>STATUS CHANCE (0.5–1.0)</label>
+          <input type="number" id="m3-chance" min="0.5" max="1.0" step="0.05" value="1.0" oninput="save();rebuild()"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>DAMAGE (optional — use 0, 0 for no damage)</label>
+          <div class="dmg-row">
+            <input type="number" id="m3-dmglo" min="0" max="60" value="0" oninput="save();rebuild()">
+            <span class="dmg-sep">to</span>
+            <input type="number" id="m3-dmghi" min="0" max="60" value="0" oninput="save();rebuild()">
+          </div></div>
+        <div class="field"><label>DESCRIPTION</label>
+          <input type="text" id="m3-desc" placeholder="e.g. Spits toxic slime, poisoning on contact." oninput="save();rebuild()"></div>
+      </div>
+    </div>
+
+    <!-- Extra moves -->
+    <div id="extra-moves"></div>
+    <button class="add-btn" onclick="addMove()">+ ADD ANOTHER MOVE (optional)</button>
+  </div>
+</div>
+
+<!-- JSON OUTPUT -->
+<div class="divider"></div>
+<div class="json-sec">
+  <div class="json-head">
+    <h2>📄 YOUR JSON FILE</h2>
+    <div class="json-acts">
+      <button class="copy-btn" onclick="copyJSON()">COPY</button>
+      <button class="rst-btn" onclick="resetAll()">RESET ALL</button>
+    </div>
+  </div>
+  <textarea id="json-out" spellcheck="false" oninput="userEdited=true"></textarea>
+  <div class="copy-fb" id="copy-fb">✓ Copied!</div>
+</div>
+<p style="font-size:12px;color:var(--muted);margin-bottom:24px;padding:0 4px">
+  Updates live as you type. You can also edit it directly.
+  Save as <strong style="color:var(--text)">yourname_1.json</strong> in <code style="color:var(--accent)">fakemon/json/</code>
+</p>
+
+<!-- CHECKER -->
+<div class="checker">
+  <div class="ck-head">
+    <h2>🧪 CHECK &amp; SCORE</h2>
+    <p>Validates every assignment requirement and calculates your power level.</p>
+  </div>
+  <div class="ck-body">
+    <button class="ck-btn" id="ck-btn" onclick="runCheck()">▶ CHECK &amp; SCORE MY FAKEMON</button>
+    <div id="ck-results"></div>
+  </div>
+</div>
+
+</div><!-- /page -->
+<script>
+// BG
+const pool=['🦎','🐠','🐧','🦁','🦋','🐊','🦑','🐙','🦀','🐢','🦜','🐝','🦈','🐸','🦦','🦏'];
+const bg=document.getElementById('bgEmojis');
+for(let i=0;i<16;i++){const e=document.createElement('div');e.className='bg-emoji';e.textContent=pool[Math.floor(Math.random()*pool.length)];e.style.left=Math.random()*100+'vw';e.style.animationDuration=(22+Math.random()*20)+'s';e.style.animationDelay=(-Math.random()*35)+'s';e.style.fontSize=(18+Math.random()*18)+'px';bg.appendChild(e);}
+
+// SECTIONS
+function toggleSec(id){document.getElementById('body-'+id).classList.toggle('open');}
+
+// STAT SYNC
+function syncStat(s){const sl=document.getElementById('sl-'+s),n=document.getElementById('f-'+s);if(document.activeElement===sl)n.value=sl.value;else sl.value=n.value;}
+
+// STATUS CHANCE TOGGLE
+function toggleChance(i){const s=document.getElementById('m'+i+'-status'),w=document.getElementById('m'+i+'-cw');if(w)w.style.display=s&&s.value?'block':'none';}
+
+// EXTRA MOVES
+let extraCount=0;
+let userEdited=false;
+
+function addMove(){
+  const i=4+extraCount++;
+  const d=document.createElement('div');
+  d.className='move-card optional';
+  d.id='mc-'+i;
+  d.innerHTML=`<div class="move-head">MOVE ${i+1} — OPTIONAL <button class="rm-btn" onclick="removeMove(${i})">REMOVE</button></div>
+  <div class="row2">
+    <div class="field"><label>MOVE NAME</label><input type="text" id="m${i}-name" placeholder="Move name" oninput="save();rebuild()"></div>
+    <div class="field"><label>SPEED</label><select id="m${i}-speed" onchange="save();rebuild()">
+      <option value="fast">fast ⚡</option><option value="medium" selected>medium</option><option value="slow">slow 🐢</option>
+    </select></div>
+  </div>
+  <div class="field"><label>DAMAGE RANGE (0, 0 for no damage)</label>
+    <div class="dmg-row">
+      <input type="number" id="m${i}-dmglo" min="0" max="100" value="0" oninput="save();rebuild()">
+      <span class="dmg-sep">to</span>
+      <input type="number" id="m${i}-dmghi" min="0" max="100" value="0" oninput="save();rebuild()">
+    </div></div>
+  <div class="row2">
+    <div class="field"><label>STATUS (optional)</label>
+      <select id="m${i}-status" onchange="toggleExtraStatFields(${i});save();rebuild()">
+        <option value="">none</option>
+        <option value="burn">🔴 burn</option><option value="poison">🟣 poison</option>
+        <option value="paralyze">⚡ paralyze</option><option value="sleep">💤 sleep</option>
+        <option value="confuse">😵 confuse</option>
+        <option value="statup">📈 statup</option><option value="statdwn">📉 statdwn</option>
+      </select></div>
+    <div class="field" id="m${i}-cw" style="display:none"><label>STATUS CHANCE (0.1–1.0)</label>
+      <input type="number" id="m${i}-chance" min="0.1" max="1.0" step="0.05" value="1.0" oninput="save();rebuild()"></div>
+  </div>
+  <div class="row2">
+    <div class="field" id="m${i}-tw" style="display:none"><label>STAT TARGET</label>
+      <select id="m${i}-tgt" onchange="save();rebuild()">
+        <option value="atk">⚔️ atk</option><option value="speed">💨 speed</option>
+        <option value="defense">🛡️ defense</option><option value="accuracy">🎯 accuracy</option>
+      </select></div>
+    <div class="field"><label>DESCRIPTION</label>
+      <input type="text" id="m${i}-desc" placeholder="What does this move do?" oninput="save();rebuild()"></div>
+  </div>`;
+  document.getElementById('extra-moves').appendChild(d);
+  save();rebuild();
+}
+
+function toggleExtraStatFields(i){
+  const v=document.getElementById('m'+i+'-status')?.value||'';
+  const cw=document.getElementById('m'+i+'-cw');
+  const tw=document.getElementById('m'+i+'-tw');
+  if(cw)cw.style.display=v?'block':'none';
+  if(tw)tw.style.display=(v==='statup'||v==='statdwn')?'block':'none';
+}
+
+function removeMove(i){const el=document.getElementById('mc-'+i);if(el)el.remove();save();rebuild();}
+
+// BUILD JSON
+function gv(id){const e=document.getElementById(id);return e?e.value.trim():'';}
+function gn(id,fb){const v=parseFloat(document.getElementById(id)?.value);return isNaN(v)?fb:v;}
+
+function buildMove(i){
+  const name=gv('m'+i+'-name');
+  if(!name)return null;
+  const speed=gv('m'+i+'-speed')||'medium';
+  const lo=parseInt(document.getElementById('m'+i+'-dmglo')?.value)||0;
+  const hi=parseInt(document.getElementById('m'+i+'-dmghi')?.value)||0;
+  const desc=gv('m'+i+'-desc')||undefined;
+  const ln=(gv('f-lastname')||'move').toLowerCase().replace(/[^a-z0-9]/g,'');
+  const id=ln+'_m'+(i+1);
+
+  let status=null,chance=0,statTarget=undefined;
+
+  if(i===2){
+    // required stat move
+    status=gv('m2-dir')||'statup';
+    chance=1.0;
+    statTarget=gv('m2-tgt')||'atk';
+  } else {
+    const s=gv('m'+i+'-status')||null;
+    status=s;
+    chance=s?(parseFloat(document.getElementById('m'+i+'-chance')?.value)||1.0):0;
+    if(s==='statup'||s==='statdwn'){
+      statTarget=gv('m'+i+'-tgt')||'atk';
+    }
+  }
+
+  const m={id,name,speed,damage:[lo,hi],status:status||null,statusChance:chance};
+  if(desc)m.desc=desc;
+  if(statTarget)m.statTarget=statTarget;
+  return m;
+}
+
+function buildFakemon(){
+  const ln=(gv('f-lastname')||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  const obj={};
+  if(ln)obj.id=ln+'_1';
+  const name=gv('f-name');if(name)obj.name=name;
+  const cb=gv('f-createdby');if(cb)obj.createdBy=cb;
+  const em=gv('f-emoji');if(em)obj.emoji=em;
+  const tp=gv('f-type');if(tp)obj.type=tp;
+  obj.hp=gn('f-hp',100);
+  obj.atk=gn('f-atk',100);
+  obj.speed=gn('f-speed',90);
+  obj.defense=gn('f-defense',10);
+  obj.accuracy=gn('f-accuracy',90);
+  const col=gv('f-color');if(col)obj.color=col;
+  const desc=gv('f-desc');if(desc)obj.description=desc;
+  const moves=[];
+  for(let i=0;i<4;i++){const m=buildMove(i);if(m)moves.push(m);}
+  document.querySelectorAll('[id^="mc-"]').forEach(card=>{
+    const i=parseInt(card.id.replace('mc-',''));
+    if(i>=4){const m=buildMove(i);if(m)moves.push(m);}
+  });
+  obj.moves=moves;
+  return obj;
+}
+
+function rebuild(){
+  if(userEdited)return;
+  document.getElementById('json-out').value=JSON.stringify(buildFakemon(),null,2);
+  updateDots();
+}
+
+function updateDots(){
+  const s1=gv('f-lastname')&&gv('f-name')&&gv('f-type')&&gv('f-createdby');
+  document.getElementById('dot-identity').classList.toggle('ok',!!s1);
+  const hp=gn('f-hp',0);
+  document.getElementById('dot-stats').classList.toggle('ok',hp>=50&&hp<=200);
+  const s3=[0,1,2,3].every(i=>gv('m'+i+'-name'));
+  document.getElementById('dot-moves').classList.toggle('ok',!!s3);
+}
+
+// COPY
+function copyJSON(){
+  const ta=document.getElementById('json-out');
+  ta.select();
+  try{navigator.clipboard.writeText(ta.value).catch(()=>document.execCommand('copy'));}
+  catch{document.execCommand('copy');}
+  const fb=document.getElementById('copy-fb');
+  fb.style.display='block';
+  setTimeout(()=>{fb.style.display='none';},2000);
+}
+
+// SAVE / RESTORE
+const KEY='fakemon_builder_v2';
+const FIELDS=['f-lastname','f-createdby','f-name','f-emoji','f-type','f-color','f-desc',
+  'f-hp','f-atk','f-speed','f-defense','f-accuracy',
+  'm0-name','m0-speed','m0-dmglo','m0-dmghi','m0-status','m0-chance','m0-desc',
+  'm1-name','m1-speed','m1-dmglo','m1-dmghi','m1-status','m1-chance','m1-desc',
+  'm2-name','m2-speed','m2-dir','m2-tgt','m2-desc',
+  'm3-name','m3-speed','m3-status','m3-chance','m3-dmglo','m3-dmghi','m3-desc'];
+
+function save(){
+  const d={_ec:extraCount};
+  FIELDS.forEach(id=>{const e=document.getElementById(id);if(e)d[id]=e.value;});
+  for(let i=4;i<4+extraCount;i++){
+    ['name','speed','dmglo','dmghi','status','chance','desc','tgt'].forEach(f=>{
+      const e=document.getElementById('m'+i+'-'+f);if(e)d['m'+i+'-'+f]=e.value;
+    });
+  }
+  try{localStorage.setItem(KEY,JSON.stringify(d));}catch{}
+}
+
+function restoreFields(){
+  let d;try{d=JSON.parse(localStorage.getItem(KEY)||'null');}catch{}
+  if(!d)return;
+  const ec=parseInt(d._ec)||0;
+  for(let i=0;i<ec;i++)addMove();
+  Object.entries(d).forEach(([id,val])=>{
+    if(id==='_ec')return;
+    const e=document.getElementById(id);if(e)e.value=val;
+  });
+  ['hp','atk','speed','defense','accuracy'].forEach(s=>{
+    const n=document.getElementById('f-'+s),sl=document.getElementById('sl-'+s);
+    if(n&&sl)sl.value=n.value;
+  });
+  [0,1].forEach(toggleChance);
+  for(let i=4;i<4+ec;i++)toggleExtraStatFields(i);
+}
+
+function resetAll(){
+  if(!confirm('Clear everything and start over?'))return;
+  try{localStorage.removeItem(KEY);}catch{}
+  location.reload();
+}
+
+// CHECKER
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function rr(s,label,detail){
+  const icons={pass:'✓',fail:'✗',warn:'⚠'};
+  return `<div class="rr ${s}"><span class="ri">${icons[s]||'ℹ'}</span><div><div class="rl ${s}">${esc(label)}</div>${detail?`<div class="rd">${esc(detail)}</div>`:''}</div></div>`;
+}
+
+async function runCheck(){
+  const raw=document.getElementById('json-out').value.trim();
+  const res=document.getElementById('ck-results');
+  const btn=document.getElementById('ck-btn');
+  if(!raw){res.innerHTML=rr('warn','Nothing to check','Fill in the form above first.');return;}
+
+  let data;
+  try{data=JSON.parse(raw);}
+  catch(e){
+    let ctx='';
+    const m=e.message.match(/position (\d+)/);
+    if(m){const pos=parseInt(m[1]);
+      const b=esc(raw.substring(Math.max(0,pos-40),pos));
+      const a=esc(raw.substring(pos,pos+1)||'(end)');
+      const af=esc(raw.substring(pos+1,Math.min(raw.length,pos+40)));
+      ctx=`<div style="margin-top:8px;background:#07071a;border-radius:6px;padding:10px;font-family:'Space Mono',monospace;font-size:11px;line-height:1.7;"><span style="color:#404070">${b}</span><span style="background:#5a0000;color:#ff9090;padding:0 2px;border-radius:2px;">${a}</span><span style="color:#404070">${af}</span></div><div style="margin-top:6px;font-size:12px;color:#c09020;">💡 Missing comma, extra comma, unclosed bracket, or missing quote.</div>`;}
+    res.innerHTML=`<div class="rr fail" style="flex-direction:column;align-items:flex-start;"><div style="display:flex;gap:8px"><span class="ri">✗</span><div class="rl fail">JSON Syntax Error</div></div><div class="rd">${esc(e.message)}</div>${ctx}</div>`;
+    return;
+  }
+
+  res.innerHTML='<div class="computing">⚙ RUNNING CHECKS AND SIMULATING BATTLES…</div>';
+  btn.disabled=true;
+  await new Promise(r=>setTimeout(r,30));
+
+  const{errors:se,warnings:sw,valid}=FakemonScorer.validateFakemon(data);
+  let power=null;
+  if(valid)power=FakemonScorer.calcPowerLevel(data);
+  btn.disabled=false;
+
+  const checks=[];
+  if(se.length===0)checks.push({s:'pass',label:'JSON structure is valid',detail:null});
+  else se.forEach(e=>checks.push({s:'fail',label:'Validation error',detail:e}));
+  sw.forEach(w=>checks.push({s:'warn',label:'Warning',detail:w}));
+
+  const id=data.id||'';
+  if(!id)checks.push({s:'fail',label:'Missing "id" field',detail:'Fill in your last name in Section 1.'});
+  else if(/^[a-z][a-z0-9]*_1$/.test(id))checks.push({s:'pass',label:`ID format correct: "${id}"`,detail:null});
+  else checks.push({s:'fail',label:`ID format wrong: "${id}"`,detail:'Must be lastname_1 — all lowercase letters/numbers, underscore, then 1. Example: "smith_1"'});
+
+  const hp=data.hp;
+  if(hp===undefined)checks.push({s:'fail',label:'Missing "hp"',detail:null});
+  else if(hp>=50&&hp<=200)checks.push({s:'pass',label:`HP = ${hp} ✓ (50–200)`,detail:null});
+  else checks.push({s:'fail',label:`HP = ${hp} out of range`,detail:'Must be 50–200.'});
+
+  [['atk',data.atk??data.power,80,120],['speed',data.speed,60,120],['defense',data.defense,0,40],['accuracy',data.accuracy,80,95]].forEach(([k,v,lo,hi])=>{
+    if(v===undefined)checks.push({s:'warn',label:`Missing "${k}"`,detail:`Will use default. Suggested: ${lo}–${hi}.`});
+    else if(v>=lo&&v<=hi)checks.push({s:'pass',label:`${k} = ${v} ✓ (${lo}–${hi})`,detail:null});
+    else checks.push({s:'warn',label:`${k} = ${v} — outside suggested range ${lo}–${hi}`,detail:'Not a hard error, but may make your fakemon too strong or too weak.'});
+  });
+
+  const moves=Array.isArray(data.moves)?data.moves:[];
+  function gst(m){if(Array.isArray(m.statuses)&&m.statuses.length)return m.statuses;if(m.status)return[{status:m.status,statusChance:m.statusChance??1.0}];return[];}
+  const STAT_S=['statup','statdwn'];
+  const PRIM_S=['burn','paralyze','poison','sleep','confuse'];
+
+  const fw=moves.find(m=>m.speed==='fast'&&Array.isArray(m.damage)&&m.damage[1]>0&&m.damage[1]<=15);
+  if(fw)checks.push({s:'pass',label:`Fast+weak move: "${fw.name||fw.id}"`,detail:`damage [${fw.damage[0]}, ${fw.damage[1]}]`});
+  else{const fb=moves.find(m=>m.speed==='fast'&&Array.isArray(m.damage)&&m.damage[1]>15);
+    if(fb)checks.push({s:'fail',label:`Fast move "${fb.name||fb.id}" damage too high`,detail:`Max = ${fb.damage[1]}, needs to be ≤ 15.`});
+    else checks.push({s:'fail',label:'No fast+weak move found',detail:'Need a fast move with max damage ≤ 15.'});}
+
+  const ss=moves.find(m=>m.speed==='slow'&&Array.isArray(m.damage)&&m.damage[0]>=25&&m.damage[1]>=25);
+  if(ss)checks.push({s:'pass',label:`Slow+strong move: "${ss.name||ss.id}"`,detail:`damage [${ss.damage[0]}, ${ss.damage[1]}]`});
+  else{const sb=moves.find(m=>m.speed==='slow'&&Array.isArray(m.damage)&&m.damage[1]>0);
+    if(sb)checks.push({s:'fail',label:`Slow move "${sb.name||sb.id}" damage too low`,detail:`Both values must be ≥ 25. Got [${sb.damage[0]}, ${sb.damage[1]}].`});
+    else checks.push({s:'fail',label:'No slow+strong move found',detail:'Need a slow move with both damage values ≥ 25.'});}
+
+  const stm=moves.find(m=>gst(m).some(se=>STAT_S.includes(se.status)));
+  if(stm){const se=gst(stm).find(se=>STAT_S.includes(se.status));const ht=stm.statTarget||se.statTarget;
+    if(ht)checks.push({s:'pass',label:`Stat change move: "${stm.name||stm.id}"`,detail:`${se.status} → ${ht}`});
+    else checks.push({s:'fail',label:`Stat move "${stm.name||stm.id}" missing statTarget`,detail:'Add "statTarget": "atk" (or speed, defense, accuracy).'});}
+  else checks.push({s:'fail',label:'No stat change move found',detail:'Need a move with status "statup" or "statdwn" and a statTarget.'});
+
+  const stcm=moves.find(m=>gst(m).some(se=>PRIM_S.includes(se.status)&&(se.statusChance??1)>=0.5));
+  if(stcm){const se=gst(stcm).find(se=>PRIM_S.includes(se.status));
+    checks.push({s:'pass',label:`Status move: "${stcm.name||stcm.id}"`,detail:`inflicts ${se.status} (${Math.round((se.statusChance??1)*100)}% chance)`});}
+  else{const lc=moves.find(m=>gst(m).some(se=>PRIM_S.includes(se.status)));
+    if(lc)checks.push({s:'fail',label:'Status move chance too low',detail:'statusChance must be ≥ 0.5.'});
+    else checks.push({s:'fail',label:'No status condition move found',detail:'Need a move inflicting burn/paralyze/poison/sleep/confuse with statusChance ≥ 0.5.'});}
+
+  if(moves.length>=4)checks.push({s:'pass',label:`Move count: ${moves.length} ✓`,detail:moves.length>4?`${moves.length-4} bonus move(s)`:null});
+  else checks.push({s:'fail',label:`Only ${moves.length} move(s) — need 4`,detail:'Add more moves in Section 3.'});
+
+  if(data.createdBy?.trim())checks.push({s:'pass',label:`createdBy: "${data.createdBy}"`,detail:null});
+  else checks.push({s:'warn',label:'Missing "createdBy"',detail:'Fill in your full name in Section 1.'});
+
+  let pwHtml='';
+  if(power!==null){
+    const pc=power>=350&&power<=700?'#22c55e':'#f97316';
+    const tier=power>=750?'🔥 Very Strong':power>=550?'⚡ Above Average':power>=350?'⚖️ Balanced (target zone!)':power>=200?'🌿 Below Average':'🐣 Very Weak';
+    const ps=(power>=300&&power<=700)?'pass':'warn';
+    checks.push({s:ps,label:`Power Level: ${power} / 1000 — ${tier}`,detail:'Target for mid-tier: roughly 300–700.'});
+    pwHtml=`<div class="pw-wrap"><div class="pw-label"><span>POWER LEVEL</span><span style="color:${pc}">${power} / 1000</span></div><div class="pw-track"><div class="pw-fill" style="width:${Math.min(100,power/10)}%;background:${pc};"></div></div></div>`;
+  }
+
+  const fails=checks.filter(c=>c.s==='fail').length;
+  const warns=checks.filter(c=>c.s==='warn').length;
+
+  const hero=`<div class="res-hero"><div class="res-emoji">${data.emoji||'❓'}</div><div style="flex:1;min-width:0">
+    <div class="res-name">${esc(data.name||'(no name)')} <span style="font-size:11px;color:var(--muted);font-family:var(--body)">${esc(data.type||'?')} type</span></div>
+    <div class="res-meta">id: <span>${esc(data.id||'?')}</span> &nbsp;·&nbsp; by <span>${esc(data.createdBy||'?')}</span></div>
+    ${data.description?`<div style="font-size:12px;color:var(--muted);margin-top:4px;font-style:italic;">"${esc(data.description)}"</div>`:''}
+    ${pwHtml}</div></div>`;
+
+  const banner=fails>0
+    ?`<div class="banner bad"><span style="font-size:22px">✗</span><div><div>${fails} REQUIREMENT${fails>1?'S':''} NOT MET</div><div style="font-size:10px;opacity:.7;margin-top:2px">Fix the red errors before submitting</div></div></div>`
+    :warns>0
+    ?`<div class="banner wrn"><span style="font-size:22px">⚠</span><div><div>PASSES WITH ${warns} WARNING${warns>1?'S':''}</div><div style="font-size:10px;opacity:.7;margin-top:2px">Review warnings before submitting</div></div></div>`
+    :`<div class="banner ok"><span style="font-size:22px">✓</span><div><div>ALL REQUIREMENTS PASSED!</div><div style="font-size:10px;opacity:.7;margin-top:2px">Add to fakemonlist.json and submit your pull request</div></div></div>`;
+
+  res.innerHTML=hero+'<div class="rt">REQUIREMENT CHECKS</div><div class="req-list">'+checks.map(c=>rr(c.s,c.label,c.detail)).join('')+'</div>'+banner;
+}
+
+// INIT
+restoreFields();
+rebuild();
+</script>
+</body>
+</html>

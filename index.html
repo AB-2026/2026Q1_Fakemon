@@ -111,17 +111,13 @@ body::before {
 /* cards — now 3 in a row */
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 14px;
   width: 100%;
 }
 
 @media (max-width: 520px) {
   .cards { grid-template-columns: 1fr; }
-}
-@media (min-width: 521px) and (max-width: 700px) {
-  .cards { grid-template-columns: 1fr 1fr; }
-  .card-dex { grid-column: 1 / -1; max-width: 220px; margin: 0 auto; }
 }
 
 .card {
@@ -152,12 +148,14 @@ body::before {
 .card-battle::before { background: radial-gradient(ellipse at 50% 0%, rgba(232,82,58,0.12) 0%, transparent 70%); }
 .card-guide::before  { background: radial-gradient(ellipse at 50% 0%, rgba(47,134,222,0.12) 0%, transparent 70%); }
 .card-dex::before    { background: radial-gradient(ellipse at 50% 0%, rgba(86,200,122,0.12) 0%, transparent 70%); }
+.card-assign::before { background: radial-gradient(ellipse at 50% 0%, rgba(245,200,72,0.12) 0%, transparent 70%); }
 
 .card:hover { transform: translateY(-5px); }
 .card:hover::before { opacity: 1; }
 .card-battle:hover { border-color: #e8523a; box-shadow: 0 8px 32px rgba(232,82,58,0.2); }
 .card-guide:hover  { border-color: #2e86de; box-shadow: 0 8px 32px rgba(46,134,222,0.2); }
 .card-dex:hover    { border-color: #56c87a; box-shadow: 0 8px 32px rgba(86,200,122,0.2); }
+.card-assign:hover { border-color: #f5c842; box-shadow: 0 8px 32px rgba(245,200,72,0.2); }
 
 .card:active { transform: translateY(-2px); }
 
@@ -177,6 +175,7 @@ body::before {
 .card-battle .card-label { color: #f08060; }
 .card-guide  .card-label { color: #60a0f0; }
 .card-dex    .card-label { color: #56c87a; }
+.card-assign .card-label { color: #f5c842; }
 
 .card-desc {
   font-size: 12px;
@@ -196,6 +195,7 @@ body::before {
 .card-battle .card-arrow { color: #f08060; }
 .card-guide  .card-arrow { color: #60a0f0; }
 .card-dex    .card-arrow { color: #56c87a; }
+.card-assign .card-arrow { color: #f5c842; }
 
 /* footer */
 .footer {
@@ -233,6 +233,12 @@ body::before {
       <div class="card-icon">🗂️</div>
       <div class="card-label">FAKEDEX</div>
       <p class="card-desc">Browse all Fakemon — see their stats, moves, and who made them.</p>
+      <div class="card-arrow">→</div>
+    </a>
+    <a href="assignment.html" class="card card-assign">
+      <div class="card-icon">📋</div>
+      <div class="card-label">ASSIGNMENT</div>
+      <p class="card-desc">Work through the yourname_1 checklist and check your JSON before submitting.</p>
       <div class="card-arrow">→</div>
     </a>
   </div>
