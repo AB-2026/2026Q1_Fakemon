@@ -1,4 +1,4 @@
-y#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 merge_pr.py — merge a student PR into main
 Usage: python merge_pr.py <PR_NUMBER>
