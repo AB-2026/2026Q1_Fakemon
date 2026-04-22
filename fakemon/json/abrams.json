@@ -64,29 +64,28 @@
     },
     {
       "id": "drone",
-      "name": "anesthesia",
-      "desc": "injects opponent with anesthetic, causing them to sleep.",
+      "name": "drone strike",
+      "desc": "buzzing sound from the propellers, then a boom. enemies gone.",
       "speed": "medium",
       "damage": [
-        10,
-        10
-      ],
-      "status": "sleep",
-      "statusChance": 1.0
+        100,
+        160
+      ]
+     
     },
 
     {
-      "id": "hapy :D",
-      "name": "true joy and whimsy ",
-      "desc": "the... *minor* brain damage makes them forget bad things for a moment, and he shows true joy and whimsy. demoralizes opponent.",
-      "speed": "fast",
+      "id": "repair",
+      "name": "emergency repairs",
+      "desc": "repair your tank incase of emergency. takes a bit, as tanks are complicated",
+      "speed": "slow",
       "damage": [
-        3,
-        3
+        -60,
+        -60
       ],
-      "status": "statdwn",
+      "status": "statup",
       "statusChance": 1.0,
-      "statTarget":"atk"
+      "statTarget":"defense"
     }
   ]
 }
