@@ -1,0 +1,74 @@
+{
+  "id": "the_pope",
+  "name": "Popemon",
+  "createdBy": "Johann Smit",
+  "emoji": "⛪",
+  "type": "Normal",
+  "description": "A powerful creature that lives in a small country it owns entirely by itself. Wears a hat so tall it has its own weather system. Gets carried around on a golden chair by eight men because walking is for the common people. Has 1.4 billion followers which is more than any social media influencer has ever achieved. Releases a new version every few years when the previous one retires to a monastery to play chess and read. The new version wears the same outfit. The hat is non-negotiable.",
+  "hp":       110,
+  "power":    70,
+  "speed":    18,
+  "defense":  95,
+  "accuracy": 88,
+  "moves": [
+    {
+      "id":           "pope_move1_holy_decree",
+      "name":         "📜 Holy Decree",
+      "desc":         "Releases an official statement in Latin that nobody fully understands but everyone nods along to. Deals confusion damage as the opponent tries to determine if they just got blessed or cursed.",
+      "speed":        "slow",
+      "damage": [20, 32],
+      "status":       "confuse",
+      "statusChance": 0.7
+    },
+    {
+      "id":           "pope_move2_papal_hat",
+      "name":         "🎩 Papal Hat Drop",
+      "desc":         "Drops the Mitre directly onto the opponent. It is extremely tall. It is surprisingly heavy. Nobody expected this. Defense sharply lowers as they are buried under 800 years of Catholic infrastructure.",
+      "speed":        "medium",
+      "damage": [22, 35],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "defense"
+    },
+    {
+      "id":           "pope_move3_popemobile",
+      "name":         "🚗 Popemobile",
+      "desc":         "Retreats into the Popemobile, a vehicle with bulletproof glass on all sides designed exclusively to transport one specific person slowly through crowds. Restores 25 HP while completely untouchable inside the vehicle.",
+      "speed":        "slow",
+      "damage": [-25, -25],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "pope_move4_ex_cathedra",
+      "name":         "⚡ Ex Cathedra",
+      "desc":         "Speaks Ex Cathedra, meaning whatever Popemon says is now officially infallible and cannot be argued with. ATK sharply rises because the opponent just lost the right to disagree.",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "pope_move5_encyclical",
+      "name":         "📖 Encyclical Letter",
+      "desc":         "Publishes a 200-page official letter addressing the opponent's behavior. The opponent's speed drops sharply as they are legally and spiritually obligated to read the whole thing before responding.",
+      "speed":        "medium",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":           "pope_move6_excommunication",
+      "name":         "☠️ Excommunication",
+      "desc":         "Formally excommunicates the opponent from the battle. They are still physically present but spiritually they are no longer participating. Poisons them with existential exclusion AND confuses them because they aren't sure if this is legally binding.",
+      "speed":        "slow",
+      "damage": [18, 28],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.75 },
+        { "status": "confuse", "statusChance": 0.8 }
+      ]
+    }
+  ]
+}

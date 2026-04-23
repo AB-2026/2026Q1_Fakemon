@@ -1,0 +1,74 @@
+{
+  "id":          "jschlatt",
+  "name":        "Jschlattmon",
+  "createdBy":   "Johann Smit",
+  "emoji":       "🐏",
+  "type":        "Dark",
+  "description": "A ram-horned creature that became inexplicably famous on the internet and has spent every day since making that everyone else's problem. Drinks exactly one too many energy drinks before every appearance. Has a voice like a 1940s radio announcer who gave up on being professional halfway through the broadcast. Once ran a fictional country and committed war crimes in a Minecraft server which is somehow one of the most legendary things that has ever happened online. Was cancelled. Came back. Was cancelled again. Came back again. The horns grew back stronger each time.",
+  "hp":       95,
+  "power":    88,
+  "speed":    77,
+  "defense":  60,
+  "accuracy": 82,
+  "moves": [
+    {
+      "id":           "schlatt_move1_manburg",
+      "name":         "🏛️ Declaring Independence",
+      "desc":         "Unilaterally declares the battlefield its own sovereign nation, exiles the opponent from it, and then wins by default because the opponent is no longer legally present. Deals massive damage through pure political maneuver.",
+      "speed":        "fast",
+      "damage": [28, 42],
+      "status":       "confuse",
+      "statusChance": 0.75
+    },
+    {
+      "id":           "schlatt_move2_energy_drink",
+      "name":         "🥤 One Too Many",
+      "desc":         "Consumes an inadvisable quantity of energy drinks before the move resolves. ATK sharply rises. The heart rate is not being monitored. Nobody is monitoring the heart rate.",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "schlatt_move3_radio_voice",
+      "name":         "🎙️ Radio Voice",
+      "desc":         "Speaks directly into the opponent's soul in a baritone that has no business being that smooth. The opponent's defense crumbles because they are deeply unsettled by how compelling this is.",
+      "speed":        "medium",
+      "damage": [16, 26],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "defense"
+    },
+    {
+      "id":           "schlatt_move4_comeback_arc",
+      "name":         "🔄 Comeback Arc",
+      "desc":         "Gets knocked to 1 HP, disappears for three months, and returns with a full rebrand and 500,000 new followers. Restores 25 HP. The horns are bigger now. They are always bigger now.",
+      "speed":        "slow",
+      "damage": [-25, -25],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "schlatt_move5_lmanburg_nuke",
+      "name":         "💣 Executive Order",
+      "desc":         "Issues an executive order to blow up something important for no strategic reason other than if it can't have it nobody can. Sharply lowers the opponent's speed as they stand in the crater wondering what just happened.",
+      "speed":        "medium",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":           "schlatt_move6_tales_from_schlatt",
+      "name":         "🐏 The Bit Goes Too Far",
+      "desc":         "Starts what appears to be a joke. The joke escalates. It is no longer a joke. The opponent is poisoned by the escalation AND confused because Jschlattmon is also laughing and that somehow makes it worse.",
+      "speed":        "slow",
+      "damage": [18, 30],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.65 },
+        { "status": "confuse", "statusChance": 0.8 }
+      ]
+    }
+  ]
+}

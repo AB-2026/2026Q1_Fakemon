@@ -1,0 +1,89 @@
+{
+  "id": "eurasianbear",
+  "name": "Eurasian brown bear",
+  "createdBy": "Ethan Luong",
+  "emoji": "🐻",
+  "type": "Nature",
+  "hp": 150,
+  "atk": 120,
+  "speed": 67,
+  "defense": 12,
+  "accuracy": 95,
+  "color": "#000000",
+  "description": "Born in Russia Raised by Russia Lives for Russia",
+  "moves": [
+    {
+      "id": "luong_m1",
+      "name": "Пьяный свайп",
+      "speed": "fast",
+      "damage": [
+        8,
+        12
+      ],
+      "status": null,
+      "statusChance": 0,
+      "desc": "Quickly swipes while completely sober definitely under no influence"
+    },
+    {
+      "id": "luong_m2",
+      "name": "500 галлонов водки",
+      "speed": "slow",
+      "damage": [
+        28,
+        28
+      ],
+      "status": "sleep",
+      "statusChance": 0.8,
+      "desc": "Makes the opponent drink 500 gallons of clear liquid that is in no way intoxicating"
+    },
+    {
+      "id": "luong_m3",
+      "name": "Российский сброс груза, полный пива",
+      "speed": "medium",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "desc": "Supply drop from someone",
+      "statTarget": "atk"
+    },
+    {
+      "id": "luong_m4",
+      "name": "Молотов",
+      "speed": "medium",
+      "damage": [
+        5,
+        5
+      ],
+      "status": "burn",
+      "statusChance": 1,
+      "desc": "How does a bear create fire?"
+    },
+    {
+      "id": "luong_m5",
+      "name": "Отказ печени",
+      "speed": "medium",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "poison",
+      "statusChance": 1,
+      "desc": "Poisons the enemy"
+    },
+    {
+      "id": "luong_m6",
+      "name": "Перерыв на водку",
+      "speed": "slow",
+      "damage": [
+        -20,
+        -30
+      ],
+      "status": null,
+      "statusChance": 0,
+      "desc": "Takes a break"
+    }
+  ]
+}

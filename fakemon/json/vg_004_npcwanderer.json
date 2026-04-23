@@ -1,0 +1,98 @@
+{
+    "id": "vg_004_npcwanderer",
+    "name": "Glitchard",
+    "createdBy": "Johann Smit",
+    "emoji": "🚶",
+    "type": "Ghost",
+    "description": "An NPC that broke free from its patrol route in 2008 and has been walking into walls ever since. Its face is T-posing. Its legs move but it goes nowhere. It clipped through the floor of three open world games and survived each time. Developers patched it out in version 1.0.3 but it came back. It always comes back. It has one line of dialogue: 'Have you heard about the war?' It says this regardless of context. It said it at a wedding. It said it at a funeral. Both times were somehow appropriate.",
+    "hp": 82,
+    "power": 70,
+    "speed": 45,
+    "defense": 38,
+    "accuracy": 55,
+    "moves": [
+      {
+        "id": "vg_004_move1_tpose",
+        "name": "🧍 T-Pose",
+        "desc": "Assumes the ancient T-Pose, asserting dominance over all polygons. The opponent's defense crumbles as reality's geometry briefly submits to Glitchard's authority.",
+        "speed": "fast",
+        "damage": [
+          12,
+          20
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "defense"
+      },
+      {
+        "id": "vg_004_move2_war_dialogue",
+        "name": "⚔️ Have You Heard About The War",
+        "desc": "Asks if the opponent has heard about the war. They have not asked. This is not the time. Confuses the opponent as they try to determine what war, which war, any war.",
+        "speed": "medium",
+        "damage": [
+          14,
+          22
+        ],
+        "status": "confuse",
+        "statusChance": 0.7
+      },
+      {
+        "id": "vg_004_move3_wall_phase",
+        "name": "🧱 Walk Into Wall",
+        "desc": "Walks directly into a wall and phases halfway through it, becoming briefly invincible. Restores 25 HP inside the wall where hitboxes cannot reach.",
+        "speed": "slow",
+        "damage": [
+          -25,
+          -25
+        ],
+        "status": null,
+        "statusChance": 0
+      },
+      {
+        "id": "vg_004_move4_aggro_glitch",
+        "name": "😡 Broken Aggro",
+        "desc": "Locks onto the opponent from 400 meters away through solid stone walls for no reason. ATK sharply rises as Glitchard's broken aggro system becomes an asset.",
+        "speed": "fast",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statup",
+        "statusChance": 1,
+        "statTarget": "atk"
+      },
+      {
+        "id": "vg_004_move5_patrol_loop",
+        "name": "🔄 Patrol Route",
+        "desc": "Walks the same 12-foot patrol loop indefinitely. Sharply lowers opponent's speed as they wait for a gap in the pattern that keeps resetting.",
+        "speed": "medium",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "speed"
+      },
+      {
+        "id": "vg_004_move6_unpatched",
+        "name": "🐛 Unpatched Bug",
+        "desc": "Exploits an unpatched bug in the battle engine to deal extra damage. The developers know about it. The fix is in the next update. The next update is never.",
+        "speed": "slow",
+        "damage": [
+          18,
+          30
+        ],
+        "statuses": [
+          {
+            "status": "poison",
+            "statusChance": 0.6
+          },
+          {
+            "status": "confuse",
+            "statusChance": 0.7
+          }
+        ]
+      }
+    ]
+  }

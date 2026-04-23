@@ -1,0 +1,75 @@
+{
+  "id":          "nintendo",
+  "name":        "Nintendo",
+  "createdBy":   "Johann Smit",
+  "emoji":       "🎮",
+  "type":        "Normal",
+  "description": "A being that has existed since 1889, originally selling playing cards before evolving into its final form: a corporation that prints money by making you buy the same Zelda game for the fifth time. It sues anyone who looks at it funny, region-locks its soul, and charges $80 for a game that came out in 2017. Its natural predator is the Steam Sale.",
+  "hp":       110,
+  "power":    95,
+  "speed":    60,
+  "defense":  85,
+  "accuracy": 82,
+  "moves": [
+    {
+      "id":           "dmca_strike",
+      "name":         "⚖️ DMCA Strike",
+      "desc":         "Nintendad's lawyers materialize from thin air and strike the opponent down. Deals massive damage and confuses them as their YouTube channel gets taken down mid-battle.",
+      "speed":        "fast",
+      "damage": [28, 45],
+      "status":       "confuse",
+      "statusChance": 0.6
+    },
+    {
+      "id":           "its_a_me",
+      "name":         "👨‍🔧 It's-a Me",
+      "desc":         "Summons Mario, who jumps on the opponent's head. Classic. Effective. Nobody can stop it. Nintendo has been doing this since 1985 and will never stop.",
+      "speed":        "medium",
+      "damage": [20, 32],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "please_understand",
+      "name":         "🙏 Please Understand",
+      "desc":         "Channels Iwata's spirit. Says 'Please Understand' before doing something absolutely unhinged to the opponent's speed stat. We miss him.",
+      "speed":        "slow",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":           "direct_hype",
+      "name":         "📺 Nintendo Direct",
+      "desc":         "A Nintendo Direct drops at 6am with no warning. Nintendad's ATK sharply rises from the sheer chaos of fan reactions. Chat is going insane.",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "region_lock",
+      "name":         "🔒 Region Lock",
+      "desc":         "Traps the opponent in a region they can't escape from. Lowers defense as they realize their imported copy doesn't work.",
+      "speed":        "medium",
+      "damage": [10, 16],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "defense"
+    },
+    {
+      "id":           "bank_closed",
+      "name":         "🏦 Nintendo Bank is Closed",
+      "desc":         "Shuts down an entire online service with 30 days notice. The opponent is poisoned by grief AND confused trying to back up their save data before it's gone forever. RIP.",
+      "speed":        "slow",
+      "damage": [14, 22],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.6 },
+        { "status": "confuse", "statusChance": 0.65 }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,75 @@
+{
+  "id":          "streetpass_mon",
+  "name":        "Streetpassit",
+  "createdBy":   "The Internet",
+  "emoji":       "🟢",
+  "type":        "Electric",
+  "description": "A sentient Nintendo 3DS that gained consciousness after being StreetPassed 10,000 times at a convention. Its top screen shows your deepest fears. Its bottom screen is covered in smudges. It cries the 3DS startup sound when hurt and its spine is permanently cracked from being opened too fast as a kid.",
+  "hp":       95,
+  "power":    80,
+  "speed":    72,
+  "defense":  55,
+  "accuracy": 88,
+  "moves": [
+    {
+      "id":           "streetpass_rush",
+      "name":         "🟢 StreetPass Rush",
+      "desc":         "Charges through the opponent collecting StreetPasses. Every hit counts as a new Mii. Deals damage for each imaginary stranger it passes. Hits 3 times.",
+      "speed":        "fast",
+      "damage": [12, 18],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "friend_code",
+      "name":         "🔢 Friend Code",
+      "desc":         "Recites a 12-digit friend code out loud. The opponent is so bored trying to write it down that their speed is sharply lowered.",
+      "speed":        "slow",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":           "spotpass_heal",
+      "name":         "📶 SpotPass Heal",
+      "desc":         "Connects to a nearby WiFi signal and downloads a firmware update mid-battle. Restores 25 HP but takes forever because the update is 742 blocks.",
+      "speed":        "slow",
+      "damage": [-25, -25],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "super_smash_launch",
+      "name":         "🎮 Smash Launch",
+      "desc":         "Channels the spirit of getting a Smash Bros. notification at midnight. Sharply raises ATK from pure hype energy. 'CHALLENGER APPROACHING'.",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "low_battery",
+      "name":         "🔴 Low Battery Blink",
+      "desc":         "The blue power light turns red and starts blinking. The opponent panics looking for a charger. Lowers their defense as anxiety sets in.",
+      "speed":        "medium",
+      "damage": [8, 14],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "defense"
+    },
+    {
+      "id":           "blue_screen_of_3ds",
+      "name":         "💥 Error Has Occurred",
+      "desc":         "The top screen flashes: 'An error has occurred. Hold POWER to turn off.' The opponent is poisoned by dread AND confused trying to remember if they saved. You didn't save.",
+      "speed":        "slow",
+      "damage": [15, 22],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.55 },
+        { "status": "confuse", "statusChance": 0.75 }
+      ]
+    }
+  ]
+}
+

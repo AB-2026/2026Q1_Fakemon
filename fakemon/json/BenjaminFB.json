@@ -1,0 +1,69 @@
+{
+  "id": "BenjaminFB",
+  "name": "Femboy",
+  "createdBy": "Benjamin John Bero Alcantara",
+  "emoji": "UWU",
+  "type": "Poison",
+
+  "hp": 100,
+  "power": 30,
+  "speed": 50,
+  "defense": 5,
+  "accuracy": 40,
+
+  "description": "A Femboy, not much too it, weakly fembou.",
+
+  "moves": [
+
+    {
+      "id": "UwU",
+      "name": "UwU",
+      "desc": "Cring causing second hand embarsement.",
+      "speed": "fast",
+      "damage": [10, 15],
+      "status": "poison",
+      "statusChance": 1.0
+    },
+
+    {
+      "id": "Strangle",
+      "name": "Sock strangle",
+      "desc": "Strangling using a thigh high.",
+      "speed": "medium",
+      "damage": [20, 25],
+      "status": "sleep",
+      "statusChance": 1.0
+    },
+
+    {
+      "id": "Gay",
+      "name": "Gay",
+      "desc": "Gay-ness",
+      "speed": "fast",
+      "damage": [15, 20],
+      "status": "confuse",
+      "statusChance": 1.0
+    },
+
+    {
+      "id": "headpat",
+      "name": "💊 Headpats",
+      "desc": "buffs sleep and acuracy also heals.",
+      "speed": "medium",
+      "damage": [-25, -25],
+      "status": "paralyze",
+      "statuses": [
+        {
+            "status":       "statup",
+            "statusChance": 1.0,
+            "statTarget":   "atk"
+        },
+        {
+            "status":       "statup",
+            "statusChance": 1.0,
+            "statTarget":   "speed"
+        }
+    ]
+}
+]
+}

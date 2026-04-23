@@ -1,0 +1,59 @@
+{
+  "id": "Shark",
+  "name": "Sludgeclaw",
+  "createdBy": "Daniel Angel",
+  "emoji": "🦈",
+  "type": "Water",
+
+  "hp": 100,
+  "power": 100,
+  "speed": 90,
+  "defense": 10,
+  "accuracy": 90,
+
+  "description": "A short description of your Fakemon.",
+
+  "moves": [
+
+    {
+      "id": "smith_slap",
+      "name": "💧 Water Slap",
+      "desc": "A hit attack with a chance to nothing.",
+      "speed": "fast",
+      "damage": [10, 20],
+      "status": "Poison",
+      "statusChance": 0.75
+    },
+
+    {
+      "id": "massive_water",
+      "name": "🌊 Tsunami",
+      "desc": "A massive attack that gathers water. No frills.",
+      "speed": "slow",
+      "damage": [25, 40],
+      "status": "Stat down",
+      "statusChance": 1.0
+    },
+
+    {
+      "id": "absorb_Water",
+      "name": "💊 Heal Move",
+      "desc": "Restore 35 HP.",
+      "speed": "medium",
+      "damage": [0, 5],
+      "status": "Stat up",
+      "statusChance": 0.75
+    },
+
+    {
+      "id": "splash_zone",
+      "name": "😵 Drowning",
+      "desc": "Makes the enemy drown and confuse. Damage and chaos.",
+      "speed": "superfast",
+      "damage": [5, 15],
+      "status": "confuse",
+      "statusChance": 1.0
+    }
+
+  ]
+}

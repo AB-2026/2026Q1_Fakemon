@@ -1,0 +1,64 @@
+{
+  "id": "candiru1_1",
+  "name": "Candiru",
+  "createdBy": "Jayden S.",
+  "emoji": "🐠",
+  "type": "Water",
+  "hp": 111,
+  "atk": 110,
+  "speed": 120,
+  "defense": 34,
+  "accuracy": 83,
+  "description": "Tiny but deadly.",
+  "moves": [
+    {
+      "id": "candiru1_m1",
+      "name": "don't piss",
+      "speed": "fast",
+      "damage": [
+        8,
+        15
+      ],
+      "status": "burn",
+      "statusChance": 0.5,
+      "desc": "Search up candiru myth. Yeah."
+    },
+    {
+      "id": "candiru1_m2",
+      "name": "Climbing up the Water Spout",
+      "speed": "medium",
+      "damage": [
+        28,
+        36
+      ],
+      "status": "paralyze",
+      "statusChance": 0.5,
+      "desc": "Swims up the water Spout so it can find your weak point."
+    },
+    {
+      "id": "candiru1_m3",
+      "name": "Water heal",
+      "speed": "medium",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "desc": "Heals through its endurance and strength.",
+      "statTarget": "defense"
+    },
+    {
+      "id": "candiru1_m4",
+      "name": "Shuffler",
+      "speed": "slow",
+      "damage": [
+        25,
+        50
+      ],
+      "status": "confuse",
+      "statusChance": 1,
+      "desc": "I can't even like describe it here its so horrible"
+    }
+  ]
+}

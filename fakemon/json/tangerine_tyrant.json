@@ -1,0 +1,74 @@
+{
+  "id":          "tangerine_tyrant",
+  "name":        "Blusteron",
+  "createdBy":   "Johann Smit",
+  "emoji":       "🍊",
+  "type":        "Normal",
+  "description": "A rotund, orange-tinted creature with an inexplicable tuft of golden fur on its head that aerodynamically should not stay in place but does through sheer confidence. Inhabits a large golden nest it built and named after itself. Communicates exclusively through extremely long aggressive honking sounds that it later claims were perfect honks. Has declared bankruptcy six times and describes this as a negotiation technique. Its claws are tiny but it holds them in a very specific way when it honks. Scientists studying it have been called enemies of the nest. They were correct.",
+  "hp":       105,
+  "power":    80,
+  "speed":    42,
+  "defense":  70,
+  "accuracy": 54,
+  "moves": [
+    {
+      "id":           "blusteron_move1_perfect_honk",
+      "name":         "📣 Perfect Honk",
+      "desc":         "Releases what it describes as the most perfect honk ever honked by any creature in history. Several nearby animals agree loudly. The opponent's defense crumbles trying to identify what exactly just happened to them.",
+      "speed":        "fast",
+      "damage": [22, 36],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "defense"
+    },
+    {
+      "id":           "blusteron_move2_fake_scratch",
+      "name":         "🐾 Fake Scratch",
+      "desc":         "Declares the opponent's last attack did not happen and was fabricated by the forest media. Confuses the opponent as they look at the claw marks on their body and question their own memory.",
+      "speed":        "medium",
+      "damage": [14, 24],
+      "status":       "confuse",
+      "statusChance": 0.8
+    },
+    {
+      "id":           "blusteron_move3_nest_rest",
+      "name":         "🏌️ Golden Nest Rest",
+      "desc":         "Retreats to its golden nest for an unscheduled rest break in the middle of the battle. Returns refreshed. The nest charges admission. Blusteron owns the nest. Blusteron paid itself.",
+      "speed":        "slow",
+      "damage": [-25, -25],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "blusteron_move4_massive_plumage",
+      "name":         "✨ Tremendous Plumage",
+      "desc":         "Fluffs its golden tuft to maximum capacity and announces that nobody has ever seen plumage this good. ATK sharply rises as several onlookers agree despite having seen significantly better plumage.",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "blusteron_move5_territory_wall",
+      "name":         "🧱 Big Beautiful Fence",
+      "desc":         "Begins constructing a big beautiful fence around the battlefield. Takes significantly longer than promised. Is 4% finished. Sharply lowers opponent's speed as the construction crew argues about who is paying for it.",
+      "speed":        "slow",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":           "blusteron_move6_the_honkening",
+      "name":         "🌀 The Honkening",
+      "desc":         "Releases an 18-minute continuous honk covering 47 different topics with no clear conclusion. The opponent is poisoned by the sheer volume AND confused because somewhere in the middle Blusteron said something about sharks that made no sense but also kind of did.",
+      "speed":        "slow",
+      "damage": [18, 28],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.72 },
+        { "status": "confuse", "statusChance": 0.88 }
+      ]
+    }
+  ]
+}

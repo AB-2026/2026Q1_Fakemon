@@ -1,0 +1,65 @@
+{
+  "id": "labady2_1",
+  "name": "monkey",
+  "createdBy": "rayan labady",
+  "emoji": "🐒",
+  "type": "Electric",
+  "hp": 200,
+  "atk": 180,
+  "speed": 150,
+  "defense": 70,
+  "accuracy": 100,
+  "color": "#060D0D",
+  "description": "a black monkey that has electric aura and can spawn weapons out of electricity in battle",
+  "moves": [
+    {
+      "id": "labady2_m1",
+      "name": "sword burrage",
+      "speed": "fast",
+      "damage": [
+        10,
+        15
+      ],
+      "status": "paralyze",
+      "statusChance": 0.8,
+      "desc": "my fakemon spawns a bunch of swords and rapidly launches them at the enemy."
+    },
+    {
+      "id": "labady2_m2",
+      "name": "zeus bolt",
+      "speed": "slow",
+      "damage": [
+        80,
+        80
+      ],
+      "status": "paralyze",
+      "statusChance": 1,
+      "desc": "my fakemon spawns a huge bolt in the sky and launches it at the enemy"
+    },
+    {
+      "id": "labady2_m3",
+      "name": "poisonous zap",
+      "speed": "fast",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "statdwn",
+      "statusChance": 1,
+      "desc": "my fakemon zaps the enemy which lowers the enemy's accuracy stat",
+      "statTarget": "accuracy"
+    },
+    {
+      "id": "labady2_m4",
+      "name": "taser",
+      "speed": "fast",
+      "damage": [
+        40,
+        50
+      ],
+      "status": "sleep",
+      "statusChance": 1,
+      "desc": "shoots a mini thunder bolt at the enemy which makes them fall asleep"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+
+
+{
+ "id": "lunchmon",
+ "name": "School Lunch",
+ "createdBy": "Johann Smit",
+ "emoji": "🍕",
+ "type": "Normal",
+ "description": "The living embodiment of school cafeteria pizza: a perfect square, slightly grey, structurally unsound, and 80% cardboard by volume. It has been served every Friday since 1987 and has never once changed. Nutritionists have studied it. They left. It generates a powerful aura of lukewarm cheese that confuses nearby opponents. Its natural habitat is a beige tray under a heat lamp. It is somehow both frozen and overcooked simultaneously. Scientists call this the Cafeteria Paradox.",
+ "hp": 111,
+ "power": 55,
+ "speed": 22,
+ "defense": 99,
+ "accuracy": 72,
+ "moves": [
+   {
+     "id": "square_pizza_slam",
+     "name": "🍕 Square Pizza Slam",
+     "desc": "Slaps the opponent with a perfectly square slice of grey school pizza. The structural integrity is zero but the force of a thousand Friday lunches is undeniable.",
+     "speed": "medium",
+     "damage": [
+       20,
+       30
+     ],
+     "status": null,
+     "statusChance": 0
+   },
+   {
+     "id": "chocolate_milk_flood",
+     "name": "🥛 Chocolate Milk Flood",
+     "desc": "Deploys a carton of cafeteria chocolate milk that expired sometime last week. Poisons the opponent. The straw is the tiny kind that takes four minutes to open.",
+     "speed": "slow",
+     "damage": [
+       12,
+       18
+     ],
+     "status": "poison",
+     "statusChance": 0.7
+   },
+   {
+     "id": "heat_lamp_glow",
+     "name": "💡 Heat Lamp Glow",
+     "desc": "Basks under the cafeteria heat lamp and absorbs its lukewarm energy. Restores 25 HP. Nothing improves. Everything is the same temperature it has always been.",
+     "speed": "slow",
+     "damage": [
+       -25,
+       -25
+     ],
+     "status": null,
+     "statusChance": 0
+   },
+   {
+     "id": "lunch_lady_summon",
+     "name": "👩‍🍳 Lunch Lady Summon",
+     "desc": "Calls upon the ancient Lunch Lady who has worked here since the school was built in 1974. She slaps an extra scoop of mystery meat onto the opponent. ATK sharply rises from the chaos.",
+     "speed": "fast",
+     "damage": [
+       0,
+       0
+     ],
+     "status": "statup",
+     "statusChance": 1,
+     "statTarget": "atk"
+   },
+   {
+     "id": "tray_slide",
+     "name": "🛷 Tray Slide",
+     "desc": "Greases the battlefield with cafeteria tray residue and slides into the opponent at low but unstoppable velocity. Lowers their speed as they slip on mystery grease.",
+     "speed": "medium",
+     "damage": [
+       8,
+       14
+     ],
+     "status": "statdwn",
+     "statusChance": 1,
+     "statTarget": "speed"
+   },
+   {
+     "id": "mystery_meat",
+     "name": "❓ Mystery Meat",
+     "desc": "Serves the opponent a plate of Mystery Meat. Nobody knows what it is. Scientists don't know. The lunch lady doesn't know. The opponent is poisoned AND confused trying to identify it. It is unknowable.",
+     "speed": "slow",
+     "damage": [
+       15,
+       22
+     ],
+     "statuses": [
+       {
+         "status": "poison",
+         "statusChance": 0.75
+       },
+       {
+         "status": "confuse",
+         "statusChance": 0.65
+       }
+     ]
+   }
+ ]
+}
+

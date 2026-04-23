@@ -1,0 +1,76 @@
+
+{
+  "id":          "doge_lord",
+  "name":        "Dogelord",
+  "createdBy":   "The Internet",
+  "emoji":       "🐕",
+  "type":        "Normal",
+  "description": "Such Pokemon. Very battle. Wow. Born from a Shiba Inu who stared at a computer screen for too long and absorbed the entire 2010s internet. Its fur is permanently Comic Sans. It communicates exclusively in broken English compliments.",
+  "hp":       100,
+  "power":    75,
+  "speed":    88,
+  "defense":  30,
+  "accuracy": 70,
+  "moves": [
+    {
+      "id":           "much_wow",
+      "name":         "✨ Much Wow",
+      "desc":         "Hits the opponent with such force. Very damage. A barrage of floating Comic Sans compliments deals massive confusion. Wow.",
+      "speed":        "fast",
+      "damage": [25, 40],
+      "status":       "confuse",
+      "statusChance": 0.45
+    },
+    {
+      "id":           "trollface_leer",
+      "name":         "😏 Trollface Leer",
+      "desc":         "Problem? Dogelord flashes a classic Trollface at the opponent, lowering their defense as they cringe into the past.",
+      "speed":        "medium",
+      "damage": [10, 18],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "defense"
+    },
+    {
+      "id":           "nyan_dash",
+      "name":         "🌈 Nyan Dash",
+      "desc":         "Transforms into a Pop-Tart and rockets through the opponent at full rainbow speed. The song plays the entire time. Nobody can stop it.",
+      "speed":        "fast",
+      "damage": [20, 30],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "yolo_mode",
+      "name":         "😎 YOLO Mode",
+      "desc":         "You Only Live Once. Dogelord puts on deal-with-it sunglasses in slow motion and sharply raises its own ATK. Drake approves.",
+      "speed":        "medium",
+      "damage": [0, 0],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "lemonaid",
+      "name":         "🍋 Ain't Nobody Got Time",
+      "desc":         "Sweet Brown appears. Nobody has time for this. Dramatically lowers the opponent's speed as they stop to process what just happened.",
+      "speed":        "slow",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":           "loss_dot_jpg",
+      "name":         "🖼️ Loss.jpg",
+      "desc":         "Dogelord draws four panels. The opponent stares, trying to figure out if this is a meme. While distracted, they get poisoned AND confused. Is this loss?",
+      "speed":        "slow",
+      "damage": [12, 20],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.5 },
+        { "status": "confuse", "statusChance": 0.7 }
+      ]
+    }
+  ]
+}
+

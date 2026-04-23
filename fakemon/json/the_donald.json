@@ -1,0 +1,74 @@
+{
+  "id": "the_donald",
+  "name": "Trumpemon",
+  "createdBy": "That one guy",
+  "emoji": "🍊",
+  "type": "Normal",
+  "description": "A large orange creature with a hairstyle that meteorologists still cannot fully explain. Lives in a golden tower it named after itself. Has filed for bankruptcy six times which it describes as 'winning financially in reverse.' Communicates exclusively through a social media platform it got banned from and then bought a different one. Its skin tone does not occur anywhere in nature. Scientists have tried to identify the color. They named it Mango Mussolini and moved on. Holds the world record for most tweets sent at 3am about a television show.",
+  "hp":       105,
+  "power":    78,
+  "speed":    44,
+  "defense":  72,
+  "accuracy": 55,
+  "moves": [
+    {
+      "id":           "trump_move1_very_large_brain",
+      "name":         "🧠 Very Large Brain",
+      "desc":         "Announces it has a very large brain and then does something inexplicable. The opponent's defense crumbles because they genuinely cannot predict what is happening or why.",
+      "speed":        "fast",
+      "damage": [20, 34],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "defense"
+    },
+    {
+      "id":           "trump_move2_fake_news",
+      "name":         "📰 Fake News",
+      "desc":         "Declares the opponent's last move fake news regardless of what it was. Confuses the opponent as they try to determine which part of physically hitting Trumpemon was fake.",
+      "speed":        "medium",
+      "damage": [14, 22],
+      "status":       "confuse",
+      "statusChance": 0.75
+    },
+    {
+      "id":           "trump_move3_golf_break",
+      "name":         "⛳ Executive Golf Break",
+      "desc":         "Leaves the battle to play golf at a resort it owns and charges the government for the visit. Restores 25 HP. The battle waited. The battle always waits.",
+      "speed":        "slow",
+      "damage": [-25, -25],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "trump_move4_tremendous_deal",
+      "name":         "🤝 Tremendous Deal",
+      "desc":         "Announces it just made the best deal in history. Nobody knows what was traded. ATK sharply rises because Trumpemon has fully convinced itself and several others.",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "trump_move5_executive_tweet",
+      "name":         "📱 3am Tweet",
+      "desc":         "Posts a 14-part tweet thread at 3am about the opponent in ALL CAPS. Sharply lowers the opponent's speed as they spend 45 minutes reading and processing the thread. It says covfefe at the end.",
+      "speed":        "slow",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":           "trump_move6_perfect_call",
+      "name":         "📞 Perfect Phone Call",
+      "desc":         "Makes what it describes as a perfect phone call. The opponent is poisoned by whatever was said on that call AND confused because the transcript raises more questions than it answers. It was not a perfect call.",
+      "speed":        "slow",
+      "damage": [16, 26],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.7 },
+        { "status": "confuse", "statusChance": 0.85 }
+      ]
+    }
+  ]
+}

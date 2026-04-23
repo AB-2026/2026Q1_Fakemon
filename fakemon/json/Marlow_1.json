@@ -1,0 +1,65 @@
+{
+  "id": "marlow_1",
+  "name": "cockroach",
+  "createdBy": "Owen Marlow",
+  "emoji": "🪳",
+  "type": "Earth",
+  "hp": 200,
+  "atk": 100,
+  "speed": 150,
+  "defense": 70,
+  "accuracy": 90,
+  "color": "#4C1F0F",
+  "description": "A cockroach ew",
+  "moves": [
+    {
+      "id": "marlow_m1",
+      "name": "agahhgahgaaghghaghaghaghahg",
+      "speed": "fast",
+      "damage": [
+        13,
+        14
+      ],
+      "status": "poison",
+      "statusChance": 0.5,
+      "desc": "AGGHHHH ITS A COCKROACH"
+    },
+    {
+      "id": "marlow_m2",
+      "name": "jump",
+      "speed": "slow",
+      "damage": [
+        28,
+        36
+      ],
+      "status": "paralyze",
+      "statusChance": 0.5,
+      "desc": "where did it goooooo"
+    },
+    {
+      "id": "marlow_m3",
+      "name": "shell",
+      "speed": "medium",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "desc": "SHELL",
+      "statTarget": "defense"
+    },
+    {
+      "id": "marlow_m4",
+      "name": "spit",
+      "speed": "medium",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "poison",
+      "statusChance": 1,
+      "desc": "I hate cockroaches"
+    }
+  ]
+}

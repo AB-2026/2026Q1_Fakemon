@@ -1,0 +1,74 @@
+{
+  "id": "uncle_sammon",
+  "name": "Americamon",
+  "createdBy": "Murica",
+  "emoji": "🦅",
+  "type": "Normal",
+  "description": "A large eagle-shaped creature wearing a top hat made of 50 stars that has been telling everyone else how to run their houses since 1945 while its own house has a hole in the roof it hasn't fixed since 1776. Has the world's biggest military and uses it to spread democracy to countries that did not ask for democracy and are now significantly less democratic. Runs on fast food, pharmaceutical commercials, and the unshakeable belief that it is the main character of Earth. Has been in 93% of the world's conflicts since 1950. Describes all of them as defensive.",
+  "hp":       999,
+  "power":    110,
+  "speed":    78,
+  "defense":  88,
+  "accuracy": 65,
+  "moves": [
+    {
+      "id":           "america_move1_regime_change",
+      "name":         "🌍 Regime Change",
+      "desc":         "Decides it does not like how the opponent is running things. Removes their current moveset and installs a new one America prefers. The new moveset is somehow worse. America expresses surprise.",
+      "speed":        "fast",
+      "damage": [28, 45],
+      "status":       "confuse",
+      "statusChance": 0.8
+    },
+    {
+      "id":           "america_move2_destruction_of_files",
+      "name":         "🗂️ Destruction of Files",
+      "desc":         "Shreds, flushes, and loses a critical stack of documents that the opponent needed. Nobody saw anything. The toilet was involved. A special counsel has been appointed. The files are gone.",
+      "speed":        "medium",
+      "damage": [22, 35],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "defense"
+    },
+    {
+      "id":           "america_move3_build_a_wall",
+      "name":         "🧱 Build A Wall",
+      "desc":         "Announces it will build a wall. Spends four years talking about the wall. The wall is 3% complete. The opponent's speed is sharply lowered by the sheer administrative delay of it all.",
+      "speed":        "slow",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":           "america_move4_propaganda",
+      "name":         "📺 Propaganda Machine",
+      "desc":         "Deploys 47 simultaneous cable news channels all saying different things at maximum volume. The opponent is poisoned by misinformation AND confused because two of the channels are contradicting each other about whether this battle is even happening.",
+      "speed":        "medium",
+      "damage": [16, 26],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.75 },
+        { "status": "confuse", "statusChance": 0.9 }
+      ]
+    },
+    {
+      "id":           "america_move5_freedom_export",
+      "name":         "🗽 Exporting Freedom",
+      "desc":         "Arrives uninvited and declares the battlefield liberated. ATK sharply rises as Americamon technically wins by redefining what winning means mid-battle.",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "america_move6_distraction",
+      "name":         "🎆 Look Over There",
+      "desc":         "Points dramatically at something happening on the other side of the battlefield. While the opponent looks, Americamon does three things it will deny doing. Restores 25 HP during the distraction. The thing it pointed at was fireworks. There are always fireworks.",
+      "speed":        "fast",
+      "damage": [-25, -25],
+      "status":       null,
+      "statusChance": 0
+    }
+  ]
+}

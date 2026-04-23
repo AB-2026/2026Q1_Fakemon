@@ -1,0 +1,98 @@
+ {
+    "id": "vg_003_microtransact",
+    "name": "Paywallus",
+    "createdBy": "Johann Smit",
+    "emoji": "💸",
+    "type": "Dark",
+    "description": "A creature made entirely of premium currency and battle passes. Its skin is a rotating store interface. It was free to encounter but everything useful about it costs $4.99. Its best moves are locked behind the Season 7 Premium Tier. Its eyes are dollar signs but in a fun way the marketing team approved. It releases new cosmetic fur patterns every two weeks. The fur is $18. It does not affect gameplay. It absolutely affects gameplay.",
+    "hp": 100,
+    "power": 95,
+    "speed": 80,
+    "defense": 60,
+    "accuracy": 85,
+    "moves": [
+      {
+        "id": "vg_003_move1_battle_pass",
+        "name": "🎫 Battle Pass",
+        "desc": "Offers the opponent a battle pass for $9.99. While they read the fine print, Paywallus hits them for massive damage. The battle pass does not help them.",
+        "speed": "fast",
+        "damage": [
+          25,
+          40
+        ],
+        "status": "confuse",
+        "statusChance": 0.6
+      },
+      {
+        "id": "vg_003_move2_lootbox",
+        "name": "📦 Loot Box",
+        "desc": "Opens a loot box containing a random effect. Could be an ATK buff. Could be a common emote. The excitement is engineered. The odds are not in your favor.",
+        "speed": "medium",
+        "damage": [
+          10,
+          45
+        ],
+        "status": "statup",
+        "statusChance": 0.3,
+        "statTarget": "atk"
+      },
+      {
+        "id": "vg_003_move3_vbucks",
+        "name": "💎 Premium Currency",
+        "desc": "Sells the opponent 950 premium currency when they need exactly 1000 for the thing they want. Restores 25 HP from the profit margin.",
+        "speed": "slow",
+        "damage": [
+          -25,
+          -25
+        ],
+        "status": null,
+        "statusChance": 0
+      },
+      {
+        "id": "vg_003_move4_fomo",
+        "name": "⏰ Limited Time Offer",
+        "desc": "Announces this offer expires in 23:59:59. The opponent's speed drops sharply as anxiety overrides all rational decision-making.",
+        "speed": "fast",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "speed"
+      },
+      {
+        "id": "vg_003_move5_locked_move",
+        "name": "🔒 Content Locked",
+        "desc": "Reveals the opponent's best move is locked behind DLC they don't own. Lowers their defense by forcing them to fight with their second-best options for the rest of the battle.",
+        "speed": "medium",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "defense"
+      },
+      {
+        "id": "vg_003_move6_season_end",
+        "name": "🗓️ Season Ends Tonight",
+        "desc": "Announces the season ends in 4 hours and the opponent is only at tier 23 of 100. Poisons them with FOMO AND confuses them as they try to calculate if grinding is mathematically possible. It is not.",
+        "speed": "slow",
+        "damage": [
+          14,
+          22
+        ],
+        "statuses": [
+          {
+            "status": "poison",
+            "statusChance": 0.8
+          },
+          {
+            "status": "confuse",
+            "statusChance": 0.75
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,98 @@
+ {
+    "id": "vg_005_ragequitter",
+    "name": "Ragequitmon",
+    "createdBy": "Johann Smit",
+    "emoji": "🎮",
+    "type": "Fire",
+    "description": "Born from the first controller ever thrown across a room. Its body is cracked plastic and wounded pride. It has rage-quit 4,847 battles and counts every single one as a win because it LEFT first. It lives in online lobbies and disappears the moment it starts losing. Has a mic but only uses it to breathe heavily and say 'this game is trash' before disconnecting. Its win rate is technically 100% because it does not acknowledge losses as real events that occurred.",
+    "hp": 88,
+    "power": 105,
+    "speed": 95,
+    "defense": 15,
+    "accuracy": 80,
+    "moves": [
+      {
+        "id": "vg_005_move1_sweaty_opener",
+        "name": "💦 Sweat Protocol",
+        "desc": "Opens with the most tryhard combo in existence. Deals massive early damage because Ragequitmon goes absolutely all-in from turn one or not at all.",
+        "speed": "fast",
+        "damage": [
+          32,
+          48
+        ],
+        "status": null,
+        "statusChance": 0
+      },
+      {
+        "id": "vg_005_move2_trash_talk",
+        "name": "🎙️ Mic Spam",
+        "desc": "Breathes heavily into the mic, calls the opponent a noob, and lists their rank. Lowers opponent's defense as second-hand embarrassment sets in.",
+        "speed": "fast",
+        "damage": [
+          8,
+          14
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "defense"
+      },
+      {
+        "id": "vg_005_move3_deny_loss",
+        "name": "🚫 Lag Excuse",
+        "desc": "Claims the last hit didn't count because of lag. ATK sharply rises because Ragequitmon has convinced itself completely and fully of this.",
+        "speed": "medium",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statup",
+        "statusChance": 1,
+        "statTarget": "atk"
+      },
+      {
+        "id": "vg_005_move4_rematch_demand",
+        "name": "🔁 Rematch Spam",
+        "desc": "Sends the rematch request 11 times in a row. Speed sharply lowers the opponent's as the notification spam makes it impossible to focus.",
+        "speed": "medium",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "speed"
+      },
+      {
+        "id": "vg_005_move5_controller_catch",
+        "name": "🎮 Mid-Air Recovery",
+        "desc": "Throws its own controller in fury then catches it at the last second. Restores 25 HP from the adrenaline of almost destroying a $70 peripheral.",
+        "speed": "slow",
+        "damage": [
+          -25,
+          -25
+        ],
+        "status": null,
+        "statusChance": 0
+      },
+      {
+        "id": "vg_005_move6_disconnect",
+        "name": "🔌 Rage Quit",
+        "desc": "Unplugs the router at the exact moment it's about to lose. The opponent is poisoned by the denied victory AND confused because Ragequitmon is already back in a new lobby claiming it won.",
+        "speed": "slow",
+        "damage": [
+          16,
+          26
+        ],
+        "statuses": [
+          {
+            "status": "poison",
+            "statusChance": 0.75
+          },
+          {
+            "status": "confuse",
+            "statusChance": 0.65
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,99 @@
+{
+ "id": "impostormon",
+ "name": "Impostor",
+ "createdBy": "Johann Smit",
+ "emoji": "🔴",
+ "type": "Dark",
+ "description": "A small bean-shaped creature in a spacesuit that is definitely not venting. It was born during a COVID lockdown in 2020 when everyone was stuck at home lying to each other online for fun. Its entire body is a lie. Its face is a visor that shows nothing. It has killed seventeen crewmates this week alone and attended every single memorial. It completed three tasks at electrical just to seem normal. It is so normal. Please do not vote it out. It has an alibi.",
+ "hp": 90,
+ "power": 92,
+ "speed": 88,
+ "defense": 35,
+ "accuracy": 85,
+ "moves": [
+   {
+     "id": "emergency_meeting",
+     "name": "🔴 Emergency Meeting",
+     "desc": "Calls an Emergency Meeting mid-battle and accuses the opponent of being sus. Everyone stops fighting to discuss it. Deals psychic damage and confuses as the vote timer runs out.",
+     "speed": "fast",
+     "damage": [
+       20,
+       32
+     ],
+     "status": "confuse",
+     "statusChance": 0.65
+   },
+   {
+     "id": "vent_escape",
+     "name": "🕳️ Vent",
+     "desc": "Impostormon dives into a vent and reappears behind the opponent. Nobody saw it. It was in electrical the whole time. Speed is sharply raised because it is now somewhere it should not be.",
+     "speed": "fast",
+     "damage": [
+       15,
+       24
+     ],
+     "status": "statup",
+     "statusChance": 1,
+     "statTarget": "speed"
+   },
+   {
+     "id": "sabotage_reactor",
+     "name": "☢️ Reactor Sabotage",
+     "desc": "Sabotages the reactor. The opponent must choose between fighting and fixing it in 30 seconds. They cannot do both. Their defense crumbles under the pressure of the countdown.",
+     "speed": "medium",
+     "damage": [
+       0,
+       0
+     ],
+     "status": "statdwn",
+     "statusChance": 1,
+     "statTarget": "defense"
+   },
+   {
+     "id": "i_was_on_cams",
+     "name": "📹 I Was On Cams",
+     "desc": "Presents a completely fabricated alibi with unshakeable confidence. ATK sharply rises as the opponent second-guesses everything they just witnessed with their own eyes.",
+     "speed": "fast",
+     "damage": [
+       0,
+       0
+     ],
+     "status": "statup",
+     "statusChance": 1,
+     "statTarget": "atk"
+   },
+   {
+     "id": "eject_wrongly",
+     "name": "🚀 Skip Vote",
+     "desc": "Convinces everyone to skip the vote. An innocent crewmate gets ejected anyway somehow. The opponent is poisoned by injustice. [CREWMATE WAS NOT THE IMPOSTOR. 1 IMPOSTOR REMAINS.]",
+     "speed": "slow",
+     "damage": [
+       12,
+       20
+     ],
+     "status": "poison",
+     "statusChance": 0.8
+   },
+   {
+     "id": "the_kill",
+     "name": "🔪 Sus",
+     "desc": "Impostormon waits until the opponent is alone in a hallway and then. The opponent is poisoned by elimination AND confused because Impostormon is already back at medbay doing tasks. It has a heart. It showed everyone.",
+     "speed": "slow",
+     "damage": [
+       20,
+       32
+     ],
+     "statuses": [
+       {
+         "status": "poison",
+         "statusChance": 0.7
+       },
+       {
+         "status": "confuse",
+         "statusChance": 0.6
+       }
+     ]
+   }
+ ]
+}
+
