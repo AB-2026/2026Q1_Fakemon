@@ -1,6 +1,6 @@
 # Fakemon Content Check Report
 
-**Generated:** 2026-04-22 18:32:36  
+**Generated:** 2026-04-23 18:40:46  
 **Files scanned:** 91  
 **Files flagged:** 31  
 
@@ -118,14 +118,6 @@
 
 ## 🔧 Syntax / ID Errors Only
 
-### 🚩 `Marlow_1.json`
-
-**1 issue(s)**
-
-| Line | Category | Action | Matched / Message | Full Line |
-|------|----------|--------|-------------------|-----------|
-| — | 📛 ID/Filename | REVIEW ONLY | `Case mismatch — filename is "Marlow_1.json" but id is "marlow_1". Did you mean id: "Marlow_1"?  (IDs are case-sensitive)` | `` |
-
 ### 🚩 `Dylan.json`
 
 **1 issue(s)**
@@ -141,6 +133,14 @@
 | Line | Category | Action | Matched / Message | Full Line |
 |------|----------|--------|-------------------|-----------|
 | — | 📛 ID/Filename | REVIEW ONLY | `Case mismatch — filename is "Gorgrigralla.json" but id is "gorgrigralla". Did you mean id: "Gorgrigralla"?  (IDs are case-sensitive)` | `` |
+
+### 🚩 `Marlow_1.json`
+
+**1 issue(s)**
+
+| Line | Category | Action | Matched / Message | Full Line |
+|------|----------|--------|-------------------|-----------|
+| — | 📛 ID/Filename | REVIEW ONLY | `Case mismatch — filename is "Marlow_1.json" but id is "marlow_1". Did you mean id: "Marlow_1"?  (IDs are case-sensitive)` | `` |
 
 ### 🚩 `Milo.json`
 
