@@ -1,5 +1,5 @@
 {
-  "id": "caypybara",
+  "id": "capybara",
   "name": "capybara",
   "createdBy": "Kyan Olugbile",
   "emoji": "🐻",
@@ -10,7 +10,7 @@
   "defense": 0,
   "accuracy": 100,
   "color": "#A52A2A",
-  "description": "A caypybara that dods stuff",
+  "description": "A capybara that dods stuff",
   "moves": [
     {
       "id": "kyan1_m1",
