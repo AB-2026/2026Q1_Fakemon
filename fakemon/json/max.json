@@ -7,7 +7,7 @@
 
   
   "hp": 1000000,       
-  "power": 1000,    
+  "power": 1000000,    
   "speed": 1000,     
   "defense": 1000,
   "accuracy": 100,
