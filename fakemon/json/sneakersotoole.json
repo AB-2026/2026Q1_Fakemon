@@ -1,0 +1,77 @@
+{
+ "id":          "sneakersotoole",
+ "name":        "Sneakers O'Toole",
+ "createdBy":   "Wyatt Arnold",
+ "emoji":       "👟",
+ "type":        "Air",
+ "description": "He's not taking his sneakers off. He's Sneakers O'Toole.",
+ "hp":       300,
+ "power":    600,
+ "speed":    500,
+ "defense":  80,
+ "accuracy": 350,
+
+
+ "moves": [
+   {
+   "id": "quick_kick",
+   "name": "⚡ Quick Kick",
+   "desc": "Kicks them with his sneakers.",
+   "speed": "fast",
+    "damage": [100, 150],
+"status": null,
+ "statusChance": 0
+   },
+   {
+ "id": "shin_kick",
+ "name": "👟 Shin Kick",
+ "desc": "Kicks opponents shins hard. High chance to paralyze.",
+ "speed": "medium",
+ "damage": [200, 201],
+ "status": "paralyze",
+ "statusChance": 0.8
+},
+{
+ "id": "rapid_punches",
+ "name": "✊ Rapid Punches",
+ "desc": "Sneakers O'Toole uses his infinity stones to stop time and rapidly hit the opponent.",
+ "speed": "slow",
+ "damage": [350, 500],
+ "status": null,
+ "statusChance": 0
+},
+{
+ "id": "rrr",
+ "name": "🌊 Mud Trap",
+ "desc": "Slathers the enemy in sticky mud. Slows them down.",
+ "speed": "medium",
+ "damage": [0, 0],
+ "status": "statdwn",
+ "statusChance": 1.0,
+ "statTarget": "speed"
+},
+   {
+     "id":           "move_five",
+     "name":         "📉 Cinder Smoke",
+     "desc":         "Thick smoke clouds the enemy's vision.",
+     "speed":        "medium",
+     "damage": [0, 0],
+     "status":       "statdwn",
+     "statusChance": 1.0,
+     "statTarget":   "speed"
+   },
+   {
+     "id":    "move_six",
+     "name":  "😵 Chaos Breath",
+     "desc":  "Hits, then may poison AND confuse!",
+     "speed": "slow",
+     "damage": [10, 16],
+     "statuses": [
+       { "status": "poison",  "statusChance": 0.5 },
+       { "status": "confuse", "statusChance": 0.4 }
+     ]
+   }
+
+
+ ]
+}
