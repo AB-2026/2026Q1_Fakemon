@@ -3,10 +3,10 @@
   "name":        "goopa",
   "createdBy":   "beni r",
   "emoji":       "🐲",
-  "type":        "goop",
+  "type":        "Ghost",
   "description": "a burnt peanut looking for revenge.",
-  "hp":       67,
-  "power":    6767,
+  "hp":       676767,
+  "power":    6767676767,
   "speed":    4167,
   "defense":  1000000,
   "accuracy": 900,
@@ -46,7 +46,7 @@
       "speed":        "fast",
       "damage": [0, 0],
       "status":       "statup",
-      "statusChance": 500,
+      "statusChance": 0.9,
       "statTarget":   "atk"
     },
     {
@@ -56,7 +56,7 @@
       "speed":        "medium",
       "damage": [0, 0],
       "status":       "statdwn",
-      "statusChance": 1.0,
+      "statusChance": 0.9,
       "statTarget":   "speed"
     },
     {
@@ -66,8 +66,8 @@
       "speed": "slow",
       "damage": [41, 67],
       "statuses": [
-        { "status": "poison",  "statusChance": 1.5 },
-        { "status": "confuse", "statusChance": 1.4 }
+        { "status": "poison",  "statusChance": 0.9 },
+        { "status": "confuse", "statusChance": 0.9 }
       ]
     }
 
