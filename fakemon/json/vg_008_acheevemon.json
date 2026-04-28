@@ -1,0 +1,98 @@
+{
+    "id": "vg_008_acheevemon",
+    "name": "Achievatron",
+    "createdBy": "Johann Smit",
+    "emoji": "🏆",
+    "type": "Metal",
+    "description": "A creature made entirely of achievement badges and gamerscore. It has 100% completion in 847 games including every hidden achievement, every secret ending, and 'Die 1000 Times' which took three months. Its skeleton is a platinum trophy. It has not slept since 2009. Its social life is an achievement it never unlocked. Currently working on a secret achievement that requires playing 8 hours a day for 365 consecutive days. It is day 341. It will not stop. It cannot stop.",
+    "hp": 92,
+    "power": 80,
+    "speed": 70,
+    "defense": 75,
+    "accuracy": 95,
+    "moves": [
+      {
+        "id": "vg_008_move1_secret_achieve",
+        "name": "🔓 Secret Achievement",
+        "desc": "Unlocks a hidden move the opponent didn't know existed because they didn't read the full achievement list. Deals heavy surprise damage. Achievement unlocked: Didn't See That Coming.",
+        "speed": "fast",
+        "damage": [
+          28,
+          42
+        ],
+        "status": null,
+        "statusChance": 0
+      },
+      {
+        "id": "vg_008_move2_grind_flex",
+        "name": "⏱️ No Life Grind",
+        "desc": "Reveals it has done this exact fight 10,000 times to unlock the achievement for it. ATK sharply rises from muscle memory alone.",
+        "speed": "medium",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statup",
+        "statusChance": 1,
+        "statTarget": "atk"
+      },
+      {
+        "id": "vg_008_move3_completion_heal",
+        "name": "💯 100 Percent",
+        "desc": "Checks a completed achievement and absorbs its energy. Restores 25 HP. The achievement was 'Walk 500 miles.' It walked 500 miles. It walked 500 more.",
+        "speed": "slow",
+        "damage": [
+          -25,
+          -25
+        ],
+        "status": null,
+        "statusChance": 0
+      },
+      {
+        "id": "vg_008_move4_guide_check",
+        "name": "📱 Opens Guide",
+        "desc": "Pulls up a step-by-step achievement guide mid-battle. Lowers opponent's speed as Achievatron methodically follows optimal strategy to the letter with zero improvisation.",
+        "speed": "medium",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "speed"
+      },
+      {
+        "id": "vg_008_move5_profile_flex",
+        "name": "🎖️ Profile Flex",
+        "desc": "Shows the opponent its gamer profile. The opponent's defense drops as they see 40,000 gamerscore and realize they are fundamentally outmatched in dedication if nothing else.",
+        "speed": "fast",
+        "damage": [
+          12,
+          20
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "defense"
+      },
+      {
+        "id": "vg_008_move6_missable_achieve",
+        "name": "❌ Missable Achievement",
+        "desc": "Reveals the opponent missed an unmissable achievement in round 1 and must restart the entire game to get it. Poisons them with perfectionism AND confuses them as they calculate if the run is salvageable. It is not.",
+        "speed": "slow",
+        "damage": [
+          16,
+          26
+        ],
+        "statuses": [
+          {
+            "status": "poison",
+            "statusChance": 0.7
+          },
+          {
+            "status": "confuse",
+            "statusChance": 0.8
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,64 @@
+{
+  "id": "stromtrooper",
+  "name": "Stormtrooper",
+  "createdBy": "Kyan Olugbile",
+  "emoji": "🥷",
+  "type": "Metal",
+  "hp": 200,
+  "atk": 180,
+  "speed": 80,
+  "defense": 30,
+  "accuracy": 95,
+  "description": "A german stormtrooper that likes to gas people  (卐 Vietnamize symbol)",
+  "moves": [
+    {
+      "id": "stromtrooper_m1",
+      "name": "Biological Warfare",
+      "speed": "fast",
+      "damage": [
+        25,
+        30
+      ],
+      "status": "paralyze",
+      "statusChance": 0.7,
+      "desc": "Mosquitoes that are infected with malaria thus making people sick. (FF even the mustache man banded the making of these weapons)"
+    },
+    {
+      "id": "stromtrooper_m2",
+      "name": "Gas Attack",
+      "speed": "slow",
+      "damage": [
+        50,
+        70
+      ],
+      "status": "poison",
+      "statusChance": 1,
+      "desc": "A war crime."
+    },
+    {
+      "id": "stromtrooper_m3",
+      "name": "Execution",
+      "speed": "fast",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "statdwn",
+      "statusChance": 1,
+      "desc": "Execute some POW's",
+      "statTarget": "atk"
+    },
+    {
+      "id": "stromtrooper_m4",
+      "name": "Artilery",
+      "speed": "medium",
+      "damage": [
+        30,
+        100
+      ],
+      "status": "burn",
+      "statusChance": 1,
+      "desc": "Gives you shell shock."
+    }
+  ]
+}

@@ -33,7 +33,7 @@
       "name": "GAMBLING TIME",
       "desc": "Totally not rigged..... (wink, wink)",
       "speed": "medium",
-      "damage": [-80, 90],
+      "damage": [-150, 195],
       "status": "burn",
       "statusChance": 0.4
     },

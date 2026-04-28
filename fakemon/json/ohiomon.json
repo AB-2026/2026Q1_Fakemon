@@ -1,0 +1,99 @@
+{
+ "id": "ohiomon",
+ "name": "Ohio",
+ "createdBy": "Johann Smit",
+ "emoji": "🌽",
+ "type": "Dark",
+ "description": "A creature that crawled out of Ohio at 3am and has never been the same since. Nobody knows what it did before Ohio. Nobody knows what Ohio did to it. It simply exists, doing Ohio things, in an Ohio way. Scientists have attempted to study it but they also became Ohio. The only way to defeat it is to move to a different state but it will follow you. It always follows you. You cannot escape Ohio. Ohio cannot escape itself.",
+ "hp": 103,
+ "power": 88,
+ "speed": 55,
+ "defense": 66,
+ "accuracy": 60,
+ "moves": [
+   {
+     "id": "only_in_ohio",
+     "name": "🌽 Only In Ohio",
+     "desc": "Does something so deeply, specifically Ohio that the opponent cannot process it. They stand there blinking. Deals damage through pure confusion at witnessing something that should not exist.",
+     "speed": "medium",
+     "damage": [
+       25,
+       38
+     ],
+     "status": "confuse",
+     "statusChance": 0.75
+   },
+   {
+     "id": "ohio_rizz",
+     "name": "😏 Ohio Rizz",
+     "desc": "Attempts to rizz the opponent in an Ohio accent. It should not work. It statistically cannot work. ATK sharply rises because somehow, inexplicably, it works.",
+     "speed": "fast",
+     "damage": [
+       0,
+       0
+     ],
+     "status": "statup",
+     "statusChance": 1,
+     "statTarget": "atk"
+   },
+   {
+     "id": "cornfield_escape",
+     "name": "🌾 Cornfield Escape",
+     "desc": "Retreats into an infinite cornfield. Nobody follows. Nobody can follow. Restores 25 HP while standing in corn doing corn things.",
+     "speed": "slow",
+     "damage": [
+       -25,
+       -25
+     ],
+     "status": null,
+     "statusChance": 0
+   },
+   {
+     "id": "sigma_ohio",
+     "name": "😤 Sigma Ohio Grindset",
+     "desc": "Wakes up at 4am, drinks raw corn, and skips the opponent entirely to focus on the grind. Lowers opponent's speed because Ohiomon does not acknowledge distractions.",
+     "speed": "fast",
+     "damage": [
+       0,
+       0
+     ],
+     "status": "statdwn",
+     "statusChance": 1,
+     "statTarget": "speed"
+   },
+   {
+     "id": "cornfield_lowground",
+     "name": "🕳️ Ohio Final Boss",
+     "desc": "Transforms into the Ohio final boss. The opponent didn't know there was a final boss. There is always a final boss. Lowers defense as reality itself becomes Ohio-shaped.",
+     "speed": "medium",
+     "damage": [
+       14,
+       22
+     ],
+     "status": "statdwn",
+     "statusChance": 1,
+     "statTarget": "defense"
+   },
+   {
+     "id": "ohio_infection",
+     "name": "☣️ Ohio Spread",
+     "desc": "Makes the opponent briefly become Ohio. They are poisoned by this information AND confused because they can feel it happening and cannot stop it. You are Ohio now. We are all Ohio.",
+     "speed": "slow",
+     "damage": [
+       16,
+       26
+     ],
+     "statuses": [
+       {
+         "status": "poison",
+         "statusChance": 0.65
+       },
+       {
+         "status": "confuse",
+         "statusChance": 0.85
+       }
+     ]
+   }
+ ]
+}
+

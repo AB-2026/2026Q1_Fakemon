@@ -1,0 +1,74 @@
+{
+  "id":          "the_files",
+  "name":        "The Files",
+  "createdBy":   "Liam Johnson",
+  "emoji":       "📁",
+  "type":        "Ghost",
+  "description": "A spectral folder that has existed since the early 2000s and contains information that would allegedly make everyone very uncomfortable. Has been promised to the public approximately 47 times. Each time a release date is announced, The Files becomes slightly more transparent before turning completely invisible again. Its natural predators are black marker pens, paper shredders, and the phrase 'in the interest of national security.' It is not hiding. It is simply being protected from itself for reasons that will be explained later. The explanation is also classified.",
+  "hp":       101,
+  "power":    95,
+  "speed":    66,
+  "defense":  80,
+  "accuracy": 70,
+  "moves": [
+    {
+      "id":           "files_move1_redacted",
+      "name":         "⬛ Redacted",
+      "desc":         "Delivers a devastating attack but every detail of it is blacked out. The opponent took damage. How much damage? Classified. From what? Classified. Why does it hurt like that specifically? Classified.",
+      "speed":        "medium",
+      "damage": [25, 45],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "files_move2_coming_soon",
+      "name":         "📅 Coming Soon™",
+      "desc":         "Promises to fully reveal itself next turn. It does not reveal itself next turn. Announces a new release date. Sharply lowers the opponent's speed as they wait patiently for a thing that will not arrive.",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":           "files_move3_national_security",
+      "name":         "🔒 National Security",
+      "desc":         "Invokes national security to avoid taking damage this turn. The attack still landed. The Files simply declared it classified after the fact. Restores 25 HP through bureaucratic immunity.",
+      "speed":        "fast",
+      "damage": [-25, -25],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "files_move4_partially_released",
+      "name":         "📄 Partially Released",
+      "desc":         "Releases 3% of its contents. The 3% is a cover page, a blank page, and a page that is entirely redacted except for the word 'the.' ATK sharply rises from the audience's outrage providing unlimited energy.",
+      "speed":        "medium",
+      "damage": [0, 0],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "files_move5_very_powerful_friends",
+      "name":         "📞 Very Powerful Friends",
+      "desc":         "Makes a phone call. The defense stat of several prominent opponents across the battlefield simultaneously drops for reasons nobody will elaborate on. The Files puts the phone down. Nothing happened.",
+      "speed":        "medium",
+      "damage": [14, 22],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "defense"
+    },
+    {
+      "id":           "files_move6_full_release",
+      "name":         "💥 Full Declassification",
+      "desc":         "Threatens to release everything. The opponent is poisoned by the mere suggestion AND confused trying to process the implications. The Files does not actually release everything. It never releases everything. But the threat alone is enough. It is always enough.",
+      "speed":        "slow",
+      "damage": [20, 32],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.8 },
+        { "status": "confuse", "statusChance": 0.85 }
+      ]
+    }
+  ]
+}

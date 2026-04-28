@@ -1,0 +1,91 @@
+{
+  "id": "zachary1_1",
+  "name": "Sacabambaspis",
+  "createdBy": "Zachary Lucas Villanueva",
+  "emoji": "🐟",
+  "type": "Water",
+  "hp": 200,
+  "atk": 189,
+  "speed": 60,
+  "defense": 70,
+  "accuracy": 100,
+  "color": "808080",
+  "description": "An ancient creature from the Ordovician period, this Sacabambaspis is the last of its kind, survived by sucking the moisture out of old buttered popcorn and eating lemon rinds, may have caused face to become flatter.",
+  "moves": [
+    {
+      "id": "zachary1_m1",
+      "name": "Bump",
+      "speed": "fast",
+      "damage": [
+        4,
+        10
+      ],
+      "status": null,
+      "statusChance": 0,
+      "desc": "Sacabambaspis bumps into its opponent head first."
+    },
+    {
+      "id": "zachary1_m2",
+      "name": "Tail smack",
+      "speed": "medium",
+      "damage": [
+        25,
+        30
+      ],
+      "status": "confuse",
+      "statusChance": 0.5,
+      "desc": "Sacabambaspis uses tail to smack opponent."
+    },
+    {
+      "id": "zachary1_m3",
+      "name": "Everlasting Fish",
+      "speed": "medium",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "desc": "Sacabambaspis shields itself with hardened lemon rinds and becomes practically impertinent to most attacks.",
+      "statTarget": "defense"
+    },
+    {
+      "id": "zachary1_m4",
+      "name": "LEMON RINDS",
+      "speed": "slow",
+      "damage": [
+        50,
+        60
+      ],
+      "status": "paralyze",
+      "statusChance": 0.9,
+      "desc": "Sacabambaspis gathers all of its strength from the lemon rinds it has eaten over the years and spits them out at their opponent."
+    },
+    {
+      "id": "zachary1_m5",
+      "name": "Popcorn Moisture",
+      "speed": "medium",
+      "damage": [
+        -50,
+        -50
+      ],
+      "status": null,
+      "statusChance": 0,
+      "desc": "Sacabambaspis sucks the moisture out of buttered popcorn and heals."
+      
+    },
+    {
+        "id": "zachary1_m6",
+      "name": "You have Alerted the Horde",
+      "speed": "slow",
+      "damage": [
+        64,
+        74
+      ],
+      "status": "confuse",
+      "statusChance": 1,
+      "desc": "Sacabambaspis calls upon the spirits of its dead ancestors and a horde of dead sacabambaspis decends from the heavens upon their opponent."
+    }
+  ]
+}
+

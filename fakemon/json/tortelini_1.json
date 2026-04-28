@@ -1,0 +1,65 @@
+{
+  "id": "tortelini_1",
+  "name": "¡Dios mío! ¡Es un tortuga!",
+  "createdBy": "Johann Smit",
+  "emoji": "🐢",
+  "type": "Nature",
+  "hp": 200,
+  "atk": 100,
+  "speed": 10,
+  "defense": 700,
+  "accuracy": 99,
+  "color": "#75b84f",
+  "description": "Esta es una tortuga terrestre. Vive en tierra y se ve ¡INCREÍBLEMENTE LINDA!",
+  "moves": [
+    {
+      "id": "tortelini_m1",
+      "name": "Quick Nip",
+      "speed": "fast",
+      "damage": [
+        7,
+        14
+      ],
+      "status": null,
+      "statusChance": 0,
+      "desc": "It's a bite from a tortoise. It hurts. What did you expect?"
+    },
+    {
+      "id": "tortelini_m2",
+      "name": "Shell smash",
+      "speed": "slow",
+      "damage": [
+        50,
+        70
+      ],
+      "status": "confuse",
+      "statusChance": 1,
+      "desc": "You get crushed by a massive tortoise shell."
+    },
+    {
+      "id": "tortelini_m3",
+      "name": "Terrepair",
+      "speed": "fast",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "desc": "Hide in your shell, 'cause the world is out to bleed you for a ride What will you gain making your life a little longer Heaven or hell, was the journey cold that gave you eyes of steel Shelter behind painting your mind and playing joker",
+      "statTarget": "defense"
+    },
+    {
+      "id": "tortelini_m4",
+      "name": "Sandblast",
+      "speed": "medium",
+      "damage": [
+        5,
+        6
+      ],
+      "status": "sleep",
+      "statusChance": 1,
+      "desc": "Pelts you with sand which gets in your eyes."
+    }
+  ]
+}

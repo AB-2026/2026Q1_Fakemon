@@ -1,0 +1,54 @@
+{
+  "id": "Umpire",
+  "name": "Umpire",
+  "createdBy": "Kyan Olugbile",
+  "emoji": "🐲",
+  "type": "Normal",
+
+ 
+  "hp": 20,      
+  "power": 50,    
+  "speed": 100,     
+  "defense": 140,  
+  "accuracy": 100, 
+
+  "description": "A strong Fakemon",
+
+  "moves": [
+
+   
+    {
+      "id": "Yellow card",
+      "name": "Questionable call",
+      "desc": "The Umpire will make a questionable call making the opposing more angry and less effective",
+      "speed": "fast",
+      "damage": [0, 10],
+      "status": "statdwn",
+      "statusChance": 0.8
+    },
+
+   
+    {
+      "id": "Forgetfullnice",
+      "name": "Dementia",
+      "desc": "The umpire forgot the strikes and called the batter out. Makes them very upset",
+      "speed": "slow",
+      "damage": [10, 40],
+      "status": "statdwn",
+      "statusChance": 0.25
+    },
+
+   
+    {
+      "id": "Ejection",
+      "name": "Ejection",
+      "desc": "Gets rid of a annoying player boosting confidence",
+      "speed": "fast",
+      "damage": [-10, -10],
+      "status": "statup",
+      "statusChance": 0.8
+    }
+   
+
+  ]
+}

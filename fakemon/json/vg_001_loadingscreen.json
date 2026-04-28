@@ -1,0 +1,74 @@
+{
+  "id": "vg_001_loadingscreen",
+  "name": "Loadscreech",
+  "createdBy": "Johann Smit",
+  "emoji": "⏳",
+  "type": "Ghost",
+  "description": "A phantom born from every loading screen that has ever existed. Its body is a progress bar frozen at 99%. It has been at 99% since 2011. Scientists believe it will reach 100% sometime around the heat death of the universe. It feeds on anticipation and destroys it. Games with SSDs have weakened it but not killed it. It simply moved into the shader compilation screen and adapted. It always adapts.",
+  "hp": 95,
+  "power": 78,
+  "speed": 2,
+  "defense": 88,
+  "accuracy": 82,
+  "moves": [
+    {
+      "id": "vg_001_move1_eternal_buffer",
+      "name": "⏳ Eternal Buffer",
+      "desc": "Freezes the battlefield at 99% loaded. The opponent waits. And waits. Deals damage through sheer psychological erosion. The battle resumes when Loadscreech feels like it.",
+      "speed": "slow",
+      "damage": [28, 42],
+      "status": "confuse",
+      "statusChance": 0.75
+    },
+    {
+      "id": "vg_001_move2_shader_compile",
+      "name": "🖥️ Shader Compilation",
+      "desc": "Announces it needs to compile shaders for a better experience. Sharply lowers opponent's speed as they realize this will take 40 minutes and cannot be skipped.",
+      "speed": "slow",
+      "damage": [0, 0],
+      "status": "statdwn",
+      "statusChance": 1,
+      "statTarget": "speed"
+    },
+    {
+      "id": "vg_001_move3_tip_screen",
+      "name": "💡 Loading Screen Tip",
+      "desc": "Displays a completely useless game tip like 'Try not to die.' Restores 25 HP because even Loadscreech found it mildly funny.",
+      "speed": "slow",
+      "damage": [-25, -25],
+      "status": null,
+      "statusChance": 0
+    },
+    {
+      "id": "vg_001_move4_false_finish",
+      "name": "📊 False Finish",
+      "desc": "Hits 100% then immediately restarts from 0 with no explanation. ATK sharply rises from the opponent's pure defeated energy.",
+      "speed": "fast",
+      "damage": [0, 0],
+      "status": "statup",
+      "statusChance": 1,
+      "statTarget": "atk"
+    },
+    {
+      "id": "vg_001_move5_install_update",
+      "name": "📥 Mandatory Update",
+      "desc": "Forces a 47GB update mid-battle. Lowers opponent's defense as they realize their entire evening is gone.",
+      "speed": "medium",
+      "damage": [10, 18],
+      "status": "statdwn",
+      "statusChance": 1,
+      "statTarget": "defense"
+    },
+    {
+      "id": "vg_001_move6_infinite_load",
+      "name": "♾️ Infinite Load",
+      "desc": "Enters an infinite loading loop with no escape. The opponent is poisoned by despair AND confused because the console has been off for ten minutes and the screen is still loading.",
+      "speed": "slow",
+      "damage": [16, 24],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.7 },
+        { "status": "confuse", "statusChance": 0.85 }
+      ]
+    }
+  ]
+}

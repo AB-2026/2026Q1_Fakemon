@@ -1,0 +1,91 @@
+{
+  "id": "lobotomy",
+  "name": "lobotomized",
+  "createdBy": "Brandon M",
+  "emoji": "😵‍💫",
+  "type": "Normal",
+  "hp": 100,
+  "atk": 90,
+  "speed": 120,
+  "defense": 15,
+  "accuracy": 80,
+  "color": "#378ADD",
+  "description": "some guy. got lobotomized an somehow knows how to lobotomize others. ",
+  "moves": [
+    {
+      "id": "lobotomize",
+      "name": "lobotomize",
+      "desc": "lobotomize your opponent, giving them brain damage. gives confusion.",
+      "speed": "slow",
+      "damage": [
+        30,
+        45
+      ],
+      "status": "confuse",
+      "statusChance": 1
+    },
+    {
+      "id": "brain damaged",
+      "name": "w-whats happening?",
+      "desc": "brain damage, forgets injury, so therefore the injury is gone.",
+      "speed": "fast",
+      "damage": [
+        -30,
+        -30
+      ]
+      
+    },
+    {
+      "id": "biiig think",
+      "name": "revelation",
+      "desc": "realises he has a brain, increases damage.",
+      "speed": "fast",
+      "damage": [
+        -5,
+        -5
+      ],
+      "status": "statup",
+      "statusChance": 1.0,
+      "statTarget": "atk",
+      "statChange": 10
+    },
+    {
+      "id": "spineshred",
+      "name": "spine rip",
+      "desc": "ruins the enemies spine, causing paralysis.",
+      "speed": "fast",
+      "damage": [
+        20,
+        20
+      ],
+      "status": "paralyze",
+      "statusChance": 0.8
+    },
+    {
+      "id": "sleep",
+      "name": "anesthesia",
+      "desc": "injects opponent with anesthetic, causing them to sleep.",
+      "speed": "medium",
+      "damage": [
+        10,
+        10
+      ],
+      "status": "sleep",
+      "statusChance": 1.0
+    },
+
+    {
+      "id": "hapy :D",
+      "name": "true joy and whimsy ",
+      "desc": "the... *minor* brain damage makes them forget bad things for a moment, and he shows true joy and whimsy. demoralizes opponent.",
+      "speed": "fast",
+      "damage": [
+        3,
+        3
+      ],
+      "status": "statdwn",
+      "statusChance": 1.0,
+      "statTarget":"atk"
+    }
+  ]
+}

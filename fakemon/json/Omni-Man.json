@@ -1,0 +1,66 @@
+{
+  "id":          "Omni-Man",
+  "name":        "Omni-Mann",
+  "createdBy":   "Sean McGarry",
+  "emoji":       "💪 >:(",
+  "type":        "Normal",
+  "description": "Mark, I made you a steak.",
+  "hp":       1050,
+  "power":    105,
+  "speed":    80,
+  "defense":  60,
+  "accuracy": 85,
+
+  "moves": [
+
+
+    {
+      "id":           "punchies",
+      "name":         "Punch",
+      "desc":         "THINK MARK.",
+      "speed":        "fast",
+      "damage": [30, 65],
+      "status":       null,
+      "statusChance": 0
+    },
+
+    {
+  "id": "Steak",
+  "name": "🥩 I made you a steak",
+  "desc": "A STEAK!?!?!? (heals a lot of HP.)",
+  "speed": "slow",
+  "damage": [-40, -120],
+  "status": null,
+  "statusChance": 0
+},
+{
+  "id": "Random_rage",
+  "name": "Random_rage (buffs atttak).",
+  "desc": "*Proceeds to slaughter earths superhero team and beat the hell out of his son.",
+  "speed": "medium",
+  "damage": [10, 40],
+  "status": "statup",
+  "statusChance": 1.0,
+  "statTarget": "atk"
+    },
+{
+  "id": "Viltramite-skin",
+  "name": "🛡️ Viltramite-skin",
+  "desc": "Whats a 400billion dollar lazer, but a nose bleed. Buffs defence",
+  "speed": "medium",
+  "damage": [0, 0],
+  "status": "statup",
+  "statusChance": 0.9,
+  "statTarget": "defense"
+},
+{
+      "id":           "Trains",
+      "name":         "Train",
+      "desc":         "Maybe this time you'll learn...",
+      "speed":        "medium",
+      "damage": [70, 120],
+      "status":       null,
+      "statusChance": 0
+    }
+  ]
+}

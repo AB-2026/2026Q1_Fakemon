@@ -1,0 +1,55 @@
+{
+  "id":          "CHEESE",
+  "name":        "Cheese (is a monster)",
+  "createdBy":   "Camden Thomas (7th grade)",
+  "emoji":       "🧀",
+  "type":        "Nature",
+  "description": "From the scratch game seires ''CHEESE!!!''.",
+  "hp":       550,
+  "power":    120,
+  "speed":    75,
+  "defense":  10,
+  "accuracy": 90,
+
+  "moves": [
+    
+    {
+      "id":           "Cheese_ball",
+      "name":         "CHEESE BALLL!!",
+      "desc":         "Shoots a ball of cheese at your opponent.",
+      "speed":        "medium",
+      "damage": [4,60],
+      "status":       "flinch",
+      "statusChance": 0.8
+    },
+    {
+      "id":           "Cheese_touch",
+      "name":         "🧀 Cheese touch",
+      "desc":         "You just go the cheese touch!.",
+      "speed":        "fast",
+      "damage": [10, 20],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "orb",
+      "name":         "Orb 🔵",
+      "desc":         "Power sorce of the cheese. Restores 40 HP.",
+      "speed":        "slow",
+      "damage": [-40, -40],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "Angry_Cheese",
+      "name":         "📈 ANGER",
+      "desc":         "Sharply raises ATK.",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    }
+
+  ]
+}

@@ -1,0 +1,98 @@
+{
+    "id": "vg_010_speedrunner",
+    "name": "Anypercentus",
+    "createdBy": "Johann Smit",
+    "emoji": "⏱️",
+    "type": "Air",
+    "description": "A being that has memorized every frame of every game ever made and uses that knowledge exclusively to skip all of it. It completed its own origin story in 4 minutes 32 seconds by clipping through the cutscene. Holds the world record for being born. Communicates only in split times. Has watched the same 40-minute game play out in 6 minutes 1,200 times and describes each viewing as 'studying.' Its nemesis is a 0.3 second difference that has consumed the last eight months of its life.",
+    "hp": 78,
+    "power": 90,
+    "speed": 999,
+    "defense": 22,
+    "accuracy": 70,
+    "moves": [
+      {
+        "id": "vg_010_move1_any_percent",
+        "name": "💨 Any% Run",
+        "desc": "Skips every animation, cutscene, and wind-up and hits the opponent directly. Deals heavy damage by completely bypassing the part where attacks have a startup frame.",
+        "speed": "fast",
+        "damage": [
+          30,
+          46
+        ],
+        "status": null,
+        "statusChance": 0
+      },
+      {
+        "id": "vg_010_move2_glitchless",
+        "name": "🚫 Glitchless Route",
+        "desc": "Attempts the glitchless route as a challenge. ATK sharply rises because Anypercentus is still faster than everyone even with self-imposed restrictions.",
+        "speed": "fast",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statup",
+        "statusChance": 1,
+        "statTarget": "atk"
+      },
+      {
+        "id": "vg_010_move3_reset",
+        "name": "🔄 Mid-Run Reset",
+        "desc": "The run isn't going perfectly so Anypercentus resets. Restores 25 HP by starting fresh. The timer resets. This is the 847th attempt today.",
+        "speed": "slow",
+        "damage": [
+          -25,
+          -25
+        ],
+        "status": null,
+        "statusChance": 0
+      },
+      {
+        "id": "vg_010_move4_frame_perfect",
+        "name": "🎯 Frame Perfect Input",
+        "desc": "Executes a move in a single frame window with inhuman precision. Opponent's defense shatters because there was literally no time to react. The window was 0.016 seconds.",
+        "speed": "fast",
+        "damage": [
+          18,
+          28
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "defense"
+      },
+      {
+        "id": "vg_010_move5_out_of_bounds",
+        "name": "🗺️ Out Of Bounds",
+        "desc": "Leaves the battle arena entirely. Runs around the outside of the map. Returns behind the opponent having skipped the entire middle section. Sharply lowers their speed from pure confusion.",
+        "speed": "medium",
+        "damage": [
+          12,
+          20
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "speed"
+      },
+      {
+        "id": "vg_010_move6_worldrecord",
+        "name": "🌍 World Record Pace",
+        "desc": "Announces it is on world record pace. The opponent is poisoned by the pressure of fighting someone who has practiced this exact scenario 10,000 times AND confused because Anypercentus is already at the end of the move before the animation started.",
+        "speed": "fast",
+        "damage": [
+          20,
+          32
+        ],
+        "statuses": [
+          {
+            "status": "poison",
+            "statusChance": 0.65
+          },
+          {
+            "status": "confuse",
+            "statusChance": 0.7
+          }
+        ]
+      }
+    ]
+  }

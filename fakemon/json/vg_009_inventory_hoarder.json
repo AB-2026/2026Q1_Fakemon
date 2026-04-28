@@ -1,0 +1,98 @@
+{
+    "id": "vg_009_inventory_hoarder",
+    "name": "Packratticus",
+    "createdBy": "Johann Smit",
+    "emoji": "🎒",
+    "type": "Normal",
+    "description": "A creature whose entire body IS an inventory screen. It is holding 847 healing items it refuses to use because it might need them later. It will not need them later. It has been saving them since the tutorial. Its pockets contain 12 slightly different swords it will never equip and 400 units of a crafting material whose recipe it has not yet found. Its inventory is full. It cannot pick up the critical item. It drops a healing herb to make room and immediately regrets it forever.",
+    "hp": 108,
+    "power": 72,
+    "speed": 55,
+    "defense": 80,
+    "accuracy": 84,
+    "moves": [
+      {
+        "id": "vg_009_move1_elixir_hoard",
+        "name": "🧪 Won't Use Elixir",
+        "desc": "Has 99 Elixirs and refuses to use a single one. ATK sharply rises from the irrational confidence of being fully stocked with items it will never consume.",
+        "speed": "fast",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statup",
+        "statusChance": 1,
+        "statTarget": "atk"
+      },
+      {
+        "id": "vg_009_move2_wrong_sword",
+        "name": "⚔️ Suboptimal Equipment",
+        "desc": "Attacks with the sword from the tutorial because it has sentimental value. Deals less damage than it should but Packratticus feels good about it.",
+        "speed": "medium",
+        "damage": [
+          15,
+          22
+        ],
+        "status": null,
+        "statusChance": 0
+      },
+      {
+        "id": "vg_009_move3_item_sort",
+        "name": "📦 Sort By Type",
+        "desc": "Spends a turn sorting inventory by type, then weight, then value. Restores 25 HP from the serotonin of a clean inventory screen. The opponent waits. The sorting is thorough.",
+        "speed": "slow",
+        "damage": [
+          -25,
+          -25
+        ],
+        "status": null,
+        "statusChance": 0
+      },
+      {
+        "id": "vg_009_move4_inventory_full",
+        "name": "🚫 Inventory Full",
+        "desc": "Cannot pick up the opponent's dropped item. Cannot drop anything either. The resulting existential crisis lowers opponent's defense as they watch Packratticus stare at the inventory screen for 4 minutes.",
+        "speed": "slow",
+        "damage": [
+          8,
+          14
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "defense"
+      },
+      {
+        "id": "vg_009_move5_wrong_item",
+        "name": "💊 Accidentally Used Antidote",
+        "desc": "Opens inventory mid-battle and uses the wrong item. Is not poisoned. Sharply lowers own speed from the fumbling but at least it's organized in there.",
+        "speed": "slow",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "speed"
+      },
+      {
+        "id": "vg_009_move6_drop_regret",
+        "name": "🗑️ Dropped The Herb",
+        "desc": "Drops a healing herb to make room for a rock. Immediately realizes the herb was needed. Poisons itself with regret AND confuses the opponent who watched this happen voluntarily.",
+        "speed": "slow",
+        "damage": [
+          16,
+          25
+        ],
+        "statuses": [
+          {
+            "status": "poison",
+            "statusChance": 0.65
+          },
+          {
+            "status": "confuse",
+            "statusChance": 0.75
+          }
+        ]
+      }
+    ]
+  }

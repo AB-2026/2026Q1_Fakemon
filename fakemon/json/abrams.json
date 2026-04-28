@@ -1,0 +1,91 @@
+{
+  "id": "abrams",
+  "name": "litterally an m1 abrams",
+  "createdBy": "Brandon M",
+  "emoji": "tank",
+  "type": "Normal",
+  "hp": 400,
+  "atk": 180,
+  "speed": 60,
+  "defense": 40,
+  "accuracy": 95,
+  "color": "#378ADD",
+  "description": "a LITERAL tank",
+  "moves": [
+    {
+      "id": "cannon",
+      "name": "HE shell",
+      "desc": "fire a shot at the opponent using the main barrel.",
+      "speed": "slow",
+      "damage": [
+        120,
+        200
+      ],
+      "status": "flinch",
+      "statusChance": 0.8
+    },
+    {
+      "id": "ram",
+      "name": "ramming speed!",
+      "desc": "run over your opponent. the soldiers charriot cannot be stopped.",
+      "speed": "medium",
+      "damage": [
+        80,
+        120
+      ]
+      
+    },
+    {
+      "id": "MG42",
+      "name": "machine gun!",
+      "desc": "brrrt goes the machine gun! causes bleed (burn actually).",
+      "speed": "fast",
+      "damage": [
+        100,
+        160
+      ],
+      "status": "burn",
+      "statusChance": 1.0
+      
+      
+    },
+    {
+      "id": "APshot",
+      "name": "AP shell",
+      "desc": "fires an armor piercing shell, decreasing enemy armor..",
+      "speed": "fast",
+      "damage": [
+        120,
+        190
+      ],
+      "status": "statdwn",
+      "statusChance": 1,
+      "statTarget": "defense"
+    },
+    {
+      "id": "drone",
+      "name": "drone strike",
+      "desc": "buzzing sound from the propellers, then a boom. enemies gone.",
+      "speed": "medium",
+      "damage": [
+        100,
+        160
+      ]
+     
+    },
+
+    {
+      "id": "repair",
+      "name": "emergency repairs",
+      "desc": "repair your tank incase of emergency. takes a bit, as tanks are complicated",
+      "speed": "slow",
+      "damage": [
+        -60,
+        -60
+      ],
+      "status": "statup",
+      "statusChance": 1.0,
+      "statTarget":"defense"
+    }
+  ]
+}

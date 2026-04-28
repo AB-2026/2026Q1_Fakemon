@@ -261,17 +261,8 @@ add("Bullying/Targeting", False,
 # ═════════════════════════════════════════════════════════════════════════════
 
 def check_id_filename(filepath):
-    """
-    Returns a list of (category, message) tuples describing mismatches
-    between the file's stem (the part before .json) and the "id" field
-    inside the JSON.
-
-    Matching is CASE-SENSITIVE — 'Embork' != 'embork'.
-    Near-misses (only case differs, or ≥80% similarity) generate a
-    specific "Did you mean…?" warning instead of a generic error.
-    """
     issues = []
-    stem = os.path.splitext(os.path.basename(filepath))[0]  # e.g. "embork"
+    stem = os.path.splitext(os.path.basename(filepath))[0]
 
     try:
         with open(filepath, "r", encoding="utf-8", errors="replace") as f:
@@ -294,11 +285,8 @@ def check_id_filename(filepath):
         return issues
 
     if fid == stem:
-        return []   # exact match ✓
+        return []
 
-    # ── Near-miss detection ───────────────────────────────────────────────
-
-    # Case-only difference?
     if fid.lower() == stem.lower():
         issues.append((
             "ID/Filename",
@@ -307,7 +295,6 @@ def check_id_filename(filepath):
         ))
         return issues
 
-    # High-similarity near-miss (typo, extra char, etc.)?
     ratio = difflib.SequenceMatcher(None, fid, stem).ratio()
     if ratio >= 0.80:
         issues.append((
@@ -317,7 +304,6 @@ def check_id_filename(filepath):
         ))
         return issues
 
-    # Completely different
     issues.append((
         "ID/Filename",
         f'Mismatch — filename is "{stem}.json" but id is "{fid}". '
@@ -331,13 +317,8 @@ def check_id_filename(filepath):
 # ═════════════════════════════════════════════════════════════════════════════
 
 def scan_file(filepath):
-    """
-    Returns a list of findings:
-        [(line_number, category, matched_text, full_line, auto_sanitize), ...]
-    """
     findings = []
 
-    # ID/filename check first (not line-based)
     for category, message in check_id_filename(filepath):
         findings.append((0, category, message, "", False))
 
@@ -371,7 +352,6 @@ def scan_all(fakemon_dir):
         if os.path.basename(f) != "fakemonlist.json"
     )
 
-    # Also check top-level fakemon dir directly
     top_pattern = os.path.join(fakemon_dir, "*.json")
     top_files   = sorted(
         f for f in glob.glob(top_pattern)
@@ -408,7 +388,6 @@ def replacement_for(matched_text):
 
 
 def sanitize_text(text):
-    """Replace auto-sanitize hits with ? characters."""
     hits = []
     for category, pattern, auto_sanitize in PATTERNS:
         if not auto_sanitize:
@@ -503,11 +482,10 @@ def sanitize_all(fakemon_dir, apply=False):
 
 def rebuild_fakemonlist(fakemon_dir):
     """
-    Rebuilds fakemonlist.json from all *.json files in fakemon_dir,
-    excluding fakemonlist.json itself. Works whether JSON files are
-    directly in fakemon_dir or in fakemon_dir/json/.
+    Rebuilds fakemonlist.json from all *.json files in fakemon/json/,
+    falling back to top-level fakemon_dir if json/ subdir doesn't exist.
+    Always runs automatically (not gated behind --rebuild).
     """
-    # Look in both top-level and json/ subdir
     json_subdir = os.path.join(fakemon_dir, "json")
     if os.path.isdir(json_subdir):
         source_dir = json_subdir
@@ -556,6 +534,31 @@ def _sanitize_note(auto_sanitize):
         return "AUTO-SANITIZE"
     return "REVIEW ONLY"
 
+# Categories that are purely structural — no content concern
+_SYNTAX_ONLY_CATS = {"ID/Filename", "ERR"}
+
+def _is_syntax_only(findings):
+    return all(cat in _SYNTAX_ONLY_CATS for _, cat, _, _, _ in findings)
+
+def _render_file_block(lines, filepath, findings):
+    filename = os.path.basename(filepath)
+    lines.append(f"### 🚩 `{filename}`\n")
+    lines.append(f"**{len(findings)} issue(s)**\n")
+    lines.append("| Line | Category | Action | Matched / Message | Full Line |")
+    lines.append("|------|----------|--------|-------------------|-----------|")
+    for lineno, category, matched, content, auto_sanitize in findings:
+        line_display = str(lineno) if lineno > 0 else "—"
+        safe_matched = matched.replace("|", "\\|")
+        safe_content = content.strip().replace("|", "\\|")
+        if len(safe_content) > 120:
+            safe_content = safe_content[:117] + "…"
+        action    = _sanitize_note(auto_sanitize)
+        cat_label = _category_label(category)
+        lines.append(
+            f"| {line_display} | {cat_label} | {action} | `{safe_matched}` | `{safe_content}` |"
+        )
+    lines.append("")
+
 
 def write_report(flagged, total_scanned, output_path="flagged_files.md"):
     now   = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -593,24 +596,23 @@ def write_report(flagged, total_scanned, output_path="flagged_files.md"):
         lines.append("> python check_fakemon.py --apply")
         lines.append("> ```\n")
 
-        for filepath, findings in flagged.items():
-            filename = os.path.basename(filepath)
-            lines.append(f"## 🚩 `{filename}`\n")
-            lines.append(f"**{len(findings)} issue(s)**\n")
-            lines.append("| Line | Category | Action | Matched / Message | Full Line |")
-            lines.append("|------|----------|--------|-------------------|-----------|")
-            for lineno, category, matched, content, auto_sanitize in findings:
-                line_display = str(lineno) if lineno > 0 else "—"
-                safe_matched = matched.replace("|", "\\|")
-                safe_content = content.strip().replace("|", "\\|")
-                if len(safe_content) > 120:
-                    safe_content = safe_content[:117] + "…"
-                action = _sanitize_note(auto_sanitize)
-                cat_label = _category_label(category)
-                lines.append(
-                    f"| {line_display} | {cat_label} | {action} | `{safe_matched}` | `{safe_content}` |"
-                )
-            lines.append("")
+        # ── Split into two buckets ────────────────────────────────────────
+        concerning  = {fp: f for fp, f in flagged.items() if not _is_syntax_only(f)}
+        syntax_only = {fp: f for fp, f in flagged.items() if     _is_syntax_only(f)}
+
+        # ── Bucket 1: content concerns (bullying, political, profanity…) ─
+        if concerning:
+            lines.append("## ⚠️ Needs Teacher Review — Content Flags\n")
+            for filepath, findings in concerning.items():
+                _render_file_block(lines, filepath, findings)
+
+        # ── Bucket 2: structural / syntax errors only ─────────────────────
+        if syntax_only:
+            if concerning:
+                lines.append("\n---\n")
+            lines.append("## 🔧 Syntax / ID Errors Only\n")
+            for filepath, findings in syntax_only.items():
+                _render_file_block(lines, filepath, findings)
 
     report_text = "\n".join(lines) + "\n"
     with open(output_path, "w", encoding="utf-8") as f:
@@ -642,10 +644,6 @@ def main():
         "--apply", action="store_true",
         help="Replace auto-sanitize hits with ? characters (default: dry-run)"
     )
-    parser.add_argument(
-        "--rebuild", action="store_true",
-        help="Rebuild fakemonlist.json from all JSON files in the fakemon folder"
-    )
     args = parser.parse_args()
 
     if not os.path.isdir(args.dir):
@@ -664,9 +662,8 @@ def main():
     else:
         sanitize_all(args.dir, apply=False)
 
-    # ── Step 3: Rebuild fakemonlist (if --rebuild) ────────────────────────
-    if args.rebuild:
-        rebuild_fakemonlist(args.dir)
+    # ── Step 3: Always rebuild fakemonlist.json ───────────────────────────
+    rebuild_fakemonlist(args.dir)
 
     # ── Step 4: Write report ──────────────────────────────────────────────
     write_report(flagged, total_scanned=len(all_files), output_path=args.out)

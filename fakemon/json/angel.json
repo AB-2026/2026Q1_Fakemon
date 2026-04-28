@@ -1,0 +1,65 @@
+{
+  "id": "angel1_1",
+  "name": "WetKisses",
+  "createdBy": "Daniel Isaac Angel",
+  "emoji": "🦈",
+  "type": "Water",
+  "hp": 200,
+  "atk": 180,
+  "speed": 120,
+  "defense": 40,
+  "accuracy": 95,
+  "color": "#0000FF",
+  "description": "It's a shark that loves kissing things.",
+  "moves": [
+    {
+      "id": "angel1_m1",
+      "name": "Kisses",
+      "speed": "fast",
+      "damage": [
+        10,
+        15
+      ],
+      "status": "confuse",
+      "statusChance": 0.9,
+      "desc": "The enemy won't expect a kiss."
+    },
+    {
+      "id": "angel1_m2",
+      "name": "FinSlap",
+      "speed": "medium",
+      "damage": [
+        50,
+        65
+      ],
+      "status": "paralyze",
+      "statusChance": 1,
+      "desc": "The slap is too powerful for the enemy to handle."
+    },
+    {
+      "id": "angel1_m3",
+      "name": "DrinkBlood",
+      "speed": "fast",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "desc": "The shark senses the enemy fear.",
+      "statTarget": "defense"
+    },
+    {
+      "id": "angel1_m4",
+      "name": "Megabite",
+      "speed": "slow",
+      "damage": [
+        100,
+        120
+      ],
+      "status": "burn",
+      "statusChance": 1,
+      "desc": "THE finishing move."
+    }
+  ]
+}

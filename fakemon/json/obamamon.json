@@ -1,0 +1,74 @@
+{
+  "id":          "obamamon",
+  "name":        "Obamamon",
+  "createdBy":   "Johann Smit",
+  "emoji":       "🇺🇸",
+  "type":        "Normal",
+  "description": "A smooth, impossibly cool creature that arrived in 2008 with a hope poster and a smile that made the entire world briefly believe things might be okay. Speaks in perfectly constructed paragraphs with no ums or ahs which scientists confirm is not humanly possible. Releases an autobiographical memoir every 18 months. Has written three books about itself and is working on a fourth. Once cried a single perfect tear on television and it was the most dignified cry ever recorded. Its current form spends its days kitesurfing with billionaires on private islands while occasionally dropping a playlist on Spotify that goes inexplicably hard.",
+  "hp":       108,
+  "power":    82,
+  "speed":    78,
+  "defense":  75,
+  "accuracy": 91,
+  "moves": [
+    {
+      "id":           "obama_move1_hope_poster",
+      "name":         "🗳️ Hope Poster",
+      "desc":         "Generates a stylized poster of itself looking into the distance with the word HOPE underneath. The opponent's defense drops as they feel a strange and unfamiliar optimism they are not prepared to handle.",
+      "speed":        "fast",
+      "damage": [20, 32],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "defense"
+    },
+    {
+      "id":           "obama_move2_mic_drop",
+      "name":         "🎤 Mic Drop",
+      "desc":         "Delivers a flawless closing argument and drops the mic. Deals massive damage through sheer rhetorical devastation. The mic is still on the floor. Nobody picks it up. The silence IS the damage.",
+      "speed":        "medium",
+      "damage": [30, 45],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "obama_move3_spotify_playlist",
+      "name":         "🎵 Summer Playlist",
+      "desc":         "Drops a curated summer playlist with no warning. Sharply raises ATK as the first track goes significantly harder than anything the opponent was prepared for. The playlist has Kendrick on it. Of course it has Kendrick on it.",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statup",
+        "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "obama_move4_kitesurf_dodge",
+      "name":         "🏄 Billionaire Island",
+      "desc":         "Retreats to a private island to go kitesurfing with a tech billionaire. Restores 25 HP. The battle continues without it. It returns deeply tanned and completely unbothered.",
+      "speed":        "slow",
+      "damage": [-25, -25],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "obama_move5_not_bad",
+      "name":         "👍 Not Bad",
+      "desc":         "Points finger guns at the opponent and says not bad. The opponent's speed sharply drops as they inexplicably feel compelled to do better despite being in a battle against this thing.",
+      "speed":        "medium",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":           "obama_move6_memoir",
+      "name":         "📚 Volume Four",
+      "desc":         "Releases its fourth autobiography mid-battle. The opponent is poisoned by the 768-page count AND confused because the writing is genuinely excellent and they keep stopping to read passages instead of fighting.",
+      "speed":        "slow",
+      "damage": [16, 26],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.6 },
+        { "status": "confuse", "statusChance": 0.85 }
+      ]
+    }
+  ]
+}

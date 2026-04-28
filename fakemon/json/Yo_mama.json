@@ -1,0 +1,53 @@
+{
+  "id":          "Yo_mama",
+  "name":        "Yo Mama",
+  "createdBy":   "error123",
+  "emoji":       "🧑‍🍼",
+  "type":        "Dark",
+  "description": "Bulbasaur but boba.",
+  "hp":       10,
+  "power":    670,
+  "speed":    20000,
+  "defense":  999,
+  "accuracy": 360,
+
+  "moves": [
+    {
+      "id":           "move_one",
+      "name":         "Spanking",
+      "desc":         "YOUSA IN BIG TROUBLA!",
+      "speed":        "fast",
+      "damage": [30, 80],
+      "status":       null,
+      "statusChance": 0.9
+    },
+    {
+      "id":           "move_two",
+      "name":         "NUCLEAR wrath",
+      "desc":         "YOUSA ENRAGED MESA!!!",
+      "speed":        "slow",
+      "damage": [500, 750],
+      "status":       "burn",
+      "statusChance": 0.3
+    },
+    {
+      "id":           "move_three",
+      "name":         "💊 Chillax time",
+      "desc":         "Restores 2500+ HP.",
+      "speed":        "slow",
+      "damage": [-1, -10],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "move_four",
+      "name":         "📈 Metal hand",
+      "desc":         "Sharply raises your own ATK.",
+      "speed":        "fast",
+      "damage": [20, 40],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"}
+   ]
+
+ }

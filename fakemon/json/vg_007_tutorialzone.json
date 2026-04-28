@@ -1,0 +1,98 @@
+{
+    "id": "vg_007_tutorialzone",
+    "name": "Tutoriath",
+    "createdBy": "Johann Smit",
+    "emoji": "📖",
+    "type": "Normal",
+    "description": "The living embodiment of a tutorial that lasts four hours and still doesn't explain the crafting system. Its entire left side is covered in button prompts. Press A to interact with Tutoriath. Are you sure? Press A again to confirm. A tooltip appears explaining what A does. Another tooltip appears explaining the first tooltip. Its final form is the game asking if you want to skip the tutorial after you've already completed it. You cannot skip it. You never could.",
+    "hp": 80,
+    "power": 58,
+    "speed": 48,
+    "defense": 52,
+    "accuracy": 91,
+    "moves": [
+      {
+        "id": "vg_007_move1_press_a",
+        "name": "🅰️ Press A To Attack",
+        "desc": "A giant prompt appears telling the opponent to dodge. While they read it, Tutoriath attacks. The prompt was for the opponent. Tutoriath does not get prompts. Tutoriath IS the prompt.",
+        "speed": "fast",
+        "damage": [
+          22,
+          34
+        ],
+        "status": null,
+        "statusChance": 0
+      },
+      {
+        "id": "vg_007_move2_tooltip_stack",
+        "name": "💬 Tooltip Overflow",
+        "desc": "Generates 14 simultaneous tooltips explaining each other. The opponent's speed sharply drops as they try to close them all in the right order.",
+        "speed": "medium",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "speed"
+      },
+      {
+        "id": "vg_007_move3_invisible_wall",
+        "name": "🚧 Tutorial Boundary",
+        "desc": "An invisible wall prevents the opponent from moving left. They didn't want to go left. The wall appears anyway. Lowers defense by making them question every direction.",
+        "speed": "medium",
+        "damage": [
+          10,
+          16
+        ],
+        "status": "statdwn",
+        "statusChance": 1,
+        "statTarget": "defense"
+      },
+      {
+        "id": "vg_007_move4_guided_hint",
+        "name": "🧭 Objective Marker",
+        "desc": "Places a giant glowing objective marker directly on the opponent. ATK sharply rises as Tutoriath closes in with unerring GPS-assisted precision.",
+        "speed": "fast",
+        "damage": [
+          0,
+          0
+        ],
+        "status": "statup",
+        "statusChance": 1,
+        "statTarget": "atk"
+      },
+      {
+        "id": "vg_007_move5_skip_unavailable",
+        "name": "⏭️ Cannot Skip",
+        "desc": "Asks if you'd like to skip this move. The skip button is greyed out. Restores 25 HP during the unskippable recovery animation.",
+        "speed": "slow",
+        "damage": [
+          -25,
+          -25
+        ],
+        "status": null,
+        "statusChance": 0
+      },
+      {
+        "id": "vg_007_move6_crafting_system",
+        "name": "⚙️ Unexplained Crafting",
+        "desc": "Introduces a crafting system with 200 recipes and zero explanation. The opponent is poisoned by confusion AND confused again on top of that because the crafting menu has its own tutorial that raises more questions than it answers.",
+        "speed": "slow",
+        "damage": [
+          14,
+          22
+        ],
+        "statuses": [
+          {
+            "status": "poison",
+            "statusChance": 0.7
+          },
+          {
+            "status": "confuse",
+            "statusChance": 0.85
+          }
+        ]
+      }
+    ]
+  }

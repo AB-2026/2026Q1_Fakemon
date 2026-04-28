@@ -1,0 +1,75 @@
+{
+  "id":          "bluescreen",
+  "name":        "Bluescreen",
+  "createdBy":   "Johann Smit",
+  "emoji":       "🖥️",
+  "type":        "Ghost",
+  "description": "An ancient spirit that haunts beige plastic towers and CRT monitors. It was born the first time a Windows 98 machine crashed during an important school presentation. It feeds on unsaved Word documents and dial-up connection timeouts. Its face IS the BSOD. It communicates by playing the Windows XP startup sound at 3am. Nobody knows why it still exists. It just does. It always will.",
+  "hp":       88,
+  "power":    85,
+  "speed":    14,
+  "defense":  40,
+  "accuracy": 77,
+  "moves": [
+    {
+      "id":           "fatal_exception",
+      "name":         "💙 Fatal Exception",
+      "desc":         "Bluescreen fills the opponent's vision with white text on blue. A fatal exception OE has occurred at 0028:C0011E36. Press any key. There is no key. Deals heavy damage and confuses.",
+      "speed":        "medium",
+      "damage": [25, 38],
+      "status":       "confuse",
+      "statusChance": 0.65
+    },
+    {
+      "id":           "dial_up_screech",
+      "name":         "📞 Dial-Up Screech",
+      "desc":         "Bluescreen connects to the internet at 56k. The sound it makes is ungodly. The opponent's speed crumbles as they wait 45 minutes for a JPEG to load top to bottom.",
+      "speed":        "slow",
+      "damage": [8, 14],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":           "defragment",
+      "name":         "🔧 Defragment",
+      "desc":         "Runs a full disk defragmentation. Takes an indeterminate amount of time. Nobody knows if it actually helps. Restores 25 HP. You cannot use the computer while this is happening.",
+      "speed":        "slow",
+      "damage": [-25, -25],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "clippy_intervention",
+      "name":         "📎 It Looks Like You're Losing",
+      "desc":         "Clippy emerges from the void. 'It looks like you're losing a battle. Would you like help?' Bluescreen's ATK sharply rises while the opponent is distracted trying to close the dialogue box.",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "internet_explorer",
+      "name":         "🌐 Internet Explorer",
+      "desc":         "Opens Internet Explorer. That's it. That's the move. The sheer slowness of it lowers the opponent's defense as they fall asleep waiting for it to launch.",
+      "speed":        "slow",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "defense"
+    },
+    {
+      "id":           "unsaved_document",
+      "name":         "📄 Unsaved Document",
+      "desc":         "Crashes mid-battle and takes the opponent's 10-page essay with it. The opponent is poisoned by pure existential dread AND confused trying to remember if AutoSave was on. It was not.",
+      "speed":        "slow",
+      "damage": [16, 24],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.65 },
+        { "status": "confuse", "statusChance": 0.8 }
+      ]
+    }
+  ]
+}
+

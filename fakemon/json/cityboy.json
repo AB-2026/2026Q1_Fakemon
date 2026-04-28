@@ -6,7 +6,7 @@
   "type":        "Metal",
   "description": "A fakemon that lives in the city.",
   "hp":       1,
-  "power":    900,
+  "power":    90,
   "speed":    4,
   "defense":  9,
   "accuracy": 75,

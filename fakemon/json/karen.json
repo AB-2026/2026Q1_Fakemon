@@ -1,0 +1,36 @@
+{
+  "id":          "karen",
+  "name":        "Suberban Karen",
+  "createdBy":   "Kyan Olugbile",
+  "emoji":       "🐲",
+  "type":        "Normal",
+  "description": "A annoying white individual in a suberban neighberhood that is probablly a HOA president",
+  "hp":       40,
+  "power":    10,
+  "speed":    20,
+  "defense":  10,
+  "accuracy": 70,
+
+  "moves": [
+    {
+      "id":           "911",
+      "name":         "Cop assist",
+      "desc":         "When a Karen finds something they dont like they automatically call the cops. Has a chance to work and ge the person annoying to leave",
+      "speed":        "medium",
+      "damage": [1, 20],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "HOA president",
+      "name":         "Im the HOA president",
+      "desc":         "A attack that makes the person get very annoyed",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 0.7
+    }
+    
+
+  ]
+}

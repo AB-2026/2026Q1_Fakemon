@@ -1,0 +1,78 @@
+{
+  "id": "jellyfish",
+  "name": "Jellyfish",
+  "createdBy": "Max Mallory",
+  "emoji": "🪼",
+  "type": "Electric",
+  "hp": 20000,
+  "atk": 20000,
+  "speed": 20000,
+  "defense": 20000,
+  "accuracy": 100,
+  "color": "#B00482",
+  "description": "A static jellyfish that stings you",
+  "moves": [
+    {
+      "id": "jellyfish_m1",
+      "name": "Quick Sting",
+      "speed": "fast",
+      "damage": [
+        100,
+        100
+      ],
+      "status": "flinch",
+      "statusChance": 1,
+      "desc": "Flinches the opponent"
+    },
+    {
+      "id": "jellyfish_m2",
+      "name": "entangle",
+      "speed": "slow",
+      "damage": [
+        200,
+        250
+      ],
+      "status": "poison",
+      "statusChance": 1,
+      "desc": "Coils an opponent, then injects poison."
+    },
+    {
+      "id": "jellyfish_m3",
+      "name": "Charge",
+      "speed": "medium",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "desc": "Takes in electricity, heightening Attack",
+      "statTarget": "atk"
+    },
+    {
+      "id": "jellyfish_m4",
+      "name": "Electrify",
+      "speed": "medium",
+      "damage": [
+        50,
+        50
+      ],
+      "status": "paralyze",
+      "statusChance": 1,
+      "desc": "Paralizes the opponent"
+    },
+    {
+      "id": "jellyfish_m5",
+      "name": "Regenerate",
+      "speed": "medium",
+      "damage": [
+        -20000,
+        -20000
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "statTarget": "defense",
+      "desc": "Regenerates tissue, healing and raising defence"
+    }
+  ]
+}

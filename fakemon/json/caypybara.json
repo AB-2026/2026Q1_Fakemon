@@ -1,0 +1,65 @@
+{
+  "id": "capybara",
+  "name": "capybara",
+  "createdBy": "Kyan Olugbile",
+  "emoji": "🐻",
+  "type": "Nature",
+  "hp": 52,
+  "atk": 40,
+  "speed": 30,
+  "defense": 0,
+  "accuracy": 100,
+  "color": "#A52A2A",
+  "description": "A capybara that dods stuff",
+  "moves": [
+    {
+      "id": "kyan1_m1",
+      "name": "Dash",
+      "speed": "fast",
+      "damage": [
+        8,
+        12
+      ],
+      "status": null,
+      "statusChance": 0,
+      "desc": "Dash attack"
+    },
+    {
+      "id": "kyan1_m2",
+      "name": "Jump",
+      "speed": "slow",
+      "damage": [
+        25,
+        26
+      ],
+      "status": null,
+      "statusChance": 0,
+      "desc": "Jumps on enemy"
+    },
+    {
+      "id": "kyan1_m3",
+      "name": "Cute",
+      "speed": "medium",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "desc": "Prevents attacks",
+      "statTarget": "defense"
+    },
+    {
+      "id": "kyan1_m4",
+      "name": "Fake death",
+      "speed": "medium",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "confuse",
+      "statusChance": 1,
+      "desc": "Confuses by faking death"
+    }
+  ]
+}

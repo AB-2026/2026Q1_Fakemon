@@ -1,0 +1,84 @@
+{
+  "id": "minecreate",
+  "name": "modded minecrafter",
+  "createdBy": "Brandon M",
+  "emoji": "⚙️",
+  "type": "Normal",
+  "hp": 100,
+  "atk": 90,
+  "speed": 100,
+  "defense": 20,
+  "accuracy": 100,
+  "color": "#378ADD",
+  "description": "someone added create mod to the server, has the power of PHYSICS now",
+  "moves": [
+    {
+      "id": "cannon",
+      "name": "big cannon",
+      "desc": "fire a cannon round at your opponent using create: big cannons. requires building it, though. slow.",
+      "speed": "slow",
+      "damage": [
+        50,
+        60
+      ],
+      "status": "flinch",
+      "statusChance": 0.8
+    },
+    {
+      "id": "pistol",
+      "name": "pistol",
+      "desc": "fire a small handgun at the enemy. fast with lower damage, causes bleed (burn actually)",
+      "speed": "fast",
+      "damage": [
+        25,
+        30
+      ],
+      "status":"burn",
+      "statusChance":1.0
+      
+    },
+    {
+      "id": "extendo arm",
+      "name": "extending arm",
+      "desc": "uses the power of an extending arm to crit the enemy from a higher range. medium speed with medium damage.",
+      "speed": "medium",
+      "damage": [
+        40,
+        45
+      ],
+      "status": "burn",
+      "statusChance": 1.0
+      
+      
+    },
+    {
+      "id": "cooked_beef",
+      "name": "steak",
+      "desc": "fill hunger, then heal. minecraft logic. medium speed.",
+      "speed": "medium",
+      "damage": [
+        -40,
+        -40
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "statTarget": "defense"
+    },
+    {
+      "id": " potions",
+      "name": "various potions",
+      "desc": "throw a few bottles of bad potions at the opponent, nerfing their speed, attack, and defense.",
+      "speed": "medium",
+      "damage": [
+        0,
+        0
+      ],
+      "statuses":"statdwn",
+      "statusChance":1.0,
+      "statTarget":"defense,atk",
+      "stattarget":"speed"
+     
+    }
+
+  ]
+}

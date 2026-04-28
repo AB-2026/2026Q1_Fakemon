@@ -1,0 +1,99 @@
+{
+ "id": "schoolwifi",
+ "name": "Wifighoul",
+ "createdBy": "Johann Smit",
+ "emoji": "📶",
+ "type": "Electric",
+ "description": "The malevolent spirit of school WiFi. Blocks every website except the ones you need for class, then blocks those too. Has a content filter so aggressive it once blocked a Google Doc about pilgrims because it contained the word 'arms'. Runs on a server from 2009 that sounds like a dying vacuum cleaner. Has a password that gets changed every Monday and nobody tells the students. Gives full bars of signal and 0.3 Mbps of actual speed. Technicians have been called. They cannot fix it. It does not want to be fixed.",
+ "hp": 80,
+ "power": 70,
+ "speed": 5,
+ "defense": 110,
+ "accuracy": 50,
+ "moves": [
+   {
+     "id": "content_filter",
+     "name": "🚫 Content Filter",
+     "desc": "Blocks the opponent's most powerful move for being 'inappropriate content.' The move contained the word 'fire.' Sharply lowers the opponent's ATK as their best options get flagged.",
+     "speed": "fast",
+     "damage": [
+       0,
+       0
+     ],
+     "status": "statdwn",
+     "statusChance": 1,
+     "statTarget": "atk"
+   },
+   {
+     "id": "full_bars_no_internet",
+     "name": "📶 Full Bars",
+     "desc": "Shows perfect signal while delivering absolutely nothing. Deals confusion damage as the opponent watches their moves load indefinitely. The circle spins. It will always spin.",
+     "speed": "slow",
+     "damage": [
+       15,
+       25
+     ],
+     "status": "confuse",
+     "statusChance": 0.8
+   },
+   {
+     "id": "wrong_password",
+     "name": "🔑 Password Changed",
+     "desc": "Wifighoul changed the WiFi password at 7:58am this morning. Nobody was notified. The opponent's speed drops as they try every password they know. It is a color and a number. That's all anyone knows.",
+     "speed": "medium",
+     "damage": [
+       0,
+       0
+     ],
+     "status": "statdwn",
+     "statusChance": 1,
+     "statTarget": "speed"
+   },
+   {
+     "id": "server_reboot",
+     "name": "🔄 Scheduled Reboot",
+     "desc": "Reboots the entire network during the most important moment of the battle. Restores 25 HP. Everything the opponent was doing is gone. The reboot was scheduled for 2am but happened now instead.",
+     "speed": "slow",
+     "damage": [
+       -25,
+       -25
+     ],
+     "status": null,
+     "statusChance": 0
+   },
+   {
+     "id": "throttle",
+     "name": "🐌 Bandwidth Throttle",
+     "desc": "Detects that the opponent is using too much bandwidth and throttles them to 0.1 Mbps. Their defense crumbles as they can no longer function at any reasonable speed.",
+     "speed": "medium",
+     "damage": [
+       10,
+       18
+     ],
+     "status": "statdwn",
+     "statusChance": 1,
+     "statTarget": "defense"
+   },
+   {
+     "id": "disconnect",
+     "name": "❌ Connection Lost",
+     "desc": "Disconnects the opponent mid-attack. They were mid-move. It is gone. The battle board reloads. They are poisoned by frustration AND confused because they have to sign into the portal AGAIN.",
+     "speed": "slow",
+     "damage": [
+       16,
+       26
+     ],
+     "statuses": [
+       {
+         "status": "poison",
+         "statusChance": 0.7
+       },
+       {
+         "status": "confuse",
+         "statusChance": 0.8
+       }
+     ]
+   }
+ ]
+}
+

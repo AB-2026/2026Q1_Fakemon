@@ -1,0 +1,99 @@
+{
+ "id": "sub_teacher",
+ "name": "That One Substitute Teacher On The Day Your Friend Said There Wasn’t One",
+ "createdBy": "Johann Smit",
+ "emoji": "📋",
+ "type": "Normal",
+ "description": "A substitute teacher who has been teaching the wrong subject for three periods and hasn't noticed yet. Carries a clipboard with a seating chart that is completely wrong. Will spend 15 minutes trying to pronounce one name from the attendance list. Puts on a documentary from 2003 when the lesson plan runs out, which it always does. Has been called Mr. Substitute all day and answers to it. Does not know where the bathroom passes are. Nobody tell them.",
+ "hp": 78,
+ "power": 50,
+ "speed": 35,
+ "defense": 45,
+ "accuracy": 40,
+ "moves": [
+   {
+     "id": "attendance_confusion",
+     "name": "📋 Taking Attendance",
+     "desc": "Attempts to read names from the roster. Takes 12 minutes. Mispronounces everything. The opponent is confused because their name was somehow called twice and also not at all.",
+     "speed": "slow",
+     "damage": [
+       8,
+       16
+     ],
+     "status": "confuse",
+     "statusChance": 0.8
+   },
+   {
+     "id": "free_period",
+     "name": "📺 Video Day",
+     "desc": "Gives up on the lesson plan and puts on a 2003 Bill Nye episode. Restores 25 HP because even Substitutemon needed a break. The TV is on a rolling cart. The remote is missing.",
+     "speed": "slow",
+     "damage": [
+       -25,
+       -25
+     ],
+     "status": null,
+     "statusChance": 0
+   },
+   {
+     "id": "wrong_classroom",
+     "name": "🚪 Wrong Room",
+     "desc": "Wanders into the wrong classroom mid-battle. Lowers opponent's defense as everything falls apart structurally and nobody is in charge for 45 seconds.",
+     "speed": "medium",
+     "damage": [
+       0,
+       0
+     ],
+     "status": "statdwn",
+     "statusChance": 1,
+     "statTarget": "defense"
+   },
+   {
+     "id": "dont_tell_teacher",
+     "name": "🤫 Don't Tell The Teacher",
+     "desc": "Lets the class do whatever they want in exchange for good behavior. ATK sharply rises because absolute chaos is somehow a power source.",
+     "speed": "fast",
+     "damage": [
+       0,
+       0
+     ],
+     "status": "statup",
+     "statusChance": 1,
+     "statTarget": "atk"
+   },
+   {
+     "id": "seating_chart",
+     "name": "💺 Wrong Seat",
+     "desc": "Insists the opponent is sitting in the wrong seat based on a seating chart from last semester. The opponent's speed drops as they awkwardly gather their stuff and move for no reason.",
+     "speed": "medium",
+     "damage": [
+       10,
+       16
+     ],
+     "status": "statdwn",
+     "statusChance": 1,
+     "statTarget": "speed"
+   },
+   {
+     "id": "fake_name",
+     "name": "😈 It's John Now",
+     "desc": "A student told Substitutemon their name was John. It was not John. Substitutemon has been calling them John all period. The opponent is poisoned by embarrassment AND confused because Substitutemon still believes it.",
+     "speed": "slow",
+     "damage": [
+       14,
+       22
+     ],
+     "statuses": [
+       {
+         "status": "poison",
+         "statusChance": 0.65
+       },
+       {
+         "status": "confuse",
+         "statusChance": 0.85
+       }
+     ]
+   }
+ ]
+}
+

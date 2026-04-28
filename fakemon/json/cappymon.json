@@ -1,0 +1,74 @@
+{
+  "id":          "cappymon",
+  "name":        "Cappy",
+  "createdBy":   "Johann Smit",
+  "emoji":       "🎩",
+  "type":        "Normal",
+  "description": "A sentient hat from the Cap Kingdom who bonded with a plumber and has never recovered from the experience. Has possessed everything from frogs to dinosaurs to judges to the moon itself and feels completely normal about it. Communicates by throwing itself at problems. Once captured an entire kingdom by hurling itself repeatedly at a giant dragon turtle man. It misses Pauline. New Donk City was a formative experience.",
+  "hp":       102,
+  "power":    88,
+  "speed":    85,
+  "defense":  50,
+  "accuracy": 91,
+  "moves": [
+    {
+      "id":           "capture_throw",
+      "name":         "🎩 Capture Throw",
+      "desc":         "Cappymon launches itself directly at the opponent and possesses them. For one turn they are fighting for the wrong team and deeply confused about it. WAHOO.",
+      "speed":        "fast",
+      "damage": [22, 35],
+      "status":       "confuse",
+      "statusChance": 0.7
+    },
+    {
+      "id":           "moon_collect",
+      "name":         "🌙 Power Moon",
+      "desc":         "Finds a Power Moon hidden inexplicably inside a crate that was just sitting there. Restores 25 HP. There are 999 more where that came from. Some are in the walls.",
+      "speed":        "medium",
+      "damage": [-25, -25],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "odyssey_launch",
+      "name":         "🚀 Odyssey Launch",
+      "desc":         "Fires the opponent out of the Odyssey's launch cannon at full speed. Deals massive damage. Tiara waves goodbye from the ship. The opponent is not okay.",
+      "speed":        "fast",
+      "damage": [30, 45],
+      "status":       null,
+      "statusChance": 0
+    },
+    {
+      "id":           "jump_rope_champ",
+      "name":         "🪢 Jump Rope Champion",
+      "desc":         "Forces the opponent to do the jump rope minigame. Their speed is sharply lowered as they desperately try to reach 100 jumps and keep tripping at 99. We've all been there.",
+      "speed":        "medium",
+      "damage": [0, 0],
+      "status":       "statdwn",
+      "statusChance": 1.0,
+      "statTarget":   "speed"
+    },
+    {
+      "id":           "pauline_rally",
+      "name":         "🎵 Jump Up Super Star",
+      "desc":         "Pauline's band starts playing from somewhere off screen. Cappymon's ATK sharply rises as the most unexpectedly banger Nintendo song fills the battlefield.",
+      "speed":        "fast",
+      "damage": [0, 0],
+      "status":       "statup",
+      "statusChance": 1.0,
+      "statTarget":   "atk"
+    },
+    {
+      "id":           "bowser_wedding_crash",
+      "name":         "💒 Wedding Crash",
+      "desc":         "Interrupts the opponent's entire plan at the last second. Deals damage, poisons them with heartbreak, AND confuses them because Mario then immediately proposes to Peach and gets rejected in front of everyone. Awkward.",
+      "speed":        "slow",
+      "damage": [16, 26],
+      "statuses": [
+        { "status": "poison",  "statusChance": 0.55 },
+        { "status": "confuse", "statusChance": 0.75 }
+      ]
+    }
+  ]
+}
+

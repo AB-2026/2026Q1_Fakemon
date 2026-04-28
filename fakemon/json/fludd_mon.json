@@ -1,0 +1,99 @@
+{
+ "id": "fludd_mon",
+ "name": "F.L.U.D.D.",
+ "createdBy": "Johann Smit",
+ "emoji": "💧",
+ "type": "Water",
+ "description": "A Flash Liquidizer Ultra Dousing Device who was framed for graffiti crimes on a tropical island and chose to deal with it professionally. Has more emotional intelligence than every human character in Sunshine combined. Spent an entire game strapped to an Italian plumber's back being used as both a weapon and a jetpack and never once complained. At the end he broke. Not mechanically. Just emotionally. We don't talk about the goodbye scene. We don't.",
+ "hp": 105,
+ "power": 82,
+ "speed": 70,
+ "defense": 60,
+ "accuracy": 93,
+ "moves": [
+   {
+     "id": "hover_nozzle",
+     "name": "🚿 Hover Nozzle",
+     "desc": "F.L.U.D.D. blasts water downward and launches the opponent skyward before gravity ruins their day. Clean. Efficient. Exactly what F.L.U.D.D. was designed for.",
+     "speed": "medium",
+     "damage": [
+       22,
+       34
+     ],
+     "status": null,
+     "statusChance": 0
+   },
+   {
+     "id": "rocket_nozzle",
+     "name": "🚀 Rocket Nozzle",
+     "desc": "Charges up then fires the opponent straight into the stratosphere at full blast. Deals massive damage. They went so high. They are not coming back the same.",
+     "speed": "slow",
+     "damage": [
+       35,
+       50
+     ],
+     "status": null,
+     "statusChance": 0
+   },
+   {
+     "id": "graffiti_wash",
+     "name": "🖌️ Clean Sweep",
+     "desc": "Blasts the opponent with a pressurized stream that strips away their defensive buffs and lowers their defense. F.L.U.D.D. was built to clean things. This counts.",
+     "speed": "fast",
+     "damage": [
+       10,
+       16
+     ],
+     "status": "statdwn",
+     "statusChance": 1,
+     "statTarget": "defense"
+   },
+   {
+     "id": "shadow_mario_scan",
+     "name": "🖼️ Wanted Poster",
+     "desc": "Scans the opponent and identifies them as a graffiti suspect. ATK sharply rises as F.L.U.D.D. enters evidence collection mode. It was Bowser Jr. It was always Bowser Jr.",
+     "speed": "fast",
+     "damage": [
+       0,
+       0
+     ],
+     "status": "statup",
+     "statusChance": 1,
+     "statTarget": "atk"
+   },
+   {
+     "id": "sand_bird_trauma",
+     "name": "🐦 Sand Bird",
+     "desc": "Summons the memory of the Sand Bird level with no F.L.U.D.D. The opponent's speed is sharply lowered as they freeze up from PTSD. You know what you did. You know.",
+     "speed": "medium",
+     "damage": [
+       0,
+       0
+     ],
+     "status": "statdwn",
+     "statusChance": 1,
+     "statTarget": "speed"
+   },
+   {
+     "id": "farewell_shutdown",
+     "name": "💔 Farewell, Mario",
+     "desc": "F.L.U.D.D. uses his last reserves of water, says goodbye, and shuts down. The opponent is poisoned by grief AND confused because this is supposed to be a kids game. It still hurts. It always will.",
+     "speed": "slow",
+     "damage": [
+       18,
+       28
+     ],
+     "statuses": [
+       {
+         "status": "poison",
+         "statusChance": 0.75
+       },
+       {
+         "status": "confuse",
+         "statusChance": 0.7
+       }
+     ]
+   }
+ ]
+}
+

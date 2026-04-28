@@ -1,0 +1,103 @@
+{
+  "id": "poisonivy",
+  "name": "Poison IVY",
+  "createdBy": "Besrat Fikre",
+  "emoji": "☠️",
+  "type": "Poison",
+  "hp": 200,
+  "atk": 180,
+  "speed": 150,
+  "defense": 70,
+  "accuracy": 100,
+  "color": "4t89c5",
+  "description": "A plant that kills you instantly",
+  "moves": [
+    {
+      "id": "poisonivy_m1",
+      "name": "Signigature",
+      "speed": "fast",
+      "damage": [
+        15,
+        15
+      ],
+      "status": "poison",
+      "statusChance": 1,
+      "desc": "A quick drop of poison before a death occurs"
+    },
+    {
+      "id": "poisonivy_m2",
+      "name": "Rasher",
+      "speed": "slow",
+      "damage": [
+        142,
+        142
+      ],
+      "status": "burn",
+      "statusChance": 1,
+      "desc": "A type of poison that burns the other opponent"
+    },
+    {
+      "id": "poisonivy_m3",
+      "name": "Regenerater",
+      "speed": "medium",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "desc": "Regrows poison levels and plant",
+      "statTarget": "defense"
+    },
+    {
+      "id": "poisonivy_m4",
+      "name": "Toxic Finisher",
+      "speed": "fast",
+      "damage": [
+        500000,
+        500000
+      ],
+      "status": "confuse",
+      "statusChance": 1,
+      "desc": "Spits out poison and makes enemy confused"
+    },
+    {
+      "id": "poisonivy_m5",
+      "name": "Max Killer",
+      "speed": "fast",
+      "damage": [
+        500000000000,
+        500000000000
+      ],
+      "status": "poison",
+      "statusChance": 1,
+      "desc": "Poisons every character, especially max"
+    },
+    {
+      "id": "poisonivy_m6",
+      "name": "Defense",
+      "speed": "medium",
+      "damage": [
+        10000,
+        10000
+      ],
+      "status": "statdwn",
+      "statusChance": 1,
+      "desc": "Fails their move and hits themselves",
+      "statTarget": "defense"
+    },
+    {
+      "id": "poisonivy_m7",
+      "name": "Killer",
+      "speed": "medium",
+      "damage": [
+        1,
+        1
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "desc": "weak defense",
+      "statTarget": "defense"
+    }
+  ]
+}

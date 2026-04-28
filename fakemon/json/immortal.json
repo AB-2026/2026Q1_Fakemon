@@ -1,0 +1,67 @@
+{
+  "id":          "immortal",
+  "name":        "Immortal",
+  "createdBy":   "Sean McGarry",
+  "emoji":       "💪",
+  "type":        "Normal",
+  "description": "WHERE IS OMNI-MAN? WHERE IS HE!!!  Is weak to viltramites and sea salt.",
+  "hp":       850,
+  "power":    90,
+  "speed":    85,
+  "defense":  25,
+  "accuracy": 80,
+
+  "moves": [
+
+
+    {
+      "id":           "punch",
+      "name":         "Punch",
+      "desc":         "Hes strong but not THAT strong.",
+      "speed":        "medium",
+      "damage": [20, 80],
+      "status":       null,
+      "statusChance": 0
+    },
+
+    {
+  "id": "Heal",
+  "name": "Recover",
+  "desc": "He has crazy healing factor 60hp restored.",
+  "speed": "slow",
+  "damage": [-60, -60],
+  "status": null,
+  "statusChance": 0
+},
+{
+  "id": "RRRAAAAHHHHH",
+  "name": "WHERE IS OMNI-MAN (angry)",
+  "desc": "WHERE IS OMNI-MAN!!! WHERE IS HHEEE!! has an 80% chance to boost damage or defence or both",
+  "speed": "medium",
+  "damage": [10, 40],
+  "statuses": [
+    {
+      "status": "statup",
+      "statusChance": 0.8,
+      "statTarget": "atk"
+    },
+    {
+      "status": "statup",
+      "statusChance": 0.8,
+      "statTarget": "speed"
+    }
+  ]
+},
+{
+  "id": "immortal_is_immortal",
+  "name": "🛡️ Immortal durability",
+  "desc": "buffs durability.",
+  "speed": "medium",
+  "damage": [0, 0],
+  "status": "statup",
+  "statusChance": 1.0,
+  "statTarget": "defense"
+}
+
+  ]
+}
